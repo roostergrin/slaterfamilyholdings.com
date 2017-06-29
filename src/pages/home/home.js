@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import template from './home.html'
+import axios from 'axios'
 import Loader from '../../components/loader/loader'
 import Child from '../../components/child/child'
-import axios from 'axios'
+import MainVideo from '../../components/video/video'
 
 var Parent = Vue.component('parent', {
   template: template,
@@ -10,7 +11,8 @@ var Parent = Vue.component('parent', {
     return {
       props: [],
       errors: [],
-      message: 'Hello Vue'
+      message: 'Hello Vue',
+      videosource: []
     }
   },
   created () {
@@ -19,7 +21,8 @@ var Parent = Vue.component('parent', {
       .then(response => {
         this.props = response.data.acf
         this.loading = false
-        this.videosource = response.data.acf.promo_video_mp4
+        this.videosource.push(response.data.acf.promo_video_mp4)
+        this.videosource.push(response.data.acf.promo_video_webm)
       })
       .catch(e => {
         this.errors.push(e)
@@ -28,7 +31,8 @@ var Parent = Vue.component('parent', {
   },
   components: {
     Child,
-    Loader
+    Loader,
+    MainVideo
   }
 })
 

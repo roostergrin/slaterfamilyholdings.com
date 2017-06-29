@@ -1,14 +1,14 @@
 <div>
   <loader v-show='loading'></loader>
   <h1>{{ message }}</h1>
-  <child message="I'm a child component"></child>
-  <!-- <h3>{{ props.acf }}</h3> -->
-  <video autoplay>
-    <source v-if='!loading' :src='videosource' type='video/mp4'></source>
-  </video>
+  <child say="I'm a child component"></child>
+  <main-video v-if='!loading' :vid='videosource'></main-video>
+
   <br> 
   <br> 
   <br> 
+  
+  <h1>Home Props</h1>
   <code>{{ props }}</code>
   <ul v-if='errors && errors.length'>
     <li v-for='error of errors'>
