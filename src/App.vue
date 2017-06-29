@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <loader v-show='isLoading'></loader>
     <router-view></router-view>
     <navigation></navigation>
   </div>

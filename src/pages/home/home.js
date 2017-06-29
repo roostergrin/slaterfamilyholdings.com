@@ -8,17 +8,18 @@ var Parent = Vue.component('parent', {
   template: template,
   data: () => {
     return {
-      posts: [],
+      props: [],
       errors: [],
       message: 'Hello Vue'
     }
   },
   created () {
     this.loading = true
-    axios.get('http://jezdimir.roostertest3.com/wp-json/wp/v2/pages?slug=home')
+    axios.get('http://jezdimir.roostertest3.com/wp-json/acf/v3/pages/6')
       .then(response => {
-        this.posts = response.data
+        this.props = response.data.acf
         this.loading = false
+        this.videosource = response.data.acf.promo_video_mp4
       })
       .catch(e => {
         this.errors.push(e)
