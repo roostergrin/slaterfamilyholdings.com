@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
+    <loader v-show='isLoading'></loader>
     <router-view></router-view>
     <navigation></navigation>
   </div>
 </template>
 
 <script>
+import Loader from './components/loader/loader'
 import Navigation from './components/navigation/navigation'
 export default {
   components: {
+    Loader,
     Navigation
   },
   name: 'app'

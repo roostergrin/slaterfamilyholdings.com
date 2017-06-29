@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import { LoadingState } from './config/loading-state'
 
 Vue.config.productionTip = false
 
@@ -11,5 +12,10 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  created () {
+    LoadingState.$on('toggle', (isLoading) => {
+      this.isLoading = isLoading
+    })
+  }
 })
