@@ -11,7 +11,7 @@ var Parent = Vue.component('parent', {
     return {
       props: [],
       errors: [],
-      message: 'Hello Vue',
+      message: 'Hello Vue (from $data.message)',
       videosource: []
     }
   },

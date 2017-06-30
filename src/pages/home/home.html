@@ -1,18 +1,23 @@
 <div>
   <loader v-show='loading'></loader>
-  <h1>{{ message }}</h1>
-  <child say="I'm a child component"></child>
-  <main-video v-if='!loading' :vid='videosource'></main-video>
 
   <br> 
   <br> 
   <br> 
   
-  <h1>Home Props</h1>
-  <code>{{ props }}</code>
+  <h2>Home Props Example below</h2>
+  <h3>{{ message }}</h3>
+  <code>{{ props.thumbnails }}</code>
   <ul v-if='errors && errors.length'>
     <li v-for='error of errors'>
       {{ error.message }}
     </li>
   </ul>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <child message="I'm a child component props value"></child>
+  <main-video v-if='!loading' :vid='videosource'></main-video>
 </div>

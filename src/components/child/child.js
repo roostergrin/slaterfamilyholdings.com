@@ -3,7 +3,7 @@ import template from './child.html'
 
 var Child = Vue.component('child', {
   template: template,
-  props: ['say']
+  props: ['message']
 })
 
 export default Child
