@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import template from './our-practice.html'
 import Child from '../../components/child/child'
-import Form from '../../components/form/form'
+import FormMain from '../../components/form/form'
 
 var OurPractice = Vue.component('our-practice', {
   template: template,
@@ -12,7 +12,7 @@ var OurPractice = Vue.component('our-practice', {
   },
   components: {
     Child,
-    Form
+    FormMain
   }
 })
 

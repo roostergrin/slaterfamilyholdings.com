@@ -1,1 +1,34 @@
-<h1>form!</h1>
+<div class='form-main'>
+
+  <!-- name field -->
+  <div class="form-main__group" v-bind:class="{ 'form-main__group--error': $v.name.$error }">
+    <label class="form-main__label">Name</label>
+    <input class="form-main__input" v-model.trim='name' @input='$v.name.$touch()'>
+  </div>
+  <span class="form-main__group__message" v-if='!$v.name.required && $v.name.$error'>Field is require</span>
+  <span class="form-main__group__message" v-if='!$v.name.minLength'>Name must have at least {{ $v.name.$params.minLength.min }}</span>
+  <pre>name: {{ $v.name }}</pre>
+
+  <!-- email field -->
+  <div class="form-main__group" v-bind:class="{ 'form-main__group--error': $v.emailValue.$error }">
+    <label class="form-main__label">Email</label>
+    <input class="form-main__input" v-model.trim='emailValue' @input='$v.emailValue.$touch()'>
+  </div>
+  <span class="form-main__group__message" v-if='!$v.emailValue.required && $v.emailValue.$error'>Field is required</span>
+  <span class="form-main__group__message" v-if='$v.emailValue.$invalid && $v.emailValue.$error'>Please input a valid email</span>
+  <pre>email: {{ $v.emailValue }}</pre>
+
+  <!-- textarea -->
+  <div class="form-main__group">
+    <label class="form-main__label">Your message</label>
+    <textarea cols="30" rows="10" class="form-main__textarea"></textarea>
+  </div>
+
+  <!-- <pre>name: {{ $v.name }}</pre>
+  <div class="form-main__group" v-bind:class="{ 'form-main__group--error': $v.age.$error }">
+    <label class="form-main__label">Age</label>
+    <input class="form-main__input" v-model.trim='age' @blur='$v.age.$touch()'>
+  </div>
+  <span class="form-main__group__message" v-if='!$v.age.between'>Must be between {{ $v.age.$params.between.min }} and {{ $v.age.$params.between.max }}</span>
+  <pre>age: {{ $v.age }}</pre> -->
+</div>
