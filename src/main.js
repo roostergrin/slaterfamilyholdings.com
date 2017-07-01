@@ -4,10 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { LoadingState } from './config/loading-state'
-import Vuelidate from 'vuelidate'
+import VeeValidate from 'vee-validate'
 
 Vue.config.productionTip = false
-Vue.use(Vuelidate)
+Vue.use(VeeValidate)
 
 /* eslint-disable no-new */
 new Vue({

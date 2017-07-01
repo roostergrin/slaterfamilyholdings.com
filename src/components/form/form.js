@@ -1,23 +1,29 @@
 import Vue from 'vue'
 import template from './form.html'
-import { required, minLength, email } from 'vuelidate/lib/validators'
 
 const FormMain = Vue.component('form-main', {
   template: template,
   data: () => {
     return {
       name: '',
-      emailValue: ''
+      email: '',
+      formSubmitted: false
     }
   },
-  validations: {
-    name: {
-      required,
-      minLength: minLength(1)
-    },
-    emailValue: {
-      required,
-      email
+  methods: {
+    validateBeforeSubmit () {
+      this.$validator.validateAll()
+        .then(result => {
+          if (result) {
+            // alert('Form Submitted!')
+            this.formSubmitted = true
+          } else {
+            alert('Correct them errors!')
+          }
+        })
+        .catch(() => {
+          alert('Correct them errors!')
+        })
     }
   }
 })

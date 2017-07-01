@@ -1,34 +1,32 @@
-<div class='form-main'>
+<div class="form-main">
 
-  <!-- name field -->
-  <div class="form-main__group" v-bind:class="{ 'form-main__group--error': $v.name.$error }">
-    <label class="form-main__label">Name</label>
-    <input class="form-main__input" v-model.trim='name' @input='$v.name.$touch()'>
-  </div>
-  <span class="form-main__group__message" v-if='!$v.name.required && $v.name.$error'>Field is require</span>
-  <span class="form-main__group__message" v-if='!$v.name.minLength'>Name must have at least {{ $v.name.$params.minLength.min }}</span>
-  <pre>name: {{ $v.name }}</pre>
-
-  <!-- email field -->
-  <div class="form-main__group" v-bind:class="{ 'form-main__group--error': $v.emailValue.$error }">
-    <label class="form-main__label">Email</label>
-    <input class="form-main__input" v-model.trim='emailValue' @input='$v.emailValue.$touch()'>
-  </div>
-  <span class="form-main__group__message" v-if='!$v.emailValue.required && $v.emailValue.$error'>Field is required</span>
-  <span class="form-main__group__message" v-if='$v.emailValue.$invalid && $v.emailValue.$error'>Please input a valid email</span>
-  <pre>email: {{ $v.emailValue }}</pre>
-
-  <!-- textarea -->
-  <div class="form-main__group">
-    <label class="form-main__label">Your message</label>
-    <textarea cols="30" rows="10" class="form-main__textarea"></textarea>
+  <div class="form-main__success-message" v-if='formSubmitted'>
+    <h2>Thanks for submitting our form!</h2>
   </div>
 
-  <!-- <pre>name: {{ $v.name }}</pre>
-  <div class="form-main__group" v-bind:class="{ 'form-main__group--error': $v.age.$error }">
-    <label class="form-main__label">Age</label>
-    <input class="form-main__input" v-model.trim='age' @blur='$v.age.$touch()'>
-  </div>
-  <span class="form-main__group__message" v-if='!$v.age.between'>Must be between {{ $v.age.$params.between.min }} and {{ $v.age.$params.between.max }}</span>
-  <pre>age: {{ $v.age }}</pre> -->
+  <form class='form-main__form' @submit.prevent='validateBeforeSubmit' v-if='!formSubmitted'>
+
+    <!-- name field -->
+    <div class="form-main__group">
+      <label class="form-main__label">Name</label>
+      <input class="form-main__input" name="name" v-model="name" v-validate="'required|alpha'" :class="{ 'form-main__input--error': errors.has('name') }" type="text" placeholder="Name">
+      <span class="form-main__group__message" v-show="errors.has('name')">{{ errors.first('name') }}</span>
+    </div>
+
+    <!-- email field -->
+    <div class="form-main__group">
+      <label class="form-main__label">Email</label>
+      <input class="form-main__input" name='email' v-model='email' v-validate="'required|email'" :class="{ 'input': true, 'form-main__input--error': errors.has('email') }" placeholder="Email">
+      <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
+    </div>
+    
+
+    <!-- textarea -->
+    <!-- <div class="form-main__group">
+      <label class="form-main__label">Your message</label>
+      <textarea cols="30" rows="10" class="form-main__textarea"></textarea>
+    </div> -->
+
+    <input class='form-main__submit-button' type="submit">
+  </form>  
 </div>
