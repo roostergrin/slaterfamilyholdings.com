@@ -9,7 +9,7 @@
     <!-- name field -->
     <div class="form-main__group">
       <label class="form-main__label">Name</label>
-      <input class="form-main__input" name="name" v-model="name" v-validate="'required|alpha'" :class="{ 'form-main__input--error': errors.has('name') }" type="text" placeholder="Name">
+      <input class="form-main__input" name="name" v-model="name" :validate="'required|alpha'" :class="{ 'form-main__input--error': errors.has('name') }" type="text" placeholder="Name">
       <span class="form-main__group__message" v-show="errors.has('name')">{{ errors.first('name') }}</span>
     </div>
 
