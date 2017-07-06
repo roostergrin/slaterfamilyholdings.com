@@ -1,5 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
+// import $ from 'jquery'
+// require('bootstrap-sass')
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -13,7 +17,6 @@ Vue.use(VeeValidate)
 new Vue({
   router,
   template: '<App/>',
-  components: { App },
   render: h => h(App),
   created () {
     LoadingState.$on('toggle', (isLoading) => {

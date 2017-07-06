@@ -1,5 +1,11 @@
-<div>
+<div class='home-section' :class='name'>
   <loader v-show='loading'></loader>
+
+  <br> 
+  <br> 
+  <br> 
+  
+  <bootstrap-component></bootstrap-component>
 
   <br> 
   <br> 
@@ -17,7 +23,7 @@
   <br>
   <br>
   <br>
-  <br>
+
   <child message="I'm a child component props value"></child>
   <main-video v-if='!loading' :vid='videosource'></main-video>
 </div>

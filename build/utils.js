@@ -22,7 +22,7 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    var loaders = [cssLoader]
+    var loaders = [cssLoader].concat(['import-glob-loader'])
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
@@ -36,11 +36,12 @@ exports.cssLoaders = function (options) {
     // (which is the case during production build)
     if (options.extract) {
       return ExtractTextPlugin.extract({
-        use: loaders,
+        use: loaders.concat(['import-glob-loader']),
         fallback: 'vue-style-loader'
       })
     } else {
-      return ['vue-style-loader'].concat(loaders)
+      var mainLoaders = ['vue-style-loader'].concat(loaders)
+      return mainLoaders.concat(['import-glob-loader'])
     }
   }
 
@@ -52,7 +53,8 @@ exports.cssLoaders = function (options) {
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    styl: generateLoaders('stylus'),
+    glob: generateLoaders('import-glob')
   }
 }
 
