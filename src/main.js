@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 // import $ from 'jquery'
-// import bootstrap from 'bootstrap-sass'
+// require('bootstrap-sass')
 
 import Vue from 'vue'
 import App from './App'

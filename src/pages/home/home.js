@@ -4,11 +4,13 @@ import axios from 'axios'
 import Loader from '../../components/loader/loader'
 import Child from '../../components/child/child'
 import MainVideo from '../../components/video/video'
+import BootstrapComponent from '../../components/bootstrap/bootstrap'
 
 var Parent = Vue.component('parent', {
   template: template,
   data: () => {
     return {
+      name: 'home',
       props: [],
       // errors: [],
       message: 'Hello Vue (from $data.message)',
@@ -33,7 +35,8 @@ var Parent = Vue.component('parent', {
   components: {
     Child,
     Loader,
-    MainVideo
+    MainVideo,
+    BootstrapComponent
   }
 })
 
