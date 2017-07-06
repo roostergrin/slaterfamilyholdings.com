@@ -10,7 +10,7 @@ var Parent = Vue.component('parent', {
   data: () => {
     return {
       props: [],
-      errors: [],
+      // errors: [],
       message: 'Hello Vue (from $data.message)',
       videosource: []
     }
@@ -27,6 +27,7 @@ var Parent = Vue.component('parent', {
       .catch(e => {
         this.errors.push(e)
         console.log(this.errors.push(e))
+        console.log(e)
       })
   },
   components: {
