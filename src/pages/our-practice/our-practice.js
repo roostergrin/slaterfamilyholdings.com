@@ -4,6 +4,7 @@ import Child from '../../components/child/child'
 import FormMain from '../../components/form/form'
 
 const OurPractice = Vue.component('our-practice', {
+  name: 'Our Practice!',
   template: template,
   data: function () {
     return {

@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -94,7 +95,29 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new PrerenderSpaPlugin(
+      path.join(__dirname, '../dist'),
+      ['/', '/our-practice'],
+      {
+        postProcessHtml: function (context) {
+          var titles = {
+            '/': 'Home Page!',
+            '/our-practice': 'Our Practice!'
+          }
+          var descriptions = {
+            '/': 'Home page description',
+            '/our-practice': 'Our practice description'
+          }
+          return context.html.replace(
+            /<title>[^<]*<\/title>/i,
+            '<title>' + titles[context.route] + '</title>',
+            /<meta name="description">[^<]*<\/meta>/i,
+            '<meta name="description">' + descriptions[context.route] + '</meta>'
+          )
+        }
+      }
+    )
   ]
 })
 

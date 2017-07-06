@@ -11,13 +11,13 @@ Vue.use(VeeValidate)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   template: '<App/>',
   components: { App },
+  render: h => h(App),
   created () {
     LoadingState.$on('toggle', (isLoading) => {
       this.isLoading = isLoading
     })
   }
-})
+}).$mount('#app')
