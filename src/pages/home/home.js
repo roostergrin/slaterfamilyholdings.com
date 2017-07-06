@@ -6,7 +6,8 @@ import Child from '../../components/child/child'
 import MainVideo from '../../components/video/video'
 import BootstrapComponent from '../../components/bootstrap/bootstrap'
 
-var Parent = Vue.component('parent', {
+var Home = Vue.component('home', {
+  name: 'Home Page!',
   template: template,
   data: () => {
     return {
@@ -40,4 +41,4 @@ var Parent = Vue.component('parent', {
   }
 })
 
-export default Parent
+export default Home

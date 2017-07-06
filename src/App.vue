@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class='container-fluid'>
     <!-- <img src="./assets/logo.png"> -->
     <navigation></navigation>
     <router-view></router-view>

@@ -12,6 +12,7 @@ export default new VueRouter({
     {
       path: '/',
       name: 'home',
+      description: 'Home page description',
       component: Home
     },
     {
