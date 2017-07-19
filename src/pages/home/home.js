@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import template from './home.html'
+import api from '../../shared/api/api'
 import axios from 'axios'
 import Loader from '../../components/loader/loader'
 import Child from '../../components/child/child'
@@ -20,7 +21,7 @@ var Home = Vue.component('home', {
   },
   created () {
     this.loading = true
-    axios.get('http://api.roostertest3.com/wp-json/wp/v2/pages/2/')
+    axios.get(api + '/acf/v3/pages/2 ')
       .then(response => {
         this.props = response.data.acf
         this.loading = false
