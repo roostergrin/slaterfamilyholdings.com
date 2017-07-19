@@ -22,7 +22,6 @@ var Home = Vue.component('home', {
     this.loading = true
     axios.get('http://api.roostertest3.com/wp-json/wp/v2/pages/2/')
       .then(response => {
-        console.log(response.data.acf)
         this.props = response.data.acf
         this.loading = false
         this.videosource.push(response.data.acf.promo_video_mp4)
