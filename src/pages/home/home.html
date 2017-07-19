@@ -1,19 +1,19 @@
 <div class='home-section' :class='name'>
   <loader v-show='loading'></loader>
 
-  <br> 
-  <br> 
-  <br> 
-  
+  <br>
+  <br>
+  <br>
+
   <bootstrap-component></bootstrap-component>
 
-  <br> 
-  <br> 
-  <br> 
-  
+  <br>
+  <br>
+  <br>
+
   <h2>Home Props Example below</h2>
   <h3>{{ message }}</h3>
-  <pre>{{ props.thumbnails }}</pre>
+  <pre>{{ props }}</pre>
   <ul v-if='errors && errors.length'>
     <li v-for='error of errors'>
       {{ error.message }}
