@@ -7,7 +7,7 @@ import MainVideo from '../../components/video/video'
 import BootstrapComponent from '../../components/bootstrap/bootstrap'
 
 var Home = Vue.component('home', {
-  name: 'Home Page!',
+  name: 'HomePage',
   template: template,
   data: () => {
     return {
@@ -20,8 +20,9 @@ var Home = Vue.component('home', {
   },
   created () {
     this.loading = true
-    axios.get('http://jezdimir.roostertest3.com/wp-json/acf/v3/pages/6')
+    axios.get('http://api.roostertest3.com/wp-json/wp/v2/pages/2/')
       .then(response => {
+        console.log(response.data.acf)
         this.props = response.data.acf
         this.loading = false
         this.videosource.push(response.data.acf.promo_video_mp4)
