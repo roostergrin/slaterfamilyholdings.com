@@ -9,8 +9,17 @@ import App from './App'
 import router from './router'
 import { LoadingState } from './config/loading-state'
 import VeeValidate from 'vee-validate'
+import * as customFilters from './shared/filters/filters'
 
+// Vue config
 Vue.config.productionTip = false
+
+// Vue filters
+Object.keys(customFilters).forEach(key => {
+  Vue.filter(key, customFilters[key])
+})
+
+// Vue use
 Vue.use(VeeValidate)
 
 /* eslint-disable no-new */
