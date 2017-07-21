@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import template from './home.html'
-import api from '../../shared/api/api'
+import api from 'api'
 import axios from 'axios'
-import Loader from '../../components/loader/loader'
-import Child from '../../components/child/child'
-import MainVideo from '../../components/video/video'
-import BootstrapComponent from '../../components/bootstrap/bootstrap'
+import Loader from 'components/loader/loader'
+import Child from 'components/child/child'
+import MainVideo from 'components/video/video'
+import BootstrapComponent from 'components/bootstrap/bootstrap'
 
 var Home = Vue.component('home', {
   name: 'HomePage',
