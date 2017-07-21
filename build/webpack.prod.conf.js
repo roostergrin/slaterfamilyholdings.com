@@ -101,19 +101,24 @@ var webpackConfig = merge(baseWebpackConfig, {
       ['/', '/our-practice'],
       {
         postProcessHtml: function (context) {
+          var site = 'Site Name | '
+
           var titles = {
-            '/': 'Home Page!',
-            '/our-practice': 'Our Practice!'
+            '/': site + 'Home',
+            '/our-practice': site + 'Our Practice'
           }
+
           var descriptions = {
             '/': 'Home page description',
             '/our-practice': 'Our practice description'
           }
+
           return context.html.replace(
-            /<title>[^<]*<\/title>/i,
-            '<title>' + titles[context.route] + '</title>',
-            /<meta name="description">[^<]*<\/meta>/i,
-            '<meta name="description">' + descriptions[context.route] + '</meta>'
+            /<title>[^<]*<\/title>/g,
+            '<title>' + titles[context.route] + '</title>'
+          ).replace(
+            /<meta name="description">/g,
+            '<meta name="description" content="' + descriptions[context.route] + '">'
           )
         }
       }
