@@ -6,7 +6,7 @@ import PageNotFound from '@/pages/404/404'
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
+const router = new VueRouter({
   mode: 'history',
   routes: [
     {
@@ -27,3 +27,10 @@ export default new VueRouter({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  window.scrollTo(0, 0)
+  next()
+})
+
+export default router
