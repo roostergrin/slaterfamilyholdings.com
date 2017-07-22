@@ -7,7 +7,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { LoadingState } from './config/loading-state'
 import VeeValidate from 'vee-validate'
 import * as customFilters from './shared/filters/filters'
 
@@ -26,10 +25,5 @@ Vue.use(VeeValidate)
 new Vue({
   router,
   template: '<App/>',
-  render: h => h(App),
-  created () {
-    LoadingState.$on('toggle', (isLoading) => {
-      this.isLoading = isLoading
-    })
-  }
+  render: h => h(App)
 }).$mount('#app')

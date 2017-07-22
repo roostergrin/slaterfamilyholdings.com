@@ -1,14 +1,14 @@
 <template>
   <div id="app" class='container-fluid'>
     <!-- <img src="./assets/logo.png"> -->
-    <navigation></navigation>
+    <Navigation></Navigation>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Loader from './components/loader/loader'
-import Navigation from './components/navigation/navigation'
+import Navigation from './components/navigation/navigation.vue'
 export default {
   components: {
     Loader,

@@ -1,23 +1,21 @@
-import Vue from 'vue'
-import template from './home.html'
+<template lang='pug' src='./home.pug'></template>
+
+<script>
 import api from 'api'
 import axios from 'axios'
 import Loader from 'components/loader/loader'
-// import Child from 'components/child/child'
-import Child from 'components/child/child.vue'
+import Child from 'components/child/child'
 import MainVideo from 'components/video/video'
-import BootstrapComponent from 'components/bootstrap/bootstrap'
 
-var Home = Vue.component('home', {
+export default {
   name: 'HomePage',
-  template: template,
   data: () => {
     return {
       name: 'home',
       props: [],
-      // errors: [],
       message: 'Hello Vue (from $data.message)',
-      videosource: []
+      videosource: [],
+      loading: true
     }
   },
   created () {
@@ -38,9 +36,7 @@ var Home = Vue.component('home', {
   components: {
     Child,
     Loader,
-    MainVideo,
-    BootstrapComponent
+    MainVideo
   }
-})
-
-export default Home
+}
+</script>
