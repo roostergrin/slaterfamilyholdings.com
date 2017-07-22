@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import template from './our-practice.html'
+<template lang='pug' src='./our-practice.pug'></template>
+
+<script>
 import Child from 'components/child/child'
 import FormMain from 'components/form/form'
 
-const OurPractice = Vue.component('our-practice', {
+export default {
   name: 'OurPractice',
-  template: template,
-  data: function () {
+  data: () => {
     return {
       message: 'Our Practice'
     }
@@ -15,6 +15,5 @@ const OurPractice = Vue.component('our-practice', {
     Child,
     FormMain
   }
-})
-
-export default OurPractice
+}
+</script>

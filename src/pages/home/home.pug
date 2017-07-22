@@ -1,0 +1,8 @@
+div
+  h1 Home props Example Below
+  h3 {{ message }}
+  pre {{ props }}
+  
+  Loader(v-show='loading')
+  Child(message='child props message')
+  MainVideo(v-if='!loading' :vid='videosource')

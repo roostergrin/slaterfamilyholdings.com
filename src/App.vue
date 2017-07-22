@@ -1,7 +1,7 @@
 <template>
   <div id="app" class='container-fluid'>
     <!-- <img src="./assets/logo.png"> -->
-    <navigation></navigation>
+    <Navigation></Navigation>
     <router-view></router-view>
   </div>
 </template>
