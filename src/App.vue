@@ -8,7 +8,7 @@
 
 <script>
 import Loader from './components/loader/loader'
-import Navigation from './components/navigation/navigation.vue'
+import Navigation from './components/navigation/navigation'
 export default {
   components: {
     Loader,
