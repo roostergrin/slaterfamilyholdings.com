@@ -67,7 +67,8 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        // changed url-loader to file-loader (this helps with slick fonts. revert if not using slick)
+        loader: 'file-loader',
         options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
