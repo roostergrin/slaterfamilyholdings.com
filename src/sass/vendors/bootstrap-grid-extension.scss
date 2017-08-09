@@ -1,22 +1,22 @@
 @mixin make-container($gutter: $grid-gutter-width) {
   margin-right: auto;
   margin-left: auto;
-  padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
+  padding-left:  ($gutter / 2);
 }
 
 // Creates a wrapper for a series of columns
 @mixin make-row($gutter: $grid-gutter-width) {
-  margin-left:  ($gutter / -2);
   margin-right: ($gutter / -2);
+  margin-left:  ($gutter / -2);
 }
 
 @mixin make-col($gutter: $grid-gutter-width) {
   position: relative;
   float: left;
-  min-height: 1px;
-  padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
+  padding-left:  ($gutter / 2);
+  min-height: 1px;
 }
 
 @mixin make-col-span($columns) {
@@ -33,7 +33,7 @@
 }
 
 // center col
-@mixin make-col-center() {
+@mixin make-col-center {
   float: none !important;
   margin: 0 auto;
 }
@@ -54,11 +54,11 @@
 }
 
 .rg-row {
-  @include make-row();
+  @include make-row;
 }
 
 .rg-col {
   @include make-xs-column(16.6);
   @include make-md-column(16);
-  @include make-col-center();
+  @include make-col-center;
 }
