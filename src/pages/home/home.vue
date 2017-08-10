@@ -12,7 +12,7 @@ export default {
   data: () => {
     return {
       name: 'home',
-      props: [],
+      props: {},
       message: 'Hello Vue (from $data.message)',
       videosource: [],
       loading: true

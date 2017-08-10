@@ -1,8 +1,10 @@
-div
+div(v-if='!loading')
   h1 Home props Example Below
   h3 {{ message }}
   pre {{ props }}
+  strong Nested data
+  pre {{ props.group.text_1 }}
   
   Loader(v-show='loading')
-  Child(message='child props message')
+  Child(:props='props')
   MainVideo(v-if='!loading' :vid='videosource')
