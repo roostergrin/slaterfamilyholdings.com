@@ -3,7 +3,7 @@
 
 <script>
 export default {
-  props: ['message']
+  props: ['props', 'loading']
 }
 </script>
 
