@@ -115,7 +115,7 @@ rules:
     - convention: hyphenatedlowercase
       allow-leading-underscore: false
 
-  placeholder-in-extend: 2
+  # placeholder-in-extend: 2
 
   # special characters
   no-warn: 2
