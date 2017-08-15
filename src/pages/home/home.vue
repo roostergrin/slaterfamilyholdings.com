@@ -5,7 +5,6 @@ import api from 'api'
 import axios from 'axios'
 import Loader from 'components/loader/loader'
 import Child from 'components/child/child'
-import MainVideo from 'components/video/video'
 
 export default {
   name: 'HomePage',
@@ -35,8 +34,7 @@ export default {
   },
   components: {
     Child,
-    Loader,
-    MainVideo
+    Loader
   }
 }
 </script>

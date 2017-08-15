@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue'
-import App from './App'
+import App from './base/app'
 import router from './router'
 import VeeValidate from 'vee-validate'
 import * as customFilters from './shared/filters/filters'
