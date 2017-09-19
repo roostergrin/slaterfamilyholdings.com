@@ -113,12 +113,19 @@ var webpackConfig = merge(baseWebpackConfig, {
             '/our-practice': 'Our practice description'
           }
 
+          var keywords = {
+            '/': 'Home page description'
+          }
+
           return context.html.replace(
             /<title>[^<]*<\/title>/g,
             '<title>' + titles[context.route] + '</title>'
           ).replace(
             /<meta name="description">/g,
             '<meta name="description" content="' + descriptions[context.route] + '">'
+          ).replace(
+            /<meta name="keywords">/g,
+            '<meta name="keywords" content="' + keywords[context.route] + '">'
           )
         }
       }
