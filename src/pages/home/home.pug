@@ -1,9 +1,11 @@
-div(v-if='!loading')
+div
   Loader(v-show='loading')
-
-  h3 Home props Example Below
+    
   pre {{ props }}
-  h4: strong Nested data
-  pre {{ props.group.text_1 }}
-  
-  Child(:props='props')
+
+  //- h3 Home props Example Below
+  //- pre {{ props }}
+  //- h4: strong Nested data
+  //- pre {{ props.group.text_1 }}
+  //- 
+  //- Child(:props='props')

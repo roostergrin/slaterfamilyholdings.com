@@ -5,6 +5,14 @@
 import Navigation from 'components/navigation/navigation'
 
 export default {
+  created () {
+    this.$store.dispatch('GET_PAGES')
+  },
+  computed: {
+    props () {
+      return this.$store.state
+    }
+  },
   components: {
     Navigation
   },
