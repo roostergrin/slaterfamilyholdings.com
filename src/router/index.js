@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/home/home'
-import OurPractice from '@/pages/our-practice/our-practice'
+import AboutUs from '@/pages/about-us/about-us'
+import Treatments from '@/pages/treatments/treatments'
+import PatientInfo from '@/pages/patient-info/patient-info'
+import Testimonials from '@/pages/testimonials/testimonials'
 import PageNotFound from '@/pages/404/404'
 
 Vue.use(VueRouter)
@@ -18,7 +21,22 @@ const router = new VueRouter({
     {
       path: '/about-us',
       name: 'about-us',
-      component: OurPractice
+      component: AboutUs
+    },
+    {
+      path: '/treatments',
+      name: 'treatments',
+      component: Treatments
+    },
+    {
+      path: '/patient-info',
+      name: 'patient-info',
+      component: PatientInfo
+    },
+    {
+      path: '/testimonials',
+      name: 'testimonials',
+      component: Testimonials
     },
     {
       path: '/*',

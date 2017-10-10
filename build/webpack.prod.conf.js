@@ -29,6 +29,14 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
+    new CopyWebpackPlugin([
+      { from: 'index.php' },
+      { from: 'style.css' },
+      { from: 'screenshot.png' },
+      { from: 'functions.php' },
+      { from: 'functions', to: 'functions' }
+
+    ]),
     new webpack.DefinePlugin({
       'process.env': env
     }),
@@ -104,15 +112,11 @@ var webpackConfig = merge(baseWebpackConfig, {
           var site = 'Site Name | '
 
           var titles = {
-            '/': site + 'Home',
+            '/': site + 'Home'
           }
 
           var descriptions = {
-            '/': 'Home page description',
-          }
-
-          var keywords = {
-            '/': 'Home page keywords'
+            '/': 'Home page description'
           }
 
           return context.html.replace(
@@ -121,9 +125,6 @@ var webpackConfig = merge(baseWebpackConfig, {
           ).replace(
             /<meta name="description">/g,
             '<meta name="description" content="' + descriptions[context.route] + '">'
-          ).replace(
-            /<meta name="keywords">/g,
-            '<meta name="keywords" content="' + keywords[context.route] + '">'
           )
         }
       }
