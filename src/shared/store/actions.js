@@ -11,7 +11,6 @@ const actions = {
           const slug = response.data[i].slug
           data[slug] = itemData
         }
-        console.log(data)
         commit('getPages', data)
       })
       .catch(e => {
