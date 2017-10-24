@@ -35,7 +35,6 @@ var webpackConfig = merge(baseWebpackConfig, {
       { from: 'screenshot.png' },
       { from: 'functions.php' },
       { from: 'functions', to: 'functions' }
-
     ]),
     new webpack.DefinePlugin({
       'process.env': env
@@ -44,7 +43,10 @@ var webpackConfig = merge(baseWebpackConfig, {
       compress: {
         warnings: false
       },
-      sourceMap: true
+      sourceMap: true,
+      output: {
+        comments: false
+      }
     }),
     // extract css into its own file
     new ExtractTextPlugin({
@@ -54,7 +56,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
-        safe: true
+        safe: true,
+        discardComments: { removeAll: false }
       }
     }),
     // generate dist index.html with correct asset hash for caching.
