@@ -1,21 +1,26 @@
 <?php
 
 function load_scripts() {
-	wp_enqueue_script( 'main-manifest', get_template_directory_uri() . '/static/js/manifest.js', array(), '1.0.0', true );
-	wp_enqueue_script( 'main-vendor', get_template_directory_uri() . '/static/js/vendor.js', array(), '1.0.0', true );
-	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/static/js/app.js', array(), '1.0.0', true );
-	wp_enqueue_style('main-styles', get_template_directory_uri() . '/static/css/app.css', array(), '1.0.0', 'all');
+	wp_enqueue_script( 'main-manifest', get_template_directory_uri() . '/dist/static/js/manifest.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'main-vendor', get_template_directory_uri() . '/dist/static/js/vendor.js.gz', array(), '1.0.0', true );
+	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/dist/static/js/app.js', array(), '1.0.0', true );
+	wp_enqueue_style('main-styles', get_template_directory_uri() . '/dist/static/css/app.css.gz', array(), '1.0.0', 'all');
+
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('wp_print_styles', 'print_emoji_styles');
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
 
-// function google_fonts() {
-// 	$query_args = array(
-// 		'family' => 'Open+Sans|Roboto'
-// 	);
-// 	wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null, true );
-// }
-//
-// add_action('wp_enqueue_scripts', 'google_fonts');
+function google_fonts() {
+	$query_args = array(
+		'family' => 'Roboto'
+	);
+	wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+}
+
+add_action('wp_enqueue_scripts', 'google_fonts');
 
 function get_menu() {
     # Change 'menu' to your own navigation slug.
