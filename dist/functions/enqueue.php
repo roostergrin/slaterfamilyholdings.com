@@ -12,7 +12,7 @@ function google_fonts() {
 	$query_args = array(
 		'family' => 'Open+Sans|Roboto'
 	);
-	wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+	wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null, true );
 }
 
 add_action('wp_enqueue_scripts', 'google_fonts');
