@@ -5,6 +5,9 @@ function load_scripts() {
 	wp_enqueue_script( 'main-vendor', get_template_directory_uri() . '/dist/static/js/vendor.js.gz', array(), '1.0.0', true );
 	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/dist/static/js/app.js', array(), '1.0.0', true );
 	wp_enqueue_style('main-styles', get_template_directory_uri() . '/dist/static/css/app.css.gz', array(), '1.0.0', 'all');
+
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('wp_print_styles', 'print_emoji_styles');
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
 

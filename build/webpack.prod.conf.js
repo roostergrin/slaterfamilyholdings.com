@@ -9,6 +9,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var PrerenderSpaPlugin = require('prerender-spa-plugin')
+var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -28,6 +29,17 @@ var webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].js')
   },
   plugins: [
+    new CompressionWebpackPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: new RegExp(
+        '\\.(' +
+        config.build.productionGzipExtensions.join('|') +
+        ')$'
+      ),
+      threshold: 10240,
+      minRatio: 0.8
+    }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     // new CopyWebpackPlugin([
     //   { from: 'index.php' },
@@ -134,19 +146,23 @@ var webpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
-if (config.build.productionGzip) {
-  var CompressionWebpackPlugin = require('compression-webpack-plugin')
-
-  webpackConfig.plugins.push(
-    new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8
-    })
-  )
-}
+// if (config.build.productionGzip) {
+//   var CompressionWebpackPlugin = require('compression-webpack-plugin')
+//
+//   webpackConfig.plugins.push(
+//     new CompressionWebpackPlugin({
+//       asset: '[path].gz[query]',
+//       algorithm: 'gzip',
+//       test: new RegExp(
+//         '\\.(' +
+//         config.build.productionGzipExtensions.join('|') +
+//         ')$'
+//       ),
+//       threshold: 10240,
+//       minRatio: 0.8
+//     })
+//   )
+// }
 
 if (config.build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
