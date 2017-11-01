@@ -10,7 +10,7 @@
   <?php wp_footer(); ?>
   <script type="text/javascript">
       WebFontConfig = {
-        google: { families: [ 'Open Sans|Roboto' ] }
+        google: { families: [ 'Open+Sans|Roboto' ] }
       };
       (function() {
         var wf = document.createElement('script');
