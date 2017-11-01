@@ -29,13 +29,13 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
-    new CopyWebpackPlugin([
-      { from: 'index.php' },
-      { from: 'style.css' },
-      { from: 'screenshot.png' },
-      { from: 'functions.php' },
-      { from: 'functions', to: 'functions' }
-    ]),
+    // new CopyWebpackPlugin([
+    //   { from: 'index.php' },
+    //   { from: 'style.css' },
+    //   { from: 'screenshot.png' },
+    //   { from: 'functions.php' },
+    //   { from: 'functions', to: 'functions' }
+    // ]),
     new webpack.DefinePlugin({
       'process.env': env
     }),
@@ -56,8 +56,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
-        safe: true,
-        discardComments: { removeAll: false }
+        safe: true
       }
     }),
     // generate dist index.html with correct asset hash for caching.
@@ -107,31 +106,31 @@ var webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
-    new PrerenderSpaPlugin(
-      path.join(__dirname, '../dist'),
-      ['/'],
-      {
-        postProcessHtml: function (context) {
-          var site = 'Site Name | '
-
-          var titles = {
-            '/': site + 'Home'
-          }
-
-          var descriptions = {
-            '/': 'Home page description'
-          }
-
-          return context.html.replace(
-            /<title>[^<]*<\/title>/g,
-            '<title>' + titles[context.route] + '</title>'
-          ).replace(
-            /<meta name="description">/g,
-            '<meta name="description" content="' + descriptions[context.route] + '">'
-          )
-        }
-      }
-    )
+    // new PrerenderSpaPlugin(
+    //   path.join(__dirname, '../dist'),
+    //   ['/'],
+    //   {
+    //     postProcessHtml: function (context) {
+    //       var site = 'Site Name | '
+    //
+    //       var titles = {
+    //         '/': site + 'Home'
+    //       }
+    //
+    //       var descriptions = {
+    //         '/': 'Home page description'
+    //       }
+    //
+    //       return context.html.replace(
+    //         /<title>[^<]*<\/title>/g,
+    //         '<title>' + titles[context.route] + '</title>'
+    //       ).replace(
+    //         /<meta name="description">/g,
+    //         '<meta name="description" content="' + descriptions[context.route] + '">'
+    //       )
+    //     }
+    //   }
+    // )
   ]
 })
 

@@ -5,7 +5,7 @@ export default {
   props: ['name'],
   computed: {
     svg () {
-      return require(`@/assets/svg/${this.name}.svg`)
+      return require(`@/assets/icons/${this.name}.svg`)
     }
   }
 }
