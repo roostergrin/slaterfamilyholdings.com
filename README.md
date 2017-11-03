@@ -77,6 +77,34 @@ npm test
   - Before you push live you will want make sure that you have the correct .htaccess file
     - The one in here has been customized to allow better caching
 
+  - We have removed the text editor in the WordPress backend. This can be edited in the editor.php file  
+
+## Production, Optimizations and Moving Site Live Todos
+
+  1. Install necessary dependencies if not already installed
+    - SendGrid
+    - Contact Form Submissions
+    - Contact From 7
+    - BlogVault
+    - All In One SEO
+    - W3 Total Cache
+  2. Set up W3 Total Cache
+    - Set up g-zipping
+    - Set up page caching
+    - Set up database caching
+    - Set up minification
+    - Set up browser caching
+  3. After Website has been transferred double check .htaccess file to make sure the one in this repo is on it
+    - Be careful not to delete W3 Total cache's part
+  4. Optimize images (try to get images as close to 150kb as possible)
+    - Photoshop compression
+    - Gulp compression
+    - TinyPng compression
+  5. Setup automatic updater in php
+    - These can be found in filters.php
+    - Turn off automatic emailer
+    - Turn on automatic core updates
+
 ## Getting a new project started
 
   1. Create Wordpress Backend via Blog Vault
