@@ -82,28 +82,28 @@ npm test
 ## Production, Optimizations and Moving Site Live Todos
 
   1. Install necessary dependencies if not already installed
-    - SendGrid
-    - Contact Form Submissions
-    - Contact From 7
-    - BlogVault
-    - All In One SEO
-    - W3 Total Cache
+      - SendGrid
+      - Contact Form Submissions
+      - Contact From 7
+      - BlogVault
+      - All In One SEO
+      - W3 Total Cache
   2. Set up W3 Total Cache
-    - Set up g-zipping
-    - Set up page caching
-    - Set up database caching
-    - Set up minification
-    - Set up browser caching
+      - Set up g-zipping
+      - Set up page caching
+      - Set up database caching
+      - Set up minification
+      - Set up browser caching
   3. After Website has been transferred double check .htaccess file to make sure the one in this repo is on it
-    - Be careful not to delete W3 Total cache's part
+      - Be careful not to delete W3 Total cache's part
   4. Optimize images (try to get images as close to 150kb as possible)
-    - Photoshop compression
-    - Gulp compression
-    - TinyPng compression
+      - Photoshop compression
+      - Gulp compression
+      - TinyPng compression
   5. Setup automatic updater in php
-    - These can be found in filters.php
-    - Turn off automatic emailer
-    - Turn on automatic core updates
+      - These can be found in filters.php
+      - Turn off automatic emailer
+      - Turn on automatic core updates
 
 ## Getting a new project started
 
