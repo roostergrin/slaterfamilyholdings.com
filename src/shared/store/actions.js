@@ -3,7 +3,7 @@ import api from 'api'
 
 const actions = {
   GET_PAGES ({ commit }) {
-    axios.get(api + '/wp/v2/pages')
+    axios.get(api + '/wp/v2/pages?per_page=100')
       .then(response => {
         let data = {}
         for (let i = 0; i < response.data.length; i++) {

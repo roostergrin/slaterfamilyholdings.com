@@ -68,8 +68,7 @@ npm test
 ## Production Environment Gotcha's
   - For production you will want to move any dependencies / header footer updates for SEO to index.php
     - This will be used for our production state in WordPress
-    - For google fonts / typekit you will want to place theses into functions.php to be asynchronously injected to the footer
-      - You will want to do this for load time
+    - For google fonts / typekit you will want to place theses into index.php to be asynchronously injected to the header
 
   - The files that are necessary for WordPress are ```[ index.php, style.css, functions.php and screenshot.png ]```
     - We have these in the dist folder already so all you would need to do is have wp_pusher look at that subdirectory.
