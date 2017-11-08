@@ -42,6 +42,70 @@ npm run e2e
 npm test
 ```
 
+## Folder Tree Structure
+
+To make website update you will only want to work in the src folder.
+
+```
++------------------------
++ src
++   | assets  
+        | fonts
+            | - vendor
+        | icons
+            | - icon
+        | images
+            | - image
+        | vendor
+            | - vendor
++   | base
++   | components
++   | pages
++   | router
++   | sass
++   | shared
++   - main.js
++   - main.sass
++------------------------
+```
+
+## Component Structure and Naming Convention
+
+We have been using a name spacing naming convention in Pug with a BEM styling for Sass. Below is a piece of pug that can be reused.
+
+Pug File
+```pug
+.pages-home
+  .pages-home__bg
+    .pages-home__container
+      .pages-home__body
+        .pages-home__title
+          | Title
+        .pages-home__text
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+```
+
+Sass File
+```sass
+.pages-home
+  &__bg
+    background: black
+
+  &__container
+    @extend .container-fluid
+
+  &__body
+    @extend .col-sm-6
+    @extend .col-sm-offset-6
+
+  &__title
+    @extend h3
+
+  &__text
+    @extend %p1      
+```
+
+
 ## Development Environment Gotcha's
   - For our dev eco system you will be using index.html during development
     - Our main ```<div id='app'>``` lives here
