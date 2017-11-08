@@ -103,6 +103,7 @@ npm test
       - These can be found in filters.php
       - Turn off automatic emailer
       - Turn on automatic core updates
+  6. Update this readme's for future requests section  
 
 ## Getting a new project started
 
@@ -110,6 +111,10 @@ npm test
       - You will be using {{ new project name }}.rgwplogin.com
   2. Change API endpoint in api.js file
       - You will be updating your api to {{ new project name }}.rgwplogin.com/wp-json
+
+## Future Requests
+
+This section is dedicated to the request team. Please share any information that the request team may need while making updates to this site. For example if you are using an api endpoint for the menu. Please write down the necessary steps someone would need to take to make updates to the menu.
 
 
 
