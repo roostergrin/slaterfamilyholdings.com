@@ -50,20 +50,44 @@ To make website update you will only want to work in the src folder.
 +------------------------
 + src
 +   | assets  
-        | fonts
-            | - vendor
-        | icons
-            | - icon
-        | images
-            | - image
-        | vendor
-            | - vendor
++       | fonts
++            | - vendor
++       | icons
++           | - icon
++       | images
++           | - image
++       | vendor
++           | - vendor
 +   | base
++       | - app.vue
++       | - app.pug
 +   | components
++       | - form
++           | - form.pug
++           | - form.vue
++           | - form.sass
++       | - icon
++           | - icon.pug
++           | - icon.vue
++           | - icon.sass
 +   | pages
++       | - home
++           | - home.pug
++           | - home.vue
++           | - home.sass
 +   | router
++       | - index.js
 +   | sass
++       | - base
++           | - base.sass
++       | - units
++       | - utilities
++       | - vendors
 +   | shared
++       | - api
++       | - filters
++       | - store
++       | - templates
 +   - main.js
 +   - main.sass
 +------------------------
