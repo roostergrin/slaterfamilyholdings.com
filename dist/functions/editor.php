@@ -11,7 +11,7 @@
 /**
  * Hide the main editor on specific pages
  */
-define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Home', 'Our Practice', 'Patient Info', 'Treatments', 'Invisalign', 'Contact')));
+define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Our Practice')));
 // define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('template-cars.php')));
 
 /**
