@@ -27,6 +27,7 @@ define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Our Practice')));
  * @global string $pagenow
  * @return void
  */
+ 
 function hide_editor() {
   global $pagenow;
     if(!('post.php' == $pagenow)){
