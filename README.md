@@ -1,5 +1,13 @@
 # Rooster Grin's Vue.js Build and Guidelines
 
+### TODOS:
+  <ol>
+    <li>Add wordfence to the backend</li>
+    <li>Double Check Hot Reload for Pug</li>
+    <li>Add Find and Replace plugin for webpack to deal with changing from development to production</li>
+    <li></li>
+  </ol>  
+
 Technologies
   - Vue.js
   - Vue Router
@@ -134,11 +142,13 @@ Sass File
   - For our dev eco system you will be using index.html during development
     - Our main ```<div id='app'>``` lives here
     - You can place google fonts / typekit here as well
+      - The location of the asyc script can be found right before the `</body>` tag
+      - *NOTE:* You will want to make sure that any additional contents that have been added to the html file are reflected in the php file
   - We have also created a route that opens up the WordPress's menu options if you would like to call it
     - No longer will you have to use the plugin
     - You will need to register the menu in the ```enqueue.php``` file
 
-      ```
+      ```php
       function get_menu() {
           # Change 'menu' to your own navigation slug.
           # You will need to register each menu if you'd like to use multiple.
@@ -152,6 +162,27 @@ Sass File
           ) );
       } );
       ```
+
+  - In API.js you will find a script tha contains both a development and production route, be sure when you goto production and no longer need the development site, that you change the endpoint for development
+
+    ```javascript
+    const api = Api()
+
+    function Api () {
+      if (process.env.NODE_ENV === 'production') {
+        return (document.location.protocol === 'http' ? 'https' : 'http') + '://api.roostertest3.com/wp-json'
+      }
+      return '//api.roostertest3.com.com/wp-json'
+      // TODO: BE SURE TO CHANGE THE RETURN AFTER LAUNCH
+      // NOTE: IF you need to create a dev version you can also use this to add the dev sites API
+    }
+
+    export default api
+    ```
+
+  - For development build script you will want to use
+    -  `npm run rooster`
+    -  This build is similar to the production build except it does not account for HTTPS requests
 
 ## Production Environment Gotcha's
   - For production you will want to move any dependencies / header footer updates for SEO to index.php
