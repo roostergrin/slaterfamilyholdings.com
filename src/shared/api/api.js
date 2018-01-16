@@ -1,12 +1,7 @@
-const api = Api()
+const route = '//api.roostertest3.com/wp-json'
 
-function Api () {
-  // if (process.env.NODE_ENV === 'production') {
-  //   return (document.location.protocol === 'http' ? 'https' : 'http') + '://api.roostertest3.com/wp-json'
-  // }
-  return '//api.roostertest3.com.com/wp-json'
+const api = () => {
+  return document.location.hostname === 'localhost' ? route : document.location.protocol + route
 }
 
-// TODO: BE SURE TO CHANGE THE RETURN AFTER LAUNCH
-
-export default api
+export default api()

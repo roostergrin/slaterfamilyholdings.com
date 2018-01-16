@@ -3,9 +3,11 @@
 ### TODOS:
   <ol>
     <li>Add wordfence to the backend</li>
-    <li>Double Check Hot Reload for Pug</li>
     <li>Add Find and Replace plugin for webpack to deal with changing from development to production</li>
-    <li></li>
+    <li>Add Above the fold and below the fold asyc lazy loading</li>
+    <li>Custom Post Type for App Level information</li>
+    <li>NPM For Component library</li>
+    <li>Ortho Chat | Google Analytics | Facebook Pixel</li>
   </ol>  
 
 Technologies
@@ -19,8 +21,9 @@ Technologies
   - Bootstrap 3 *(mixins only, not using most of the library)*
   - Wordpress
   - Wordpress API
+  - Wordpress API CACHE
   - SendGrid
-  - *These will be changed out*
+  - *These will be changed out once new plugins are created*
     - Contact Form Database Submissions
     - Contact From 7
 
@@ -166,23 +169,17 @@ Sass File
   - In API.js you will find a script tha contains both a development and production route, be sure when you goto production and no longer need the development site, that you change the endpoint for development
 
     ```javascript
-    const api = Api()
+    const route = '//api.roostertest3.com/wp-json'
 
-    function Api () {
-      if (process.env.NODE_ENV === 'production') {
-        return (document.location.protocol === 'http' ? 'https' : 'http') + '://api.roostertest3.com/wp-json'
-      }
-      return '//api.roostertest3.com.com/wp-json'
-      // TODO: BE SURE TO CHANGE THE RETURN AFTER LAUNCH
-      // NOTE: IF you need to create a dev version you can also use this to add the dev sites API
+    // NOTE: This will change per new project
+
+    const api = () => {
+      return document.location.hostname === 'localhost' ? route : document.location.protocol + route
     }
 
-    export default api
-    ```
+    export default api()
 
-  - For development build script you will want to use
-    -  `npm run rooster`
-    -  This build is similar to the production build except it does not account for HTTPS requests
+    ```
 
 ## Production Environment Gotcha's
   - For production you will want to move any dependencies / header footer updates for SEO to index.php
@@ -206,6 +203,7 @@ Sass File
       - BlogVault
       - All In One SEO
       - W3 Total Cache
+      - API Rest Cache
   2. Set up W3 Total Cache
       - Set up g-zipping
       - Set up page caching
@@ -227,9 +225,9 @@ Sass File
 ## Getting a new project started
 
   1. Create Wordpress Backend via Blog Vault
-      - You will be using {{ new project name }}.rgwplogin.com
+      - You will be using {{ new project name }}.roostertest3.com
   2. Change API endpoint in api.js file
-      - You will be updating your api to {{ new project name }}.rgwplogin.com/wp-json
+      - You will be updating your api to {{ new project name }}.roostertest3.com/wp-json
 
 ## Future Requests
 
