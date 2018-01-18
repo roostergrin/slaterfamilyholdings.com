@@ -4,13 +4,13 @@
 1. [Simple Build Setup](#setup)
 2. [Folder Tree Structure](#folder)
 3. [Component Structure](#third-example)
+4. [Information For Requests](#requests)
 
 ### TODOS:
   <ol>
     <li>Add wordfence to the backend</li>
     <li>Add Find and Replace plugin for webpack to deal with changing from development to production</li>
     <li>Add Above the fold and below the fold asyc lazy loading</li>
-    <li>Custom Post Type for App Level information</li>
     <li>NPM For Component library</li>
     <li>Ortho Chat | Google Analytics | Facebook Pixel</li>
   </ol>  
@@ -234,7 +234,7 @@ Sass File
   2. Change API endpoint in api.js file
       - You will be updating your api to {{ new project name }}.roostertest3.com/wp-json
 
-## Future Requests
+## Information For Requests <a id='requests' />
 
 This section is dedicated to the request team. Please share any information that the request team may need while making updates to this site. For example if you are using an api endpoint for the menu. Please write down the necessary steps someone would need to take to make updates to the menu.
 
