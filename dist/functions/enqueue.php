@@ -12,18 +12,8 @@ function load_scripts() {
 	remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
-//
-// function google_fonts() {
-// 	$query_args = array(
-// 		'family' => 'Roboto'
-// 	);
-// 	wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
-// }
-//
-// add_action('wp_enqueue_scripts', 'google_fonts');
 
 function get_menu() {
-    # Change 'menu' to your own navigation slug.
     return wp_get_nav_menu_items('menu');
 }
 
@@ -33,3 +23,26 @@ add_action( 'rest_api_init', function () {
         'callback' => 'get_menu',
     ) );
 } );
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(/wp-content/uploads/login-logo.svg);
+			height:150px;
+			width:320px;
+			background-size: 320px 150px;
+			background-repeat: no-repeat;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_logo_url() {
+    return 'https://roostergrin.com';
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Build By Rooster Grin Media';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
