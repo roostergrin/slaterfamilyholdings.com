@@ -6,6 +6,7 @@ include_once(get_template_directory() . '/functions/admin-bar.php');
 include_once(get_template_directory() . '/functions/filters.php');
 include_once(get_template_directory() . '/functions/editor.php');
 include_once(get_template_directory() . '/functions/email.php');
+include_once(get_template_directory() . '/functions/custom-post.php');
 
 /**
  * rg functions and definitions

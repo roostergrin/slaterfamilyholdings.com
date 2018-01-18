@@ -1,5 +1,10 @@
 # Rooster Grin's Vue.js Build and Guidelines
 
+# Table of Contents
+1. [Simple Build Setup](#setup)
+2. [Folder Tree Structure](#folder)
+3. [Component Structure](#third-example)
+
 ### TODOS:
   <ol>
     <li>Add wordfence to the backend</li>
@@ -27,7 +32,7 @@ Technologies
     - Contact Form Database Submissions
     - Contact From 7
 
-## Simple Build Setup
+## Simple Build Setup <a id='setup' />
 
 ``` bash
 # install dependencies
@@ -53,7 +58,7 @@ npm run e2e
 npm test
 ```
 
-## Folder Tree Structure
+## Folder Tree Structure <a id='folder' />
 
 To make website update you will only want to work in the src folder.
 
@@ -104,7 +109,7 @@ To make website update you will only want to work in the src folder.
 +------------------------
 ```
 
-## Component Structure and Naming Convention
+## Component Structure and Naming Convention <a id='component' />
 
 We have been using a name spacing naming convention in Pug with a BEM styling for Sass. Below is a piece of pug that can be reused.
 

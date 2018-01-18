@@ -3,6 +3,7 @@ import api from 'api'
 import {
   GET_PAGES,
   // GET_BLOG,
+  GET_APP,
   VIEW_NAV,
   VIEW_BODY,
   VIEW_TYPES,
@@ -14,15 +15,27 @@ const actions = {
   GET_PAGES ({ commit }) {
     (async () => {
       try {
-        const response = await axios.get(`${api}/wp-json/wp/v2/pages`)
+        const response = await axios.get(`${api}/wp/v2/pages?per_page=100`)
         const data = response.data.reduce(
           (allData, data) => ({ ...allData, [data.slug]: data }),
           {}
         )
         commit(GET_PAGES, data)
       } catch (e) {
-        console.log(e)
+        console.log('PAGES API: ' + e)
       }
+    })()
+  },
+  GET_APP ({ commit }) {
+    (async () => {
+      try {
+        const response = await axios.get(`${api}/wp/v2/app`)
+        const data = response.data.reduce(
+          (allData, data) => ({ ...allData, [data.slug]: data }),
+          {}
+        )
+        commit(GET_APP, data)
+      } catch (e) { console.log('APP API: ' + e) }
     })()
   },
   // GET_BLOG ({ commit }) {
