@@ -1,6 +1,28 @@
-nav
-  h2 Navigation Component
-  router-link(to='/')
-    a Home
-  router-link(to='/our-practice')
-    a Our Practice
+.nav(:class='classObject')
+  .nav__bg
+    .nav__container
+      .nav__logo
+        router-link(to='/')
+          Icon(name='Logo')
+      
+      .nav__links
+        .nav__links--top
+          .nav__link--top
+            | Home
+          .nav__link--top
+            | About 
+          .nav__link--top
+            | Green Initiative 
+          .nav__link--top
+            | Contact
+            
+        .nav__links--bottom
+          .nav__link--bottom
+            | Properties 
+          .nav__link--bottom
+            | Startups
+          .nav__link--bottom
+            | Asset Money Maker
+          .nav__link--bottom
+            | Partnerships  
+          
