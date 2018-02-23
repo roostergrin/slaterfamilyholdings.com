@@ -1,4 +1,4 @@
-.nav(:class='classObject')
+.nav
   .nav__bg
     .nav__container
       .nav__logo
@@ -7,22 +7,20 @@
       
       .nav__links
         .nav__links--top
-          .nav__link--top
-            | Home
-          .nav__link--top
-            | About 
-          .nav__link--top
-            | Green Initiative 
-          .nav__link--top
-            | Contact
-            
+          router-link.nav__link--top(v-for='link in links', :to='link.path' v-if='link.menu === "top"', :title='link.name')
+            | {{ link.name }}
+              
         .nav__links--bottom
-          .nav__link--bottom
-            | Properties 
-          .nav__link--bottom
-            | Startups
-          .nav__link--bottom
-            | Asset Money Maker
-          .nav__link--bottom
-            | Partnerships  
+          router-link.nav__link--bottom(v-for='link in links', :to='link.path' v-if='link.menu === "bottom"', :title='link.name')
+            | {{ link.name }}
+            
+        //- .nav__links--bottom
+        //-   .nav__link--bottom
+        //-     | Properties 
+        //-   .nav__link--bottom
+        //-     | Startups
+        //-   .nav__link--bottom
+        //-     | Asset Money Maker
+        //-   .nav__link--bottom
+        //-     | Partnerships  
           
