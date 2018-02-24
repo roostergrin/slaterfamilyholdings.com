@@ -3,6 +3,7 @@
 <script>
 // components
 import Navigation from 'components/navigation/navigation'
+import Footer from 'components/Footer/Footer'
 
 export default {
   created () {
@@ -20,7 +21,8 @@ export default {
     }
   },
   components: {
-    Navigation
+    Navigation,
+    Footer
   },
   name: 'app'
 }

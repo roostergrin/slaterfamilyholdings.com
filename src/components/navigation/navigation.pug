@@ -7,20 +7,9 @@
       
       .nav__links
         .nav__links--top
-          router-link.nav__link--top(v-for='link in links', :to='link.path' v-if='link.menu === "top"', :title='link.name')
-            | {{ link.name }}
+          router-link.nav__link--top(v-for='(toplink, i) in links', :to='toplink.path' v-if='toplink.menu === "top"', :title='toplink.name', :key='i')
+            | {{ toplink.name }}
               
         .nav__links--bottom
-          router-link.nav__link--bottom(v-for='link in links', :to='link.path' v-if='link.menu === "bottom"', :title='link.name')
-            | {{ link.name }}
-            
-        //- .nav__links--bottom
-        //-   .nav__link--bottom
-        //-     | Properties 
-        //-   .nav__link--bottom
-        //-     | Startups
-        //-   .nav__link--bottom
-        //-     | Asset Money Maker
-        //-   .nav__link--bottom
-        //-     | Partnerships  
-          
+          router-link.nav__link--bottom(v-for='(bottomlink, j) in links', :to='bottomlink.path' v-if='bottomlink.menu === "bottom"', :title='bottomlink.name', :key='j')
+            | {{ bottomlink.name }}

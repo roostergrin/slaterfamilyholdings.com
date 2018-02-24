@@ -11,9 +11,9 @@ export default {
     links () {
       return this.$router.options.routes
     }
-  },
-  created () {
-    console.log(this.$router, this.$route)
   }
+  // created () {
+  //   console.log(this.$router, this.$route)
+  // }
 }
 </script>
