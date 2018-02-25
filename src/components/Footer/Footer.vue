@@ -8,10 +8,13 @@ export default {
       return {
         props: this.$store.state.app.footer
       }
+    },
+    links () {
+      return this.$router.options.routes
     }
   },
-  created () {
-    console.log(this.props.props)
+  mounted () {
+    console.log(this.props)
   }
 }
 </script>

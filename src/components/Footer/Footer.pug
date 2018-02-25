@@ -1,18 +1,29 @@
-.footer
-  pre {{ props }}
+.footer(v-if='props.props')
   .footer__container
     .footer__columns
       .footer__column
-        p 555-555-5555
-        p info@slaterholdings.com
-        p CONTACT US > 
+        a.footer__column--phone(v-html='props.props.acf.footer.phone_number', :href='props.props.acf.footer.phone_number_href')
+        a.footer__column--email(v-html='props.props.acf.footer.email', :href='props.props.acf.footer.email_href')
+        router-link.footer__column--link(to='/contact')
+          | Contact Us
+          span.footer__column--arrow >
+
       .footer__column
-        p 555 Street Address
-        p Boston, MA 55555
+        a.footer__column--address(v-html='props.props.acf.footer.address', :href='props.props.acf.footer.address_href')
+          
       .footer__column
-        p PRIVACY POLICY > 
-        p TERMS OF US >
+        a.footer__column--link(:href='props.props.acf.footer.privacy_policy_link')
+          | Privacy Policy
+          span.footer__column--arrow >
+        a.footer__column--link(:href='props.props.acf.footer.terms_of_use_link')
+          | Terms of Use
+          span.footer__column--arrow >
+
       .footer__column
-        p © 2017 Slater Holdings 
-        p All Rights Reserved. 
-        p Website by Rooster Grin
+        .footer__column--copyright
+          | © 2017 Slater Holdings.
+          br
+          | All Rights Reserved. 
+        .footer__column--credit 
+          | Website by 
+          span.footer__column--rg Rooster Grin
