@@ -2,6 +2,7 @@
 
 <script>
 import Loader from 'components/loader/loader'
+import HeroHome from 'components/hero/hero-home/hero-home'
 
 export default {
   name: 'home',
@@ -14,7 +15,8 @@ export default {
     }
   },
   components: {
-    Loader
+    Loader,
+    HeroHome
   }
 }
 </script>
