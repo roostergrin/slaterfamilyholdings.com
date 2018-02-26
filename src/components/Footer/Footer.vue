@@ -12,9 +12,9 @@ export default {
     links () {
       return this.$router.options.routes
     }
-  },
-  mounted () {
-    console.log(this.props)
   }
+  // mounted () {
+  //   console.log(this.props)
+  // }
 }
 </script>

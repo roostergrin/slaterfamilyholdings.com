@@ -1,2 +1,6 @@
 .hero-home
-  h1 Hero Home Component
+  .hero-home__bg(:style="{ backgroundImage: 'url(' + props.background + ')'}")
+    .hero-home__container
+      .hero-home__headline
+        .hero-home__title(v-html='props.title')
+        .hero-home__subtitle(v-html='props.subtitle')
