@@ -7,3 +7,8 @@
       .custom-home-service__right
         .custom-home-service__right--title(v-html='props.title')
         .custom-home-service__right--content(v-html='props.content')
+        .custom-home-service__right--links
+          router-link.custom-home-service__right--link(to='/partnerships')
+            | Partnerships  >
+          router-link.custom-home-service__right--link(to='/asset-money-maker')
+            | Asset Money Maker  >
