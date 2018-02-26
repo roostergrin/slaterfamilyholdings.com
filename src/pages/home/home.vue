@@ -3,6 +3,7 @@
 <script>
 import Loader from 'components/loader/loader'
 import HeroHome from 'components/hero/hero-home/hero-home'
+import CustomHomeService from 'components/custom/custom-home-service/custom-home-service'
 
 export default {
   name: 'home',
@@ -16,7 +17,8 @@ export default {
   },
   components: {
     Loader,
-    HeroHome
+    HeroHome,
+    CustomHomeService
   }
 }
 </script>

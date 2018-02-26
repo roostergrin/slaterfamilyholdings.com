@@ -1,0 +1,9 @@
+.custom-home-service
+  .custom-home-service__bg
+    .custom-home-service__container
+      .custom-home-service__left
+        img.custom-home-service__image(:src='props.image')
+          
+      .custom-home-service__right
+        .custom-home-service__right--title(v-html='props.title')
+        .custom-home-service__right--content(v-html='props.content')
