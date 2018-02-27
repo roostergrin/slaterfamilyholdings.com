@@ -1,4 +1,4 @@
-<template lang="pug" src="./block-two-columns.pug"></template>
+<template lang="pug" src="./custom-about-two-columns.pug"></template>
 
 <script>
 export default {

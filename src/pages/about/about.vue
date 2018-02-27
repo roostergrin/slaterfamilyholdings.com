@@ -5,7 +5,7 @@ import Loader from 'components/loader/loader'
 import Hero from 'components/hero/hero'
 import CustomAboutIntro from 'components/custom/custom-about-intro/custom-about-intro'
 import BlockParallax from 'components/block/block-parallax/block-parallax'
-import BlockTwoColumns from 'components/block/block-two-columns/block-two-columns'
+import CustomAboutTwoColumns from 'components/custom/custom-about-two-columns/custom-about-two-columns'
 
 export default {
   name: 'about',
@@ -22,7 +22,7 @@ export default {
     Hero,
     CustomAboutIntro,
     BlockParallax,
-    BlockTwoColumns
+    CustomAboutTwoColumns
   }
 }
 </script>
