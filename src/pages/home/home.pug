@@ -1,7 +1,7 @@
 .pages-home
   Loader(v-show='loading')
-  div(v-if='props')
+  div(v-if='props && !loading && blog')
     HeroHome(:props='props.acf.hero')
     CustomHomeService(:props='props.acf.custom_home_service')
-    CustomHomeFeatured(:props='props.acf.custom_home_featured')
-    pre {{ props }}
+    CustomHomeFeatured(:props='props.acf.custom_home_featured', :blog='blog.data')
+    pre {{ blog }}

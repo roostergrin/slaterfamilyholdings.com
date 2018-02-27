@@ -2,6 +2,9 @@
 
 <script>
 export default {
-  props: ['props']
+  props: ['props', 'blog'],
+  mounted () {
+    console.log(this.blog)
+  }
 }
 </script>

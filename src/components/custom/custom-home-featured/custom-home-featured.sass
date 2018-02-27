@@ -5,9 +5,40 @@
 
   &__intro
     display: flex
+    margin: 4rem 0 0
+    width: 100%
 
     &--title
-      @extend .col-sm-4
+      @extend .col-sm-5
+      color: $c1
+      font-size: 42px
 
     &--content
-      @extend .col-sm-8
+      @extend .col-sm-7
+      margin-top: 8px
+      font-size: 18px
+
+    &--link
+      text-transform: uppercase
+      text-decoration: none
+      font-weight: bold
+
+  hr
+    margin: 2rem 0
+    border-top: 1px solid #f3f3f3
+
+  &__property-listing
+    @extend .col-sm-4
+
+    &--title
+      position: absolute
+      bottom: 20px
+      background: rgba(25, 48, 88, .7)
+      padding: 24px 0 24px 16px
+      width: 98%
+      color: $c3
+      font-size: 24px
+
+    &--description
+      color: $c3
+      font-size: 18px

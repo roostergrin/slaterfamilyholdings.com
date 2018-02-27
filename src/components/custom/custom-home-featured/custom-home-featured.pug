@@ -4,4 +4,21 @@
       .custom-home-featured__intro
         .custom-home-featured__intro--title
           | Featured Properties
-        .custom-home-featured__intro--content(v-html='props.content')
+        .custom-home-featured__intro--content
+          | {{ props.content }}
+          router-link.custom-home-featured__intro--link(to='/properties')
+            | View All Properties  >
+      hr
+      .custom-home-featured__property-list
+        .custom-home-featured__property-listing(v-for='(property, i) in blog')
+          figure.custom-home-featured__property-listing--box
+            img.custom-home-featured__property-listing--image(:src='property.acf.background_image')
+            figcaption.custom-home-featured__property-listing--title
+              | {{ property.title.rendered }}
+              span.yellow-arrow
+                |   >
+                
+              .custom-home-featured__property-listing--description
+                | {{ property.acf.description }}
+              
+              

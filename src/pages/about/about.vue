@@ -2,6 +2,8 @@
 
 <script>
 import Loader from 'components/loader/loader'
+import Hero from 'components/hero/hero'
+import CustomAboutIntro from 'components/custom/custom-about-intro/custom-about-intro'
 
 export default {
   name: 'about',
@@ -14,7 +16,9 @@ export default {
     }
   },
   components: {
-    Loader
+    Loader,
+    Hero,
+    CustomAboutIntro
   }
 }
 </script>

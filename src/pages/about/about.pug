@@ -1,4 +1,6 @@
 .page-about
   Loader(v-if='loading')
   div(v-if='!loading')
-    h1 About Page
+    Hero(:props='props')
+    CustomAboutIntro(:props='props')
+    pre {{ props }}

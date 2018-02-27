@@ -14,6 +14,9 @@ export default {
     },
     loading () {
       return this.$store.state.loading
+    },
+    blog () {
+      return this.$store.state.blog
     }
   },
   components: {
