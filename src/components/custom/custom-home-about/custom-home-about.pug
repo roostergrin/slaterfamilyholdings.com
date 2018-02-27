@@ -1,0 +1,11 @@
+.custom-home-about
+  .custom-home-about__left(:style="{ backgroundImage: 'url(' + props.background_image + ')'}")
+  .custom-home-about__right
+    .custom-home-about__container
+      .custom-home-about__subtitle(v-html='props.subtitle')
+      .custom-home-about__title(v-html='props.title')
+      .custom-home-about__content(v-html='props.content')
+      router-link.custom-home-about__link(to='/about')
+        | Continue Reading
+      span.yellow-arrow
+        |   > 

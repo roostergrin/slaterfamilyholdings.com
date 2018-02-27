@@ -5,6 +5,8 @@ import Loader from 'components/loader/loader'
 import HeroHome from 'components/hero/hero-home/hero-home'
 import CustomHomeService from 'components/custom/custom-home-service/custom-home-service'
 import CustomHomeFeatured from 'components/custom/custom-home-featured/custom-home-featured'
+import CustomHomeStartup from 'components/custom/custom-home-startup/custom-home-startup'
+import CustomHomeAbout from 'components/custom/custom-home-about/custom-home-about'
 
 export default {
   name: 'home',
@@ -23,7 +25,9 @@ export default {
     Loader,
     HeroHome,
     CustomHomeService,
-    CustomHomeFeatured
+    CustomHomeFeatured,
+    CustomHomeStartup,
+    CustomHomeAbout
   }
 }
 </script>
