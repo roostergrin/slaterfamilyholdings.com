@@ -1,0 +1,23 @@
+.block-two-columns
+  background: $c1
+  padding: 4rem 0
+
+  &__bg
+    background: $c1
+
+  &__container
+    @extend .container-fluid
+
+  &__title
+    margin-bottom: 24px
+    color: $c3
+    font-size: 34px
+
+  &__content
+    column-count: 2
+    line-height: 28px
+    color: $c3
+    font-size: 18px
+
+    @media (max-width: 768px)
+      column-count: 1
