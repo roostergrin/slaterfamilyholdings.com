@@ -10,7 +10,7 @@
   <?php wp_footer(); ?>
   <script type="text/javascript">
     WebFontConfig = {
-      google: { families: [ 'Roboto' ] }
+      google: { families: [ 'Roboto:300,400,700,900' ] }
     };
     (function() {
       var wf = document.createElement('script');
