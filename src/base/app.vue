@@ -15,7 +15,6 @@ export default {
     this.$store.dispatch('VIEW_TYPES', 0)
     this.$store.dispatch('VIEW_SHOWMODAL', false)
     this.$store.dispatch('VIEW_MODALCONTENT', false)
-    console.log(this.$store.state.blog)
   },
   computed: {
     props () {

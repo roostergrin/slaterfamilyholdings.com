@@ -1,4 +1,9 @@
 .page-partnerships
   Loader(v-if='loading')
   div(v-if='!loading')
-    h1 Partnerships Page
+    Hero(:props='props')
+    CustomPartnershipsIntro(:props='props.acf.custom_partnerships_intro')
+    BlockParallax(:props='props')
+    CustomPartnershipsTwoColumns(:props='props.acf.custom_partnerships_two_columns')
+    CustomPartnershipsOneColumn(:props='props.acf.custom_partnerships_one_column')
+    CustomPartnershipsThreeColumns(:props='props.acf.custom_partnerships_three_columns')

@@ -2,9 +2,6 @@
 
 <script>
 export default {
-  props: ['props'],
-  created () {
-    console.log(this.props)
-  }
+  props: ['props']
 }
 </script>

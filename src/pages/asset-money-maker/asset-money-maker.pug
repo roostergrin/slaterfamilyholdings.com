@@ -1,4 +1,9 @@
 .page-asset-money-maker
   Loader(v-if='loading')
   div(v-if='!loading')
-    h1 Asset Money Maker Page
+    Hero(:props='props')
+    CustomAssetMoneyMakerIntro(:props='props.acf.custom_asset_money_maker_intro')
+    BlockParallax(:props='props')
+    CustomAssetMoneyMakerTwoColumns(:props='props.acf.custom_asset_money_maker_two_columns')
+    CustomAssetMoneyMakerOneColumn(:props='props.acf.custom_asset_money_maker_one_column')
+    CustomAssetMoneyMakerThreeColumns(:props='props.acf.custom_asset_money_maker_three_columns')

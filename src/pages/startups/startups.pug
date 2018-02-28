@@ -1,4 +1,9 @@
 .page-startups
   Loader(v-if='loading')
   div(v-if='!loading')
-    h1 StartUps Page
+    Hero(:props='props')
+    CustomStartupsIntro(:props='props.acf.custom_startups_intro')
+    BlockParallax(:props='props')
+    CustomStartupsTwoColumns(:props='props.acf.custom_startups_two_columns')
+    CustomStartupsOneColumn(:props='props.acf.custom_startups_one_column')
+    CustomStartupsThreeColumns(:props='props.acf.custom_startups_three_columns')
