@@ -1,4 +1,9 @@
 .page-green-initiative
   Loader(v-if='loading')
-  div(v-if='!loading')
-    h1 Green Initiative Page
+  div(v-if='!loading && props')
+    Hero(:props='props')
+    CustomGreenInitiativeIntro(:props='props.acf.custom_green_initiative_intro')
+    BlockParallax(:props='props')
+    CustomGreenInitiativeTwoColumns(:props='props.acf.custom_green_initiative_two_columns')
+    CustomGreenInitiativeOneColumn(:props='props.acf.custom_green_initiative_one_column')
+    CustomGreenInitiativeThreeColumns(:props='props.acf.custom_green_initiative_three_columns')
