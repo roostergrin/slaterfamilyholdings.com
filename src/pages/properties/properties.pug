@@ -2,4 +2,5 @@
   Loader(v-if='loading')
   div(v-if='!loading')
     Hero(:props='props')
-    h1 Properties Page
+    CustomPropertiesList(:blog='blog.data')
+    pre {{ blog }}
