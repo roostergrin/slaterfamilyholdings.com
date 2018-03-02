@@ -1,37 +1,50 @@
-.custom-properties-list
+.custom-properties-list(v-if='blog && filtering')
   .custom-properties-list__container
     .custom-properties-list__filterbox
       .custom-properties-list__type
-        .custom-properties-list__type--title
-          | Type
-        label.custom-properties-list__type--options
-          input.custom-properties-list__type--radio-btn(type='radio', value='All', v-model='selectedProperties')
-          .custom-properties-list__type--label 
-            | All
-        label.custom-properties-list__type--options(v-for='type in types')
-          input.custom-properties-list__type--radio-btn(type='radio', :value='type.propertyType', v-model='selectedProperties', v-on:click='duplicateType')
-          .custom-properties-list__type--label 
-            | {{ type.propertyType }}
-          //- label.custom-properties-list__type--options
-          //-   input.custom-properties-list__type--radio-btn(type='radio', value='office', v-model='selectedProperties')
-          //-   .custom-properties-list__type--label 
-          //-     | Office
-          //- label.custom-properties-list__type--options
-          //-   input.custom-properties-list__type--radio-btn(type='radio', value='industrial', v-model='selectedProperties')
-          //-   .custom-properties-list__type--label 
-          //-     | Industrial
-          //- 
-          //- label.custom-properties-list__type--options
-          //-   input.custom-properties-list__type--radio-btn(type='radio', value='agricultural', v-model='selectedProperties')
-          //-   .custom-properties-list__type--label 
-          //-     | Agricultural
+          .custom-properties-list__type--title
+            | Type
+          .custom-properties-list__type--box
+            label.custom-properties-list__type--options
+              input.custom-properties-list__type--radio-btn(type='radio', value='All', v-model='selectedProperties')
+              .custom-properties-list__type--label 
+                | All
+            label.custom-properties-list__type--options(v-for='propertyType in propertyTypes')
+              input.custom-properties-list__type--radio-btn(type='radio', :value='propertyType.type', v-model='selectedProperties')
+              .custom-properties-list__type--label 
+                | {{ propertyType.type }}
+      
+      .custom-properties-list__location
+        .custom-properties-list__location--title
+          | Location
+        .custom-properties-list__location--box
+          label.custom-properties-list__location--options
+            input.custom-properties-list__location--radio-btn(type='radio', value='All', v-model='selectedLocations')
+            .custom-properties-list__location--label
+              | All
+          label.custom-properties-list__location--options(v-for='(propertyLocation, i) in propertyLocations', :key='i')
+            input.custom-properties-list__location--radio-btn(type='radio', :value='propertyLocation.location.state', v-model='selectedLocations', @click='locationSelect(i)')
+            .custom-properties-list__location--label
+              | {{ propertyLocation.location.state }}
             
+      .custom-properties-list__city(v-show='selectedLocations !== "All"')
+        .custom-properties-list__city--title
+          | City
+        .custom-properties-list__type--box
+          label.custom-properties-list__city--options(v-for='(propertyCity, i) in propertyCities', :key='i')
+            input.custom-properties-list__city--radio-btn(type='radio', :value='propertyCity.city', v-model='selectedCities')
+            .custom-properties-list__city--label 
+              | {{ propertyCity.city }}
+                  
     .custom-properties-list__listingbox
       .custom-properties-list__listing(v-for='(property, i) in filteredProperties')
         figure.custom-properties-list__listing--box
           img.custom-properties-list__listing--image(:src='property.acf.background_image')
           figcaption.custom-properties-list__listing--title
-            | {{ property.acf.property_type }}
+            p {{ property.acf.name }}
+            p {{ property.acf.property_type }}
+            p {{ property.acf.property_location.state }}
+            p {{ property.acf.property_location.city }}
           
           
           

@@ -5,43 +5,70 @@ export default {
   data () {
     return {
       properties: this.blog,
+      propertyTypes: this.filtering.property_type,
+      propertyLocations: this.filtering.property_location,
+      propertyCities: false,
       selectedProperties: 'All',
-      types: [
-        {propertyType: 'multi-family'},
-        {propertyType: 'office'},
-        {propertyType: 'industrial'},
-        {propertyType: 'agricultural'}
-      ],
-      propertyState: [
-        {propertyType: 'California'},
-        {propertyType: 'New York'},
-        {propertyType: 'Hawaii'},
-        {propertyType: 'Alaska'}
-      ]
+      selectedLocations: 'All',
+      selectedCities: false
     }
   },
-  props: ['props', 'blog'],
+  props: ['props', 'blog', 'filtering'],
   computed: {
     filteredProperties () {
       var locations = this.properties
-      var selected = this.selectedProperties
+      var selectedType = this.selectedProperties
+      var selectedLocation = this.selectedLocations
+      var selectedCity = this.selectedCities
       var filteredPropertiesList = []
-      if (selected === 'All') {
+      if (selectedType === 'All' && selectedLocation === 'All') {
         return locations
-      } else {
-        locations.filter(function (property) {
-          if (property.acf.property_type === selected) {
-            filteredPropertiesList.push(property)
+      } else if (selectedLocation === 'All') {
+        locations.filter(function (location) {
+          if (location.acf.property_type === selectedType) {
+            if (selectedCity === false) {
+              filteredPropertiesList.push(location)
+            } else {
+              if (location.acf.property_location.city === selectedCity) {
+                filteredPropertiesList.push(location)
+              }
+            }
           }
         })
-        console.log('Filter is working!!')
+        return filteredPropertiesList
+      } else if (selectedType === 'All') {
+        locations.filter(function (location) {
+          if (location.acf.property_location.state === selectedLocation) {
+            if (selectedCity === false) {
+              filteredPropertiesList.push(location)
+            } else {
+              if (location.acf.property_location.city === selectedCity) {
+                filteredPropertiesList.push(location)
+              }
+            }
+          }
+        })
+        return filteredPropertiesList
+      } else {
+        locations.filter(function (location) {
+          if (location.acf.property_type === selectedType && location.acf.property_location.state === selectedLocation) {
+            if (selectedCity === false) {
+              filteredPropertiesList.push(location)
+            } else {
+              if (location.acf.property_location.city === selectedCity) {
+                filteredPropertiesList.push(location)
+              }
+            }
+          }
+        })
         return filteredPropertiesList
       }
     }
   },
   methods: {
-    duplicateType () {
-      console.log(this)
+    locationSelect (i) {
+      this.selectedCities = false
+      this.propertyCities = this.propertyLocations[i].location.city
     }
   }
 }
