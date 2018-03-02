@@ -41,10 +41,17 @@
         figure.custom-properties-list__listing--box
           img.custom-properties-list__listing--image(:src='property.acf.background_image')
           figcaption.custom-properties-list__listing--title
-            p {{ property.acf.name }}
-            p {{ property.acf.property_type }}
-            p {{ property.acf.property_location.state }}
-            p {{ property.acf.property_location.city }}
+            | {{ property.acf.name }}
+            span.yellow-arrow 
+              |   > 
+              
+            .custom-properties-list__listing--description
+              | {{ property.acf.description }}
+            .custom-properties-list__listing--link
+              | Click to Read More
+              span.yellow-arrow
+                |  >
+
           
           
           
