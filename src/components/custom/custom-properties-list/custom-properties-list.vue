@@ -69,6 +69,13 @@ export default {
     locationSelect (i) {
       this.selectedCities = false
       this.propertyCities = this.propertyLocations[i].location.city
+    },
+    clearFilter () {
+      this.selectedProperties = 'All'
+      this.selectedLocations = 'All'
+    },
+    clearCity () {
+      this.selectedLocations = 'All'
     }
   }
 }
