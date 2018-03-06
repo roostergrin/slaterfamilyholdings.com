@@ -2,6 +2,7 @@
 
 <script>
 import Loader from 'components/loader/loader'
+import BlockContact from 'components/block/block-contact/block-contact'
 
 export default {
   name: 'contact',
@@ -14,7 +15,8 @@ export default {
     }
   },
   components: {
-    Loader
+    Loader,
+    BlockContact
   }
 }
 </script>
