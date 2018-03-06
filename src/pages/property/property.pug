@@ -3,5 +3,29 @@
     .page-property__content
       .page-property__content--title(v-html='blog.title.rendered')
       .page-property__content--content(v-html='blog.acf.content')
-      pre {{ blog }}
-    
+    .page-property__gallery
+      .page-property__slider
+        SliderProperty(:blog='blog')
+      .page-property__location
+        iframe.page-property__location--map(:src='blog.acf.google_embed_link')
+        .page-property__location--title
+          | Location
+        .page-property__location--address(v-html='blog.acf.location')
+        //- PropertyMap(name='property-map')
+    .page-property__features
+      | Amenities
+      ul.page-property__amenities
+        li.page-property__amenities--amenity(v-for='amenity in blog.acf.amenities')
+          | {{ amenity.amenity }}
+      | Property Detail
+      .page-property__details
+        | Location
+        .page-property__details--address(v-html='blog.acf.location')
+        | Land Area
+        .page-property__details--land-area(v-html='blog.acf.land_area')
+        | Year Built
+        .page-property__details--year-built(v-html='blog.acf.year_built')
+        | Number of Floors
+        .page-property__details--floors(v-html='blog.acf.number_of_floors')
+        | Units
+        .page-property__details--units(v-html='blog.acf.units')    

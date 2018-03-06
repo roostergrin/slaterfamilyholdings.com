@@ -1,0 +1,4 @@
+.slider-property
+  .slider-property__container
+    .slider-property__slider(v-slider-property-directive='')
+      .slider-property__slide(v-for='slide in blog.acf.slider_property.image', :style="{ backgroundImage: 'url('+ slide.url +')' }")

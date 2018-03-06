@@ -2,5 +2,24 @@
   padding-top: 142px
   min-height: calc(100vh - 172px)
 
-  &__content
+  &__container
     @extend .container-fluid
+
+  &__slider
+    @extend .col-sm-8
+
+  &__location
+    @extend .col-sm-4
+
+    &--map
+      width: 100%
+      height: 260px
+
+  &__gallery, &__details
+    @extend .row
+
+  &__amenities
+    column-count: 2
+
+    &--amenity
+      margin-left: 12px
