@@ -4,7 +4,6 @@
 export default {
   data () {
     return {
-      properties: this.blog,
       propertyTypes: this.filtering.property_type,
       propertyLocations: this.filtering.property_location,
       propertyCities: false,
@@ -13,10 +12,10 @@ export default {
       selectedCities: false
     }
   },
-  props: ['props', 'blog', 'filtering'],
+  props: ['blog', 'filtering'],
   computed: {
     filteredProperties () {
-      var locations = this.properties
+      var locations = this.blog
       var selectedType = this.selectedProperties
       var selectedLocation = this.selectedLocations
       var selectedCity = this.selectedCities
@@ -77,6 +76,9 @@ export default {
     clearCity () {
       this.selectedLocations = 'All'
     }
+  },
+  created () {
+    console.log(this.properties)
   }
 }
 </script>

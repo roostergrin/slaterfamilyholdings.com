@@ -1,0 +1,7 @@
+.page-property(v-if='blog')
+  .page-property__container
+    .page-property__content
+      .page-property__content--title(v-html='blog.title.rendered')
+      .page-property__content--content(v-html='blog.acf.content')
+      pre {{ blog }}
+    

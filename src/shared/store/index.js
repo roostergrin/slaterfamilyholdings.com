@@ -11,6 +11,7 @@ const store = new Vuex.Store({
     pages: {},
     nav: {},
     blog: {},
+    filter: {},
     body: {},
     types: {},
     showModal: {},

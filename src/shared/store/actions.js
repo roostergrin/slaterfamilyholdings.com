@@ -3,6 +3,7 @@ import api from 'api'
 import {
   GET_PAGES,
   GET_BLOG,
+  GET_FILTER,
   GET_APP,
   VIEW_NAV,
   VIEW_BODY,
@@ -42,7 +43,12 @@ const actions = {
     (async () => {
       try {
         const response = await axios.get(`${api}/wp/v2/posts?per_page=10&_embed`)
-        commit(GET_BLOG, response)
+        const data = response.data.reduce(
+          (allData, data) => ({ ...allData, [data.slug]: data }),
+          {}
+        )
+        commit(GET_FILTER, response)
+        commit(GET_BLOG, data)
       } catch (e) {
         console.log(e)
       }

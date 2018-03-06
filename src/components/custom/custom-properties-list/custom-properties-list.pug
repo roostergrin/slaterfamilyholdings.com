@@ -54,7 +54,8 @@
             .custom-properties-list__listing--description
               | {{ property.acf.description }}
             .custom-properties-list__listing--link
-              | Click to Read More
+              router-link(:to='property.slug')
+                | Click to Read More
               span.yellow-arrow
                 |  >
 

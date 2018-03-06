@@ -15,11 +15,14 @@ export default {
       return this.$store.state.loading
     },
     blog () {
-      return this.$store.state.blog
+      return this.$store.state.filter
     },
     filtering () {
       return this.$store.state.app['property-filter']
     }
+  },
+  created () {
+    console.log(this.blog)
   },
   components: {
     Loader,
