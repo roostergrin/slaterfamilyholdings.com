@@ -17,6 +17,7 @@ export default {
       this.$validator.validateAll()
       .then(result => {
         if (result) {
+          this.$el.children[0].submit()
           this.formSubmitted = true
         } else {
           alert('Correct them errors!')
