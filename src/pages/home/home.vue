@@ -18,7 +18,7 @@ export default {
       return this.$store.state.loading
     },
     blog () {
-      return this.$store.state.blog
+      return this.$store.state.filter
     }
   },
   components: {

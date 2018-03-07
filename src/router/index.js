@@ -9,6 +9,7 @@ import StartUps from '@/pages/startups/startups'
 import AssetMoneyMaker from '@/pages/asset-money-maker/asset-money-maker'
 import Partnerships from '@/pages/partnerships/partnerships'
 import Property from '@/pages/property/property'
+import ThankYou from '@/pages/thank-you/thank-you'
 import PageNotFound from '@/pages/404/404'
 
 Vue.use(VueRouter)
@@ -63,6 +64,12 @@ const router = new VueRouter({
       name: 'partnerships',
       component: Partnerships,
       menu: 'bottom'
+    },
+    {
+      path: '/thank-you',
+      name: 'thank-you',
+      component: ThankYou,
+      menu: 'hidden'
     },
     {
       path: '/:postID',
