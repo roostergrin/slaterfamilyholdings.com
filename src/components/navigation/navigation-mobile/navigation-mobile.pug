@@ -1,0 +1,23 @@
+.nav-mobile
+  .nav-mobile__bg
+    .nav-mobile__container
+      .nav-mobile__logo
+        router-link(to='/')
+          Icon(name='Logo')
+
+      .nav-mobile__hamburger(@click='active = true', v-show='!active')
+        .nav-mobile__hamburger--lines
+          .nav-mobile__hamburger--line-one
+          .nav-mobile__hamburger--line-two
+          .nav-mobile__hamburger--line-three
+        .nav-mobile__hamburger--text MENU
+
+      .nav-mobile__hamburger(@click='active = false', v-show='active') X 
+        .nav-mobile__hamburger--close CLOSE
+      
+  .nav-mobile__links(v-show='active')
+    .nav-mobile__link(v-for='link in links', v-if='link.mobile === true', @click='active = false')
+      router-link(:to='link.path')
+        | {{ link.name }}
+        .nav-mobile__link--carot
+          Icon(name='Arrow')

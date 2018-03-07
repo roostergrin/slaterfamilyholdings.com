@@ -2,18 +2,19 @@
 
 <script>
 import Icon from 'components/icon/icon'
+import NavigationDesktop from 'components/navigation/navigation-desktop/navigation-desktop'
+import NavigationMobile from 'components/navigation/navigation-mobile/navigation-mobile'
 
 export default {
   components: {
-    Icon
+    Icon,
+    NavigationDesktop,
+    NavigationMobile
   },
   computed: {
     links () {
       return this.$router.options.routes
     }
   }
-  // created () {
-  //   console.log(this.$router, this.$route)
-  // }
 }
 </script>

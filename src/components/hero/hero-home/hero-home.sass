@@ -1,4 +1,13 @@
 .hero-home
+
+  &__overlay
+    background: linear-gradient(to right, rgba(25, 48, 88, 1), rgba(25, 48, 88, 0.1))
+    height: calc(100vh - 112px)
+
+    @media(max-width: 1024px)
+      background: none
+      height: 180px
+
   &__bg
     position: relative
     background-attachment: fixed
@@ -7,16 +16,23 @@
     background-size: cover
     height: calc(100vh - 112px)
 
+    @media(max-width: 1024px)
+      background-attachment: local
+      height: 180px
+
 
   &__container
     @extend .container-fluid
+
+    @media(max-width: 1024px)
+      display: none
 
 
   &__headline
     position: absolute
     top: 20vh
     left: 0
-    width: 50%
+    width: 60%
     height: 50%
     color: $c3
 
@@ -29,4 +45,25 @@
   &__subtitle
     line-height: 34px
     font-size: 24px
+    font-weight: 400
+
+  &__m-section
+    background: $c1
+    padding: 2rem
+
+    @media(min-width: 1025px)
+      display: none
+
+  &__m-container
+    @extend .container-fluid
+
+  &__m-title
+    color: $c3
+    font-size: 36px
+    font-weight: 300
+
+  &__m-subtitle
+    margin-top: 12px
+    color: $c3
+    font-size: 18px
     font-weight: 400

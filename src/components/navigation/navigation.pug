@@ -1,15 +1,3 @@
-.nav
-  .nav__bg
-    .nav__container
-      .nav__logo
-        router-link(to='/')
-          Icon(name='Logo')
-      
-      .nav__links
-        .nav__links--top
-          router-link.nav__link--top(v-for='(toplink, i) in links', :to='toplink.path' v-if='toplink.menu === "top"', :title='toplink.name', :key='i')
-            | {{ toplink.name }}
-              
-        .nav__links--bottom
-          router-link.nav__link--bottom(v-for='(bottomlink, j) in links', :to='bottomlink.path' v-if='bottomlink.menu === "bottom"', :title='bottomlink.name', :key='j')
-            | {{ bottomlink.name }}
+nav.nav
+  NavigationDesktop(class='nav__desktop')
+  NavigationMobile(class='nav__mobile')

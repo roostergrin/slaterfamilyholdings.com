@@ -21,49 +21,57 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: Home,
-      menu: 'top'
+      menu: 'top',
+      mobile: false
     },
     {
       path: '/about',
       name: 'about',
       component: About,
-      menu: 'top'
+      menu: 'top',
+      mobile: true
     },
     {
       path: '/green-initiative',
       name: 'green initiative',
       component: GreenInitiative,
-      menu: 'top'
+      menu: 'top',
+      mobile: true
     },
     {
       path: '/contact',
       name: 'contact',
       component: Contact,
-      menu: 'top'
+      menu: 'top',
+      mobile: true
     },
     {
       path: '/properties',
       name: 'properties',
       component: Properties,
-      menu: 'bottom'
+      menu: 'bottom',
+      mobile: true
     },
     {
       path: '/startups',
       name: 'startups',
       component: StartUps,
-      menu: 'bottom'
+      menu: 'bottom',
+      mobile: true
     },
     {
       path: '/asset-money-maker',
       name: 'asset money maker',
       component: AssetMoneyMaker,
-      menu: 'bottom'
+      menu: 'bottom',
+      mobile: true
     },
     {
       path: '/partnerships',
       name: 'partnerships',
       component: Partnerships,
-      menu: 'bottom'
+      menu: 'bottom',
+      mobile: true
     },
     {
       path: '/thank-you',

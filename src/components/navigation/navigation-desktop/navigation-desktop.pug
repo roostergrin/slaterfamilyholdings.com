@@ -1,0 +1,15 @@
+.nav-desktop
+  .nav-desktop__bg
+    .nav-desktop__container
+      .nav-desktop__logo
+        router-link(to='/')
+          Icon(name='Logo')
+      
+      .nav-desktop__links
+        .nav-desktop__links--top
+          router-link.nav-desktop__link--top(v-for='(toplink, i) in links', :to='toplink.path' v-if='toplink.menu === "top"', :title='toplink.name', :key='i')
+            | {{ toplink.name }}
+              
+        .nav-desktop__links--bottom
+          router-link.nav-desktop__link--bottom(v-for='(bottomlink, j) in links', :to='bottomlink.path' v-if='bottomlink.menu === "bottom"', :title='bottomlink.name', :key='j')
+            | {{ bottomlink.name }}

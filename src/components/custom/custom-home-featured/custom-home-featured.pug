@@ -11,9 +11,9 @@
       hr
       .custom-home-featured__property-list
         .custom-home-featured__property-listing(v-for='(property, i) in blog')
-          figure.custom-home-featured__property-listing--box
+          .custom-home-featured__property-listing--box
             img.custom-home-featured__property-listing--image(:src='property.acf.background_image')
-            figcaption.custom-home-featured__property-listing--title
+            .custom-home-featured__property-listing--title
               | {{ property.title.rendered }}
               span.yellow-arrow
                 |   >
