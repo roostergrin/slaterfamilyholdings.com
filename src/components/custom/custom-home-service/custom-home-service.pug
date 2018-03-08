@@ -9,6 +9,10 @@
         .custom-home-service__right--content(v-html='props.content')
         .custom-home-service__right--links
           router-link.custom-home-service__right--link(to='/partnerships')
-            | Partnerships  >
+            | Partnerships  
+            .custom-home-service__right--carot
+              Icon(name='Arrow')
           router-link.custom-home-service__right--link(to='/asset-money-maker')
-            | Asset Money Maker  >
+            | Asset Money Maker
+            .custom-home-service__right--carot
+              Icon(name='Arrow')

@@ -2,12 +2,16 @@
   .custom-home-startup__left
     .custom-home-startup__container
       .custom-home-startup__arrows
-        | <  >
+        .custom-home-startup__arrows--left
+          Icon(name='Arrow')
+        .custom-home-startup__arrows--right
+          Icon(name='Arrow')
       .custom-home-startup__subtitle(v-html='props.subtitle')
       .custom-home-startup__title(v-html='props.title')
       .custom-home-startup__content(v-html='props.content')
       router-link.custom-home-startup__link(to='/startups')
         | Continue Reading
-      span.yellow-arrow
-        |   > 
+      .custom-home-startup__carot
+        Icon(name='Arrow')
+      
   .custom-home-startup__right(:style="{ backgroundImage: 'url(' + props.background_image + ')'}")

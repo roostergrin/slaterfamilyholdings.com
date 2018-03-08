@@ -9,6 +9,9 @@
     margin: 4rem 0 0
     width: 100%
 
+    @media(max-width: 1024px)
+      display: block
+
     &--title
       @extend .col-sm-5
       color: $c1
@@ -21,9 +24,16 @@
       font-size: 18px
 
     &--link
+      display: inline-flex
       text-transform: uppercase
       text-decoration: none
+      color: $c1
       font-weight: 700
+
+    &--carot
+      margin-left: 12px
+      width: 14px
+      fill: $c1
 
   hr
     margin: 2rem 0
@@ -70,5 +80,19 @@
       font-size: 16px
 
     &--link
+      margin-top: 24px
       font-size: 16px
       font-weight: 700
+
+      a
+        text-decoration: none
+        color: $c3
+
+        &:hover
+          color: $c5
+
+    &--carot
+      display: inline-grid
+      margin-left: 12px
+      width: 14px
+      fill: $c2
