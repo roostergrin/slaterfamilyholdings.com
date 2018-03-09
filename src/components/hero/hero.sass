@@ -6,6 +6,10 @@
     background-size: cover
     height: 250px
 
+  &__overlay
+     background: linear-gradient(to right, rgba(25, 48, 88, 1), rgba(25, 48, 88, 0.1))
+     height: 250px
+
   &__container
     @extend .container-fluid
 
@@ -18,3 +22,8 @@
     color: $c3
     font-size: 72px
     font-weight: 300
+
+    @media(max-width: 1024px)
+      left: 24px
+      width: auto
+      font-size: 48px

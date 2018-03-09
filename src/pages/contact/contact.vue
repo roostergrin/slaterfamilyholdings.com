@@ -3,6 +3,7 @@
 <script>
 import Loader from 'components/loader/loader'
 import BlockContact from 'components/block/block-contact/block-contact'
+import Hero from 'components/hero/hero'
 
 export default {
   name: 'contact',
@@ -16,7 +17,8 @@ export default {
   },
   components: {
     Loader,
-    BlockContact
+    BlockContact,
+    Hero
   }
 }
 </script>

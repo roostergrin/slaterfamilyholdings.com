@@ -1,5 +1,6 @@
 .hero
   .hero__bg(:style="{ backgroundImage: 'url(' + props.acf.hero.background + ')'}")
-    .hero__container
-      .hero__headline
-        .hero__title(v-html='props.title.rendered')
+    .hero__overlay
+      .hero__container
+        .hero__headline
+          .hero__title(v-html='props.title.rendered')
