@@ -21,29 +21,7 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: Home,
-      menu: 'top',
-      mobile: false
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About,
-      menu: 'top',
-      mobile: true
-    },
-    {
-      path: '/green-initiative',
-      name: 'green initiative',
-      component: GreenInitiative,
-      menu: 'top',
-      mobile: true
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: Contact,
-      menu: 'top',
-      mobile: true
+      menu: 'top'
     },
     {
       path: '/properties',
@@ -71,6 +49,27 @@ const router = new VueRouter({
       name: 'partnerships',
       component: Partnerships,
       menu: 'bottom',
+      mobile: true
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+      menu: 'top',
+      mobile: true
+    },
+    {
+      path: '/green-initiative',
+      name: 'green initiative',
+      component: GreenInitiative,
+      menu: 'top',
+      mobile: true
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
+      menu: 'top',
       mobile: true
     },
     {

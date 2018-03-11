@@ -1,6 +1,8 @@
 <template lang="pug" src="./custom-properties-list.pug"></template>
 
 <script>
+import Icon from 'components/icon/icon'
+
 export default {
   data () {
     return {
@@ -9,7 +11,14 @@ export default {
       propertyCities: false,
       selectedProperties: 'All',
       selectedLocations: 'All',
-      selectedCities: false
+      selectedCities: false,
+      typeFilter: 'Active',
+      locationFilter: 'Active',
+      cityFilter: 'Active',
+      inSlide: false,
+      outSlide: this.fade,
+      animate: false,
+      animation: 'fade'
     }
   },
   props: ['blog', 'filtering'],
@@ -64,6 +73,9 @@ export default {
       }
     }
   },
+  components: {
+    Icon
+  },
   methods: {
     locationSelect (i) {
       this.selectedCities = false
@@ -75,10 +87,53 @@ export default {
     },
     clearCity () {
       this.selectedLocations = 'All'
+    },
+    hideType () {
+      if (this.typeFilter === 'Active') {
+        this.typeFilter = 'Disable'
+      } else {
+        this.typeFilter = 'Active'
+      }
+    },
+    hideLocation () {
+      if (this.locationFilter === 'Active') {
+        this.locationFilter = 'Disable'
+      } else {
+        this.locationFilter = 'Active'
+      }
+    },
+    hideState () {
+      if (this.cityFilter === 'Active') {
+        this.cityFilter = 'Disable'
+      } else {
+        this.cityFilter = 'Active'
+      }
     }
   },
   created () {
-    console.log(this.properties)
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      this.typeFilter = 'Disable'
+      this.locationFilter = 'Disable'
+    }
   }
 }
 </script>
+
+<style lang="css">
+
+.slide-fade-enter-active {
+  transition: all .8s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+.slide-fade-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+</style>
