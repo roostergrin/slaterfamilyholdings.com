@@ -1,6 +1,7 @@
 <template lang='pug' src='./property.pug'></template>
 
 <script>
+import HeroProperty from 'components/hero/hero-property/hero-property'
 import SliderProperty from 'components/slider/slider-property/slider-property'
 import PropertyMap from 'components/google-map/google-map'
 
@@ -13,6 +14,7 @@ export default {
     }
   },
   components: {
+    HeroProperty,
     SliderProperty,
     PropertyMap
   }

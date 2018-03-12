@@ -1,0 +1,29 @@
+.hero-property
+  &__bg
+    position: relative
+    background-repeat: no-repeat
+    background-position: bottom
+    background-size: cover
+    height: 250px
+
+  &__overlay
+     background: linear-gradient(to right, rgba(25, 48, 88, 1), rgba(25, 48, 88, 0.1))
+     height: 250px
+
+  &__container
+    @extend .container-fluid
+
+  &__headline
+    position: absolute
+    top: 70px
+    left: 0
+    width: 60%
+    height: 50%
+    color: $c3
+    font-size: 72px
+    font-weight: 300
+
+    @media(max-width: 1024px)
+      left: 24px
+      width: auto
+      font-size: 48px
