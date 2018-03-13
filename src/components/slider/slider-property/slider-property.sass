@@ -8,3 +8,20 @@
     background-repeat: no-repeat
     background-size: cover
     height: 400px
+
+  &__arrow
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    z-index: 99
+
+    &:hover
+      cursor: pointer
+
+    &--prev
+      left: 20px
+
+    &--next
+      right: 20px
+      transform: translateY(-50%) rotate(180deg)

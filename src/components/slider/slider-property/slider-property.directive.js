@@ -2,6 +2,7 @@ import Vue from 'vue'
 import $ from 'jquery'
 // eslint-disable-next-line
 import slick from 'slick-carousel'
+import Arrow from 'templates/left-arrow.html'
 
 const SliderPropertyDirective = Vue.directive('slider-property', {
   bind (el) {
@@ -16,10 +17,12 @@ const SliderPropertyDirective = Vue.directive('slider-property', {
         infinite: true,
         prevArrow: `
         <div class='slider-property__arrow slider-property__arrow--prev'>
+          ${Arrow}
         </div>
         `,
         nextArrow: `
         <div class='slider-property__arrow slider-property__arrow--next'>
+          ${Arrow}
         </div>
         `
       })
