@@ -6,7 +6,8 @@ import Icon from 'components/icon/icon'
 export default {
   data () {
     return {
-      showInfo: false
+      showInfo: false,
+      isFeatured: this.blog
     }
   },
   components: {

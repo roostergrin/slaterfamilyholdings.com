@@ -7,9 +7,6 @@ export default {
   props: ['blog'],
   directives: {
     SliderPropertyDirective
-  },
-  created () {
-    console.log(this.blog)
   }
 }
 </script>
