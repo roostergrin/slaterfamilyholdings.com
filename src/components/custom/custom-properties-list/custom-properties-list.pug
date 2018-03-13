@@ -47,10 +47,10 @@
                   | {{ propertyCity.city }}
                   
     .custom-properties-list__listingbox
-      .custom-properties-list__listing(v-for='(property, i) in filteredProperties')
+      .custom-properties-list__listing(v-for='(property, i) in filteredProperties', :key='i')
         .custom-properties-list__listing--box
-          img.custom-properties-list__listing--image(:src='property.acf.background_image')
-          .custom-properties-list__listing--title
+          img.custom-properties-list__listing--image(:src='property.acf.background_image', @click='mobileClick(i)')
+          .custom-properties-list__listing--title(:class='{ "custom-properties-list__listing--title-active": showInfo === i }')
             | {{ property.acf.name }}
             span.yellow-arrow 
               |   > 

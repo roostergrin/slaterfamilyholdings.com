@@ -12,10 +12,10 @@
               Icon(name='Arrow')
       hr
       .custom-home-featured__property-list
-        .custom-home-featured__property-listing(v-for='(property, i) in blog')
+        .custom-home-featured__property-listing(v-for='(property, i) in blog', :key='i')
           .custom-home-featured__property-listing--box
-            img.custom-home-featured__property-listing--image(:src='property.acf.background_image')
-            .custom-home-featured__property-listing--title
+            img.custom-home-featured__property-listing--image(:src='property.acf.background_image', @click='mobileClick(i)')
+            .custom-home-featured__property-listing--title(:class='{ "custom-home-featured__property-listing--title-active": showInfo === i }')
               | {{ property.title.rendered }}
               .custom-home-featured__property-listing--carot
                 Icon(name='Arrow')

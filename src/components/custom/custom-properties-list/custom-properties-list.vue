@@ -6,6 +6,7 @@ import Icon from 'components/icon/icon'
 export default {
   data () {
     return {
+      showInfo: false,
       propertyTypes: this.filtering.property_type,
       propertyLocations: this.filtering.property_location,
       propertyCities: false,
@@ -108,6 +109,9 @@ export default {
       } else {
         this.cityFilter = 'Active'
       }
+    },
+    mobileClick (i) {
+      this.showInfo = i
     }
   },
   created () {

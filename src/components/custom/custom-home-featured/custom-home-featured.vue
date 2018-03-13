@@ -4,9 +4,19 @@
 import Icon from 'components/icon/icon'
 
 export default {
+  data () {
+    return {
+      showInfo: false
+    }
+  },
   components: {
     Icon
   },
-  props: ['props', 'blog']
+  props: ['props', 'blog'],
+  methods: {
+    mobileClick (i) {
+      this.showInfo = i
+    }
+  }
 }
 </script>
