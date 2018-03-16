@@ -21,9 +21,6 @@ export default {
       return this.$store.state.app['property-filter']
     }
   },
-  created () {
-    console.log(this.blog)
-  },
   components: {
     Loader,
     Hero,

@@ -13,8 +13,5 @@ export default {
       return this.$router.options.routes
     }
   }
-  // mounted () {
-  //   console.log(this.props)
-  // }
 }
 </script>

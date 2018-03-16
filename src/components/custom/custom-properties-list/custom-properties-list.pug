@@ -13,7 +13,7 @@
         transition(name='slide-fade')
           .custom-properties-list__type--boxs(v-show='typeFilter === "Active"')
             label.custom-properties-list__type--options(v-for='propertyType in propertyTypes')
-              input.custom-properties-list__type--radio-btn(type='radio', :value='propertyType.type', v-model='selectedProperties')
+              input.custom-properties-list__type--radio-btn(type='radio', :value='propertyType.type_slug', v-model='selectedProperties')
               .custom-properties-list__type--label 
                 | {{ propertyType.type }}
       transition(name='slide-fade')
@@ -25,7 +25,7 @@
           transition(name='slide-fade')
             .custom-properties-list__location--box(v-show='locationFilter === "Active"')
               label.custom-properties-list__location--options(v-for='(propertyLocation, i) in propertyLocations', :key='i')
-                input.custom-properties-list__location--radio-btn(type='radio', :value='propertyLocation.location.state', v-model='selectedLocations', @click='locationSelect(i)')
+                input.custom-properties-list__location--radio-btn(type='radio', :value='propertyLocation.location.state_slug', v-model='selectedLocations', @click='locationSelect(i)')
                 .custom-properties-list__location--label
                   | {{ propertyLocation.location.state }}
       transition(name='slide-fade')  

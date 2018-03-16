@@ -17,7 +17,7 @@
           .custom-home-featured__property-listing--box
             img.custom-home-featured__property-listing--image(:src='property.acf.background_image', @click='mobileClick(i)')
             .custom-home-featured__property-listing--title(:class='{ "custom-home-featured__property-listing--title-active": showInfo === i }')
-              | {{ property.title.rendered }}
+              | {{ property.acf.name }}
               .custom-home-featured__property-listing--carot
                 Icon(name='Arrow')
                 
