@@ -8,12 +8,16 @@
   height: 142px
 
   &__container
-    @extend .container-fluid
+    // @extend .container-fluid
+    @extend .clearfix
+    margin: auto 4%
+    width: 92%
+    overflow: auto
 
   &__logo
     position: absolute
     top: 4.6rem
-    left: 2rem
+    // left: 2rem
     -webkit-transform: translateY(-50%)
     transform: translateY(-50%)
     width: 14rem
@@ -42,6 +46,12 @@
 
     &:first-child
       border: none
+
+    &--active
+      -webkit-text-fill-color: $c2
+      -webkit-text-stroke-color: $c2
+      -webkit-text-stroke-width: 1px
+      color: $c2
 
   &__links--top
     display: flex

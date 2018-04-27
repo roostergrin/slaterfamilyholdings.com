@@ -11,6 +11,11 @@ export default {
     links () {
       return this.$router.options.routes
     }
+  },
+  watch: {
+    '$route' () {
+      this.$store.dispatch('VIEW_NAV', this.$router.history.current.name)
+    }
   }
 }
 </script>

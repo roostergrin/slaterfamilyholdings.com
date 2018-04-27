@@ -1,0 +1,5 @@
+.pages-financial-investments
+  Loader(v-if='loading')
+  div(v-if='props && !loading')
+    Hero(:props='props')
+    pre {{ props }}

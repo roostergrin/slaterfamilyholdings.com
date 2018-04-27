@@ -2,12 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/home/home'
 import About from '@/pages/about/about'
+import PrivateEquity from '@/pages/private-equity/private-equity'
+import FinancialInvestments from '@/pages/financial-investments/financial-investments'
 // import GreenInitiative from '@/pages/green-initiative/green-initiative'
 import Contact from '@/pages/contact/contact'
 import Properties from '@/pages/properties/properties'
-import StartUps from '@/pages/startups/startups'
-import AssetMoneyMaker from '@/pages/asset-money-maker/asset-money-maker'
-import Partnerships from '@/pages/partnerships/partnerships'
+// import StartUps from '@/pages/startups/startups'
+// import AssetMoneyMaker from '@/pages/asset-money-maker/asset-money-maker'
+// import Partnerships from '@/pages/partnerships/partnerships'
 import Property from '@/pages/property/property'
 import ThankYou from '@/pages/thank-you/thank-you'
 import PageNotFound from '@/pages/404/404'
@@ -21,7 +23,14 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: Home,
-      menu: 'top'
+      menu: 'bottom'
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+      menu: 'bottom',
+      mobile: true
     },
     {
       path: '/properties',
@@ -31,33 +40,40 @@ const router = new VueRouter({
       mobile: true
     },
     {
-      path: '/startups',
-      name: 'startups',
-      component: StartUps,
+      path: '/private-equity',
+      name: 'private equity',
+      component: PrivateEquity,
       menu: 'bottom',
       mobile: true
     },
     {
-      path: '/asset-money-maker',
-      name: 'asset money maker',
-      component: AssetMoneyMaker,
+      path: '/financial-investments',
+      name: 'financial investments',
+      component: FinancialInvestments,
       menu: 'bottom',
       mobile: true
     },
-    {
-      path: '/partnerships',
-      name: 'partnerships',
-      component: Partnerships,
-      menu: 'bottom',
-      mobile: true
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About,
-      menu: 'top',
-      mobile: true
-    },
+    // {
+    //   path: '/startups',
+    //   name: 'startups',
+    //   component: StartUps,
+    //   menu: 'bottom',
+    //   mobile: true
+    // },
+    // {
+    //   path: '/asset-money-maker',
+    //   name: 'asset money maker',
+    //   component: AssetMoneyMaker,
+    //   menu: 'bottom',
+    //   mobile: true
+    // },
+    // {
+    //   path: '/partnerships',
+    //   name: 'partnerships',
+    //   component: Partnerships,
+    //   menu: 'bottom',
+    //   mobile: true
+    // },
     // {
     //   path: '/green-initiative',
     //   name: 'green initiative',
@@ -69,7 +85,7 @@ const router = new VueRouter({
       path: '/contact',
       name: 'contact',
       component: Contact,
-      menu: 'top',
+      menu: 'bottom',
       mobile: true
     },
     {

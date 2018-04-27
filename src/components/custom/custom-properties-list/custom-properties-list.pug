@@ -1,6 +1,6 @@
-.custom-properties-list(v-if='blog && filtering')
+.custom-properties-list
   .custom-properties-list__container
-    .custom-properties-list__filterbox
+    .custom-properties-list__filterbox(v-if='blog && filtering')
       .custom-properties-list__clear-filter
         .custom-properties-list__clear-filter--btn(@click='clearFilter')
           | Clear Filter Selection
