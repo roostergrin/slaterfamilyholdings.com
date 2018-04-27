@@ -3,15 +3,16 @@
 /**
  * Remove wysiwyg editor for pages post types
  */
-// add_action( 'init', 'remove_wysiwyg_editor' );
-// function remove_wysiwyg_editor () {
-//   remove_post_type_support( 'page', 'editor');
-// }
+add_action( 'init', 'remove_wysiwyg_editor' );
+function remove_wysiwyg_editor () {
+  remove_post_type_support( 'page', 'editor');
+  remove_post_type_support( 'post', 'editor');
+}
 
 /**
  * Hide the main editor on specific pages
  */
-define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Our Practice')));
+// define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Our Practice')));
 // define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('template-cars.php')));
 
 /**
@@ -27,7 +28,7 @@ define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Our Practice')));
  * @global string $pagenow
  * @return void
  */
- 
+
 function hide_editor() {
   global $pagenow;
     if(!('post.php' == $pagenow)){

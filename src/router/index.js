@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/home/home'
 import About from '@/pages/about/about'
-import GreenInitiative from '@/pages/green-initiative/green-initiative'
+// import GreenInitiative from '@/pages/green-initiative/green-initiative'
 import Contact from '@/pages/contact/contact'
 import Properties from '@/pages/properties/properties'
 import StartUps from '@/pages/startups/startups'
@@ -58,13 +58,13 @@ const router = new VueRouter({
       menu: 'top',
       mobile: true
     },
-    {
-      path: '/green-initiative',
-      name: 'green initiative',
-      component: GreenInitiative,
-      menu: 'top',
-      mobile: true
-    },
+    // {
+    //   path: '/green-initiative',
+    //   name: 'green initiative',
+    //   component: GreenInitiative,
+    //   menu: 'top',
+    //   mobile: true
+    // },
     {
       path: '/contact',
       name: 'contact',
