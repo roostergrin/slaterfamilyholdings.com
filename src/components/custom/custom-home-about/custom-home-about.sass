@@ -1,58 +1,77 @@
 .custom-home-about
   display: flex
+  flex-direction: column
 
-  @media(max-width: 1024px)
-    display: block
-
-  &__container
-    @extend .container-fluid
+  &__section
+    position: relative
+    background: #f1f1f1
+    &--alt
+      background: lighten($c1, 5%)
 
   &__left
+    position: absolute
+    top: 0
+    left: 50%
     background-repeat: no-repeat
     background-position: center
     background-size: cover
     width: 50%
-    min-height: 636px
+    height: 100%
 
-    @media(max-width: 1024px)
-      display: none
+    .custom-home-about__section--alt &
+      left: 0
+
+    @media(max-width: $screen-sm)
+      position: static
       width: 100%
+      min-height: 25rem
 
   &__right
-    background: #193058
-    padding: 10rem 3rem
-    width: 50%
-    height: 636px
+    @extend .container-fluid
 
-    @media(max-width: 1024px)
-      padding: 2rem
-      width: 100%
-      height: 100%
+  &__content
+    @extend .col-sm-5
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    min-height: 25rem
+    color: $c1
 
-  &__subtitle
-    margin-bottom: 12px
-    text-transform: uppercase
-    color: $c2
-    font-size: 18px
-    font-weight: 700
+    .custom-home-about__section--alt &
+      @extend .col-sm-offset-7
+      color: $c3
 
   &__title
-    margin-bottom: 12px
-    color: $c3
     font-size: 42px
     font-weight: 300
 
-  &__content
-    margin-bottom: 24px
-    line-height: 28px
-    color: $c3
+  &__body
+    padding: 1rem 0 2rem
+    line-height: 1.5
     font-size: 18px
+    font-weight: 300
+
+  &__link-box
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    width: 100%
 
   &__link
+    display: flex
+    align-items: center
+    margin-right: 1rem
     text-transform: uppercase
     text-decoration: none
-    color: $c3
+    line-height: 1
+    color: inherit
     font-weight: 700
+    &:hover
+      color: $c5
+
+      .custom-home-about__section--alt &
+        color: $c2
 
   &__carot
     display: inline-block

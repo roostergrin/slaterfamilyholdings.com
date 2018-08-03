@@ -1,11 +1,11 @@
 .custom-home-about
-  .custom-home-about__left(:style="{ backgroundImage: 'url(' + props.background_image + ')'}")
-  .custom-home-about__right
-    .custom-home-about__container
-      .custom-home-about__subtitle(v-html='props.subtitle')
-      .custom-home-about__title(v-html='props.title')
-      .custom-home-about__content(v-html='props.content')
-      router-link.custom-home-about__link(to='/about')
-        | Continue Reading
-      .custom-home-about__carot
-        Icon(name='Arrow')
+  .custom-home-about__section(v-for='(section, i) in props', :key='i', :class="{ 'custom-home-about__section--alt': i % 2 }")
+    .custom-home-about__left(:style="{ backgroundImage: 'url(' + section.image + ')'}")
+    .custom-home-about__right
+      .custom-home-about__content
+        .custom-home-about__title(v-html='section.title')
+        .custom-home-about__body(v-html='section.body ')
+        .custom-home-about__link-box
+          router-link.custom-home-about__link(v-for='(link, i) in section.links', :key='i', :to='link.href')
+            | {{ link.label }}
+            Icon.custom-home-about__carot(name='Arrow')
