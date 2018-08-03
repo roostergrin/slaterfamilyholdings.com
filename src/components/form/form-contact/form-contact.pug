@@ -17,10 +17,10 @@
             Icon(name='Carot')
           select.form-contact__input(name='reason', v-model='reason', v-validate="'required'", :class="{ 'input': true, 'form-contact__input--error': errors.has('reason') }", placeholder='Reason')
             option(value='' disabled hidden) Reason for Contact
-            option(value='Reason 1') Reason 1
-            option(value='Reason 2') Reason 2
-            option(value='Reason 3') Reason 3
-            option(value='Reason 4') Reason 4
+            option(value='Properties') Properties
+            option(value='Private Equity') Private Equity
+            option(value='Financial Investments') Financial Investments
+            option(value='Other') Other
           //- span.form-contact__group--message(v-show="errors.has('reason')") *Reason Required 
         .form-contact__group
           textarea.form-contact__textarea(name='message', v-model='message', rows='4', placeholder='Message')
