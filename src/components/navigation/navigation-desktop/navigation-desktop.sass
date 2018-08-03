@@ -1,6 +1,5 @@
 .nav-desktop
   position: fixed
-  float: left
   transition: all .5s ease-in
   z-index: 9999
   background: $c1
@@ -8,16 +7,16 @@
   height: 142px
 
   &__container
-    // @extend .container-fluid
     @extend .clearfix
-    margin: auto 4%
-    width: 92%
-    overflow: auto
+    margin: auto
+    width: 100%
+    max-width: 1440px
+    @media screen and (max-width: 1472px)
+      padding: 0 1rem
 
   &__logo
     position: absolute
     top: 4.6rem
-    // left: 2rem
     -webkit-transform: translateY(-50%)
     transform: translateY(-50%)
     width: 14rem
@@ -41,7 +40,7 @@
     text-transform: capitalize
     text-decoration: none
     color: $c3
-    font-size: 24px
+    font-size: 20px
     font-weight: 300
 
     &:first-child

@@ -2,4 +2,5 @@
   Loader(v-if='loading')
   div(v-if='!loading && props')
     Hero(:props='props')
-    CustomAboutIntro(:props='props.acf.custom_about_intro')
+    AboutIntro(:props='props.acf.intro')
+    AboutGallery(:props='props.acf.gallery')

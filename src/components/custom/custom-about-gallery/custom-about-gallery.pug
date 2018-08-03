@@ -1,0 +1,22 @@
+.custom-about-gallery
+  .custom-about-gallery__container
+    .custom-about-gallery__title(v-html='props.title')
+  .custom-about-gallery__container
+    .custom-about-gallery__person(v-for='(person, i) in props.gallery', :key='i' @click='openModal(person)')
+      img.custom-about-gallery__person-image(:src='person.image')
+      .custom-about-gallery__person-link {{ person.name }}
+        Icon.custom-about-gallery__person-link--carot(name='Arrow')
+
+  transition(name='custom-about-gallery__fade')
+    .custom-about-gallery__modal(v-show='modal')
+      .custom-about-gallery__overlay(@click='closeModal')
+      .custom-about-gallery__content
+        .custom-about-gallery__header
+          img.custom-about-gallery__image(:src='modalContent.image')
+          .custom-about-gallery__close(@click='closeModal') CLOSE
+            span X
+          .custom-about-gallery__name-box
+            .custom-about-gallery__name(v-html='modalContent.name')
+            .custom-about-gallery__position(v-html='modalContent.position')
+        .custom-about-gallery__description
+          .custom-about-gallery__text(v-html='modalContent.bio')
