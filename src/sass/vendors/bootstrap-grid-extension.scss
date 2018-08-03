@@ -42,7 +42,6 @@
 .container {
   @media (min-width: $screen-lg-min) {
     width: calc(100% - #{$grid-gutter-width});
-    // max-width: rem-calc(1405);
     max-width: $max-width;
   }
 }
