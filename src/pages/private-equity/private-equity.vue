@@ -3,6 +3,8 @@
 <script>
 import Loader from 'components/loader/loader'
 import Hero from 'components/hero/hero'
+import CustomPrivateEquityDirect from 'components/custom/custom-private-equity-direct/custom-private-equity-direct'
+import CustomPrivateEquityParticipation from 'components/custom/custom-private-equity-participation/custom-private-equity-participation'
 
 export default {
   name: 'private-equity',
@@ -16,7 +18,9 @@ export default {
   },
   components: {
     Loader,
-    Hero
+    Hero,
+    CustomPrivateEquityDirect,
+    CustomPrivateEquityParticipation
   }
 }
 </script>

@@ -1,0 +1,7 @@
+.custom-private-equity-participation
+  .custom-private-equity-participation__bg
+    .custom-private-equity-participation__container
+      .custom-private-equity-participation__title(v-html='props.title')
+      .custom-private-equity-participation__row
+        .custom-private-equity-participation__participant(v-for='(participant, i) in props.participators')
+          .custom-private-equity-participation__logo(:style='"backgroundImage: url(" + participant.logo + ");"')
