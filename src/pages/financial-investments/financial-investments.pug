@@ -2,4 +2,7 @@
   Loader(v-if='loading')
   div(v-if='props && !loading')
     Hero(:props='props')
-    pre {{ props }}
+    CustomFinancialInvestmentsIntro(:props='props.acf.custom_financial_investments_intro')
+    BlockParallax(:props='props')
+    CustomFinancialInvestmentsInvestment(:props='props.acf.custom_financial_investments_investment')
+    CustomFinancialInvestmentsPhilosophy(:props='props.acf.custom_financial_investments_philosophy')
