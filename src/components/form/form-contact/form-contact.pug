@@ -4,20 +4,28 @@
         h2 Thanks for submitting our form!
       form.form-contact__form(v-if='!formSubmitted', action='validate()' novalidate='novalidate' method='post')
         .form-contact__group.form-contact__group--col
-          label.form-contact__label Your First and Last Name
-          input.form-contact__input(name='full-name', v-model='name', :validate="'required'", :class="{ 'form-contact__input--error': errors.has('name') }", type='text')
-          span.form-contact__group--message(v-show="errors.has('name')") *Name Required
+          input.form-contact__input(name='name', v-model='name', v-validate="'required'", :class="{ 'form-contact__input--error': errors.has('name') }", type='text', placeholder='Full Name')
+          //- span.form-contact__group--message(v-show="errors.has('name')") *Name Required
         .form-contact__group.form-contact__group--col
-          label.form-contact__label Your Email
-          input.form-contact__input(name='email', v-model='email', v-validate="'required|email'", :class="{ 'input': true, 'form-contact__input--error': errors.has('email') }")
-          span.form-contact__group--message(v-show="errors.has('email')") *Email Required 
+          input.form-contact__input(name='email', v-model='email', v-validate="'required|email'", :class="{ 'input': true, 'form-contact__input--error': errors.has('email') }", placeholder='Email')
+          //- span.form-contact__group--message(v-show="errors.has('email')") *Email Required 
+        .form-contact__group.form-contact__group--col
+          input.form-contact__input(name='phone', v-model='phone', v-validate="'required'", :class="{ 'form-contact__input--error': errors.has('phone') }", type='text', placeholder='Phone Number')
+          //- span.form-contact__group--message(v-show="errors.has('name')") *Phone Required
+        .form-contact__group.form-contact__group--col
+          .form-contact__carot-select
+            Icon(name='Carot')
+          select.form-contact__input(name='reason', v-model='reason', v-validate="'required'", :class="{ 'input': true, 'form-contact__input--error': errors.has('reason') }", placeholder='Reason')
+            option(value='' disabled hidden) Reason for Contact
+            option(value='Reason 1') Reason 1
+            option(value='Reason 2') Reason 2
+            option(value='Reason 3') Reason 3
+            option(value='Reason 4') Reason 4
+          //- span.form-contact__group--message(v-show="errors.has('reason')") *Reason Required 
         .form-contact__group
-          label.form-contact__label Your Subject
-          input.form-contact__input(name='subject', v-model='subject', v-validate="'required'", :class="{ 'input': true, 'form-contact__input--error': errors.has('subject') }")
-          span.form-contact__group--message(v-show="errors.has('email')") *Subject Required   
-        .form-contact__group
-          label.form-contact__label Your Message
-          textarea.form-contact__textarea(name='message', v-model='message', rows='5')
+          textarea.form-contact__textarea(name='message', v-model='message', rows='4', placeholder='Message')
         .form-contact__group.form-contact__group--submit
-          input.form-contact__submit-button(type='submit', value="Send")
+          .form-contact__carot-submit
+            Icon(name='Arrow')
+          input.form-contact__submit-button(type='submit', value="Submit")
     

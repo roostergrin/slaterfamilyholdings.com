@@ -5,20 +5,25 @@
     @extend .container-fluid
 
   &__body
-    @extend .col-sm-10
-    @extend .col-sm-offset-1
+    margin: 64px auto
     margin-top: rem-calc(64)
     margin-bottom: rem-calc(64)
+    max-width: 800px
+
+    select
+      color: $c4
+      appearance: none
 
     @media screen and (max-width: $screen-sm)
       margin: rem-calc(24) auto
 
   &__group
-    margin-bottom: 8px
+    margin-bottom: 32px
     border-radius: 3px
-    padding: 0 rem-calc(16)
+    padding: 0 rem-calc(32)
 
     &--submit
+      position: relative
       text-align: center
 
     &--message
@@ -26,22 +31,20 @@
 
     &--col
       @extend .col-sm-6
-
-  &__label
-    @extend %p1
-    display: block
-    margin-bottom: 8px
-    color: $c1
+      position: relative
 
   &__input
     margin-bottom: 8px
-    border: none
+    border: 1px solid $c8
     border-radius: 3px
     background-color: $c6
     padding: 0 10px
     width: 100%
     height: 40px
     line-height: 40px
+
+    &::placeholder
+      color: $c4
 
     &:focus
       outline: none
@@ -59,14 +62,16 @@
     padding: 10px
     width: 100%
 
+    &::placeholder
+      color: $c4
+
   &__submit-button
     transition: all .5s ease-in-out
-    margin-top: rem-calc(40)
     border: none
     box-shadow: 0 1px 2px 0
     background: $c1
-    padding: .8em 6em
-    width: rem-calc(320)
+    padding: .8em 0
+    width: rem-calc(120)
     text-transform: uppercase
     color: $c3
     &:focus
@@ -78,3 +83,25 @@
 
     @media screen and (max-width: $screen-sm)
       width: inherit
+
+  &__carot-select
+      position: absolute
+      top: calc(50% - 15px)
+      right: 64px
+      width: 20px
+      height: 20px
+
+      svg
+        width: 20px
+        height: 20px
+        fill: $c1
+
+  &__carot-submit
+    position: absolute
+    top: 13px
+    left: calc(50% + 34px)
+    width: 12px
+    height: 12px
+
+    svg
+      fill: $c2

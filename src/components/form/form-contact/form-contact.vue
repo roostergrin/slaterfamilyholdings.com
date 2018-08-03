@@ -3,12 +3,14 @@
 <script>
 import api from 'api'
 import axios from 'axios'
+import Icon from 'components/icon/icon'
 export default {
   data: () => {
     return {
       name: '',
       email: '',
-      subject: '',
+      phone: '',
+      reason: '',
       message: '',
       modal: false,
       postUrl: api + '/rg-mail/v1/contact',
@@ -43,6 +45,9 @@ export default {
       })
       .catch(e => { console.log(e) })
     }
+  },
+  components: {
+    Icon
   }
 }
 </script>
