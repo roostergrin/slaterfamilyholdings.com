@@ -16,11 +16,11 @@ function rg_serve_route () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'info@wordpress.com';
-  $to = 'matt@roostergrin.com';
-  $subject = 'API Contact Form';
-  $message = 'Form Submission by: ' . $data['firstname'] . ' ' . $data['lastname'] . "\r\n";
+  $to = 'michael.cheng@roostergrin.com';
+  $subject = $data['subject'];
+  $message = 'Form Submission by: ' . $data['name'] . "\r\n";
   $message .= 'Email: ' . $data['email'] . "\r\n";
-  $message .= 'Phone: ' . $data['phone'] . "\r\n";
+  $message .= 'Message: ' . $data['message'] . "\r\n";
   $headers = '';
 
   $sent_message = wp_mail($to, $subject, $message, $headers);
