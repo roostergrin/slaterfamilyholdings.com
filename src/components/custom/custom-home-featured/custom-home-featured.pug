@@ -1,32 +1,20 @@
 .custom-home-featured
-  .custom-home-featured__bg
-    .custom-home-featured__container
-      .custom-home-featured__intro
-        .custom-home-featured__intro--title
-          | Featured Properties
-        .custom-home-featured__intro--content
-          | {{ props.content }}
-          router-link.custom-home-featured__intro--link(to='/properties')
-            | View All Properties
-            .custom-home-featured__intro--carot
-              Icon(name='Arrow')
-      hr
-      .custom-home-featured__property-list
-        //- 3 is the Feature Property Category ID
-        .custom-home-featured__property-listing(v-for='(property, i) in blog', :key='i', v-if='property.categories.includes(3)')
-          .custom-home-featured__property-listing--box
-            img.custom-home-featured__property-listing--image(:src='property.acf.background_image', @click='mobileClick(i)')
-            .custom-home-featured__property-listing--title(:class='{ "custom-home-featured__property-listing--title-active": showInfo === i }')
-              | {{ property.acf.name }}
-              .custom-home-featured__property-listing--carot
-                Icon(name='Arrow')
-                
-              .custom-home-featured__property-listing--description
-                | {{ property.acf.description }}
-              .custom-home-featured__property-listing--link
-                router-link(:to='property.slug')
-                  | Click to Read More
-                  .custom-home-featured__property-listing--carot
-                    Icon(name='Arrow')
-              
-              
+  .custom-home-featured__container
+    .custom-home-featured__title
+      | Featured Properties
+    .custom-home-featured__content
+      | {{ props.content }}
+      router-link.custom-home-featured__link(to='/properties')
+        | View All Properties
+        .custom-home-featured__link--carot
+          Icon(name='Arrow')
+    hr
+    //- 31 is the Feature Property Category ID
+    .custom-home-featured__property(v-for='(property, i) in blog', :key='i', v-if='property.categories.includes(31)')
+      img.custom-home-featured__property-image(:src='property.acf.background_image', @click='mobileClick(i)')
+      .custom-home-featured__property-card(:class='{ "custom-home-featured__property-title--active": showInfo === i }') 
+        .custom-home-featured__property-title(v-html='property.acf.name')
+        Icon.custom-home-featured__property-carot(name='Arrow')
+        .custom-home-featured__property-description(v-html='property.acf.description')
+        router-link.custom-home-featured__property-link(:to='property.slug') Click to Read More
+          Icon.custom-home-featured__property-link--carot(name='Arrow')

@@ -1,11 +1,18 @@
 .custom-properties-list
   .custom-properties-list__container
-    .custom-properties-list__filterbox(v-if='blog && filtering')
+    .custom-properties-list__filterbox(v-if='blog')
       .custom-properties-list__clear-filter
-        .custom-properties-list__clear-filter--btn(@click='clearFilter')
+        //- pre {{ categories }}
+      //- .custom-properties-list__filters(v-for='(parent, i) in categories', :key='i' v-if='parent.parent === 0 && parent.slug !== "uncategorized"')
+      //-   | {{ parent.slug }}
+      //-   .custom-properties-list__filter-child(v-for='(child, j) in types', :key='j' v-if='parent.id === child.parent')
+      //-     | {{ child.slug }}
+      //-     .custom-properties-list__filter-grand(v-for='(grand, k) in types', :key='k' v-if='child.id === grand.parent' v-show='showGrand === child.id')
+      //-       | {{ grand.slug }}
+        //- .custom-properties-list__clear-filter--btn(@click='clearFilter')
           | Clear Filter Selection
       
-      .custom-properties-list__type
+      //- .custom-properties-list__type
         .custom-properties-list__type--title
           | Type
           span.custom-properties-list__type--arrow(@click='hideType()', :class='{ "custom-properties-list__type--arrow-flip": typeFilter === "Disable" }')
@@ -16,37 +23,37 @@
               input.custom-properties-list__type--radio-btn(type='radio', :value='propertyType.type_slug', v-model='selectedProperties')
               .custom-properties-list__type--label 
                 | {{ propertyType.type }}
-      transition(name='slide-fade')
-        .custom-properties-list__location(v-show='selectedLocations === "All"')
-          .custom-properties-list__location--title
-            | Location
-            span.custom-properties-list__location--arrow(@click='hideLocation()', :class='{ "custom-properties-list__location--arrow-flip": locationFilter === "Disable" }')
-              Icon(name='Arrow')
-          transition(name='slide-fade')
-            .custom-properties-list__location--box(v-show='locationFilter === "Active"')
-              label.custom-properties-list__location--options(v-for='(propertyLocation, i) in propertyLocations', :key='i')
-                input.custom-properties-list__location--radio-btn(type='radio', :value='propertyLocation.location.state_slug', v-model='selectedLocations', @click='locationSelect(i)')
-                .custom-properties-list__location--label
-                  | {{ propertyLocation.location.state }}
-      transition(name='slide-fade')  
-        .custom-properties-list__city(v-show='selectedLocations !== "All"')
-          .custom-properties-list__city--title
-            | Location
-            span.custom-properties-list__city--arrow(@click='hideState()', :class='{ "custom-properties-list__city--arrow-flip": cityFilter === "Disable" }')
-              Icon(name='Arrow')
-          transition(name='slide-fade')
-            .custom-properties-list__city--box(v-show='cityFilter === "Active"')
-              label.custom-properties-list__city--selected-state(@click='clearCity()')
-                span.custom-properties-list__city--left-arrow
-                  Icon(name='Arrow')
-                span.custom-properties-list__city--selection
-                  | {{ selectedLocations }}
-              label.custom-properties-list__city--options(v-for='(propertyCity, i) in propertyCities', :key='i')
-                input.custom-properties-list__city--radio-btn(type='radio', :value='propertyCity.city', v-model='selectedCities')
-                .custom-properties-list__city--label 
-                  | {{ propertyCity.city }}
+      //- transition(name='slide-fade')
+      //-   .custom-properties-list__location(v-show='selectedLocations === "All"')
+      //-     .custom-properties-list__location--title
+      //-       | Location
+      //-       span.custom-properties-list__location--arrow(@click='hideLocation()', :class='{ "custom-properties-list__location--arrow-flip": locationFilter === "Disable" }')
+      //-         Icon(name='Arrow')
+      //-     transition(name='slide-fade')
+      //-       .custom-properties-list__location--box(v-show='locationFilter === "Active"')
+      //-         label.custom-properties-list__location--options(v-for='(propertyLocation, i) in propertyLocations', :key='i')
+      //-           input.custom-properties-list__location--radio-btn(type='radio', :value='propertyLocation.location.state_slug', v-model='selectedLocations', @click='locationSelect(i)')
+      //-           .custom-properties-list__location--label
+      //-             | {{ propertyLocation.location.state }}
+      //- transition(name='slide-fade')  
+      //-   .custom-properties-list__city(v-show='selectedLocations !== "All"')
+      //-     .custom-properties-list__city--title
+      //-       | Location
+      //-       span.custom-properties-list__city--arrow(@click='hideState()', :class='{ "custom-properties-list__city--arrow-flip": cityFilter === "Disable" }')
+      //-         Icon(name='Arrow')
+      //-     transition(name='slide-fade')
+      //-       .custom-properties-list__city--box(v-show='cityFilter === "Active"')
+      //-         label.custom-properties-list__city--selected-state(@click='clearCity()')
+      //-           span.custom-properties-list__city--left-arrow
+      //-             Icon(name='Arrow')
+      //-           span.custom-properties-list__city--selection
+      //-             | {{ selectedLocations }}
+      //-         label.custom-properties-list__city--options(v-for='(propertyCity, i) in propertyCities', :key='i')
+      //-           input.custom-properties-list__city--radio-btn(type='radio', :value='propertyCity.city', v-model='selectedCities')
+      //-           .custom-properties-list__city--label 
+      //-             | {{ propertyCity.city }}
                   
-    .custom-properties-list__listingbox
+    //- .custom-properties-list__listingbox
       .custom-properties-list__listing(v-for='(property, i) in filteredProperties', :key='i')
         .custom-properties-list__listing--box
           img.custom-properties-list__listing--image(:src='property.acf.background_image', @click='mobileClick(i)')

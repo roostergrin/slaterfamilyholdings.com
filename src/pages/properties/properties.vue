@@ -16,9 +16,6 @@ export default {
     },
     blog () {
       return this.$store.state.filter
-    },
-    filtering () {
-      return this.$store.state.app['property-filter']
     }
   },
   components: {

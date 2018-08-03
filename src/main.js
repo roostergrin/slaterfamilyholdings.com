@@ -8,6 +8,8 @@ import store from './shared/store'
 import VueCookies from 'vue-cookies'
 import * as customFilters from './shared/filters/filters'
 // import VueParallaxJs from 'vue-parallax-js'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 // import VueScrollTo from 'vue-scrollto'
 // import VueWaypoint from 'vue-waypoint'
 
@@ -35,6 +37,8 @@ Vue.use(VeeValidate)
 // })
 // Vue.use(VueWaypoint)
 Vue.use(VueCookies)
+
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 /* eslint-disable no-new */
 new Vue({

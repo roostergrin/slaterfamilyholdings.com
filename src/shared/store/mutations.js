@@ -1,4 +1,14 @@
-import { GET_PAGES, GET_APP, GET_BLOG, GET_FILTER, VIEW_NAV, VIEW_BODY, VIEW_TYPES, VIEW_SHOWMODAL, VIEW_MODALCONTENT } from './mutation-types.js'
+import {
+  GET_PAGES,
+  GET_APP,
+  GET_CATEGORIES,
+  GET_TYPES,
+  GET_BLOG,
+  GET_FILTER,
+  VIEW_NAV,
+  VIEW_BODY,
+  VIEW_SHOWMODAL,
+  VIEW_MODALCONTENT } from './mutation-types.js'
 
 const mutations = {
   [GET_PAGES] (state, data) {
@@ -11,6 +21,12 @@ const mutations = {
     state.blog.current_page.number = 1
     state.loading = false
   },
+  [GET_CATEGORIES] (state, data) {
+    state.locations = data
+  },
+  [GET_TYPES] (state, data) {
+    state.types = data
+  },
   [GET_FILTER] (state, data) {
     state.filter = data
   },
@@ -22,9 +38,6 @@ const mutations = {
   },
   [VIEW_BODY] (state, data) {
     state.body = data
-  },
-  [VIEW_TYPES] (state, data) {
-    state.types = data
   },
   [VIEW_SHOWMODAL] (state, data) {
     state.showModal = data

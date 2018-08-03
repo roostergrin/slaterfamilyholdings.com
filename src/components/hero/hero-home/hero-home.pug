@@ -1,14 +1,4 @@
 .hero-home
-  .hero-home__bg(:style="{ backgroundImage: 'url(' + props.background + ')'}")
-    .hero-home__overlay
-      .hero-home__container
-        .hero-home__headline
-          .hero-home__title(v-html='props.title')
-          .hero-home__subtitle(v-html='props.subtitle')
-            
-  .hero-home__m-section
-    .hero-home__m-container
-      .hero-home__m-headline
-        .hero-home__m-title(v-html='props.title')
-        .hero-home__m-subtitle(v-html='props.subtitle')
+  swiper
+    swiper-slide.hero-home__bg(:style="{ backgroundImage: 'url(' + slide.image + ')'}" v-for='(slide, i) in props')
   
