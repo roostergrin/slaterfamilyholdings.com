@@ -1,4 +1,5 @@
 .hero-home
-  swiper
-    swiper-slide.hero-home__bg(:style="{ backgroundImage: 'url(' + slide.image + ')'}" v-for='(slide, i) in props')
-  
+  swiper.hero-home__slider(:options='swiperOptions')
+    swiper-slide.hero-home__bg(:style="{ backgroundImage: 'url(' + slide.image + ')'}" v-for='(slide, i) in props', :key='i')
+  Icon.hero-home__left(name='Arrow')
+  Icon.hero-home__right(name='Arrow')
