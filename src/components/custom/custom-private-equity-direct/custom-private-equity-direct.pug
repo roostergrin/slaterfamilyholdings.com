@@ -1,0 +1,9 @@
+.custom-private-equity-direct
+  .custom-private-equity-direct__bg
+    .custom-private-equity-direct__container
+      .custom-private-equity-direct__content(v-html='props.content')
+      .custom-private-equity-direct__title(v-html='props.title')
+      .custom-private-equity-direct__row
+        .custom-private-equity-direct__investor(v-for='(investor, i) in props.investors', :key='i')
+          .custom-private-equity-direct__logo(:style='"backgroundImage: url(" + investor.logo + ");"')
+          .custom-private-equity-direct__description(v-html='investor.description')
