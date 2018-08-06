@@ -2,7 +2,6 @@ import {
   GET_PAGES,
   GET_APP,
   GET_CATEGORIES,
-  GET_TYPES,
   GET_BLOG,
   GET_FILTER,
   VIEW_NAV,
@@ -22,9 +21,6 @@ const mutations = {
     state.loading = false
   },
   [GET_CATEGORIES] (state, data) {
-    state.locations = data
-  },
-  [GET_TYPES] (state, data) {
     state.types = data
   },
   [GET_FILTER] (state, data) {
