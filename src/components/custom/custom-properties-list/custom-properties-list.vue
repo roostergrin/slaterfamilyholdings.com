@@ -6,15 +6,7 @@ import Icon from 'components/icon/icon'
 export default {
   data () {
     return {
-      // showInfo: false,
-      // propertyLocations: this.filtering.property_location,
-      // propertyCities: false,
-      // selectedProperties: 'All',
-      // selectedLocations: 'All',
-      showGrand: false,
-      typeFilter: {},
-      locationFilter: {},
-      cityFilter: {},
+      shown: [],
       inSlide: false,
       outSlide: this.fade,
       animate: false,
@@ -23,114 +15,40 @@ export default {
   },
   props: ['blog'],
   computed: {
-    // categories () {
-    //   const cat = this.$store.state.categories
-    //   const parents = shortenObjects.filter(type => type.id !== 1 && type.parent === 0).map(child => Object.assign({ children: [...(cat.filter(x => x.parent === child.id))] }, child))
-    //   return parents
-    // },
-    // types () {
-    //   return this.categories.filter(type => type.parent !== 0)
-    // }
-  //   filteredProperties () {
-  //     var locations = this.blog
-  //     var selectedType = this.selectedProperties
-  //     var selectedLocation = this.selectedLocations
-  //     var selectedCity = this.selectedCities
-  //     var filteredPropertiesList = []
-  //     if (selectedType === 'All' && selectedLocation === 'All') {
-  //       return locations
-  //     } else if (selectedLocation === 'All') {
-  //       locations.filter(function (location) {
-  //         if (location.acf.property_type === selectedType) {
-  //           if (selectedCity === false) {
-  //             filteredPropertiesList.push(location)
-  //           } else {
-  //             if (location.acf.property_location.city === selectedCity) {
-  //               filteredPropertiesList.push(location)
-  //             }
-  //           }
-  //         }
-  //       })
-  //       return filteredPropertiesList
-  //     } else if (selectedType === 'All') {
-  //       locations.filter(function (location) {
-  //         if (location.acf.property_location.state === selectedLocation) {
-  //           if (selectedCity === false) {
-  //             filteredPropertiesList.push(location)
-  //           } else {
-  //             if (location.acf.property_location.city === selectedCity) {
-  //               filteredPropertiesList.push(location)
-  //             }
-  //           }
-  //         }
-  //       })
-  //       return filteredPropertiesList
-  //     } else {
-  //       locations.filter(function (location) {
-  //         if (location.acf.property_type === selectedType && location.acf.property_location.state === selectedLocation) {
-  //           if (selectedCity === false) {
-  //             filteredPropertiesList.push(location)
-  //           } else {
-  //             if (location.acf.property_location.city === selectedCity) {
-  //               filteredPropertiesList.push(location)
-  //             }
-  //           }
-  //         }
-  //       })
-  //       return filteredPropertiesList
-  //     }
-  //   }
-  // },
+    categories () {
+      return this.$store.state.types
+    },
+    properties () {
+      let locations = this.blog
+      let selected = this.shown
+      if (selected.length === 0) {
+        return locations
+      }
+      if (selected.length !== 0) {
+        let arrFilter = function (arr, searchArr) {
+          return arr.filter(item => {
+            return searchArr.some(searchTerm => {
+              return item.categories.indexOf(searchTerm.id) > -1
+            })
+          })
+        }
+        let newArr = arrFilter(locations, selected)
+        return newArr
+      }
+    }
   },
   components: {
     Icon
   },
-  mounted () {
-    console.log(this.$store.state)
+  methods: {
+    select (category) {
+      if (this.shown.includes(category)) {
+        this.shown = this.shown.filter(item => item !== category)
+      } else {
+        this.shown.push(category)
+      }
+    }
   }
-  // methods: {
-    // locationSelect (i) {
-    //   this.selectedCities = false
-    //   this.propertyCities = this.propertyLocations[i].location.city
-    // },
-    // clearFilter () {
-    //   this.selectedProperties = 'All'
-    //   this.selectedLocations = 'All'
-    // },
-    // clearCity () {
-    //   this.selectedLocations = 'All'
-    // },
-    // hideType () {
-    //   if (this.typeFilter === 'Active') {
-    //     this.typeFilter = 'Disable'
-    //   } else {
-    //     this.typeFilter = 'Active'
-    //   }
-    // },
-    // hideLocation () {
-    //   if (this.locationFilter === 'Active') {
-    //     this.locationFilter = 'Disable'
-    //   } else {
-    //     this.locationFilter = 'Active'
-    //   }
-    // },
-    // hideState () {
-    //   if (this.cityFilter === 'Active') {
-    //     this.cityFilter = 'Disable'
-    //   } else {
-    //     this.cityFilter = 'Active'
-    //   }
-    // },
-    // mobileClick (i) {
-    //   this.showInfo = i
-    // }
-  // }
-  // created () {
-  //   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-  //     this.typeFilter = 'Disable'
-  //     this.locationFilter = 'Disable'
-  //   }
-  // }
 }
 </script>
 
