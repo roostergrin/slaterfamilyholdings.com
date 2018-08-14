@@ -1,7 +1,6 @@
 export const GET_PAGES = 'GET_PAGES'
 export const GET_BLOG = 'GET_BLOG'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
-export const GET_TYPES = 'GET_TYPES'
 export const GET_APP = 'GET_APP'
 export const GET_FILTER = 'GET_FILTER'
 export const VIEW_NAV = 'VIEW_NAV'

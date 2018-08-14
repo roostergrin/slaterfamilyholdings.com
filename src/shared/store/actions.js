@@ -4,7 +4,6 @@ import {
   GET_PAGES,
   GET_BLOG,
   GET_CATEGORIES,
-  GET_TYPES,
   GET_FILTER,
   GET_APP,
   VIEW_NAV,
@@ -59,30 +58,22 @@ const actions = {
     (async () => {
       try {
         const response = await axios.get(`${api}/wp/v2/categories?per_page=100`)
-        const shortenObjects = response.data.map((x) => {
-          delete x._links
-          delete x.meta
-          delete x.acf
-          delete x.link
-          delete x.count
-          delete x.description
-          delete x.taxonomy
-          return x
+        let shortenObjects = response.data.map((category) => {
+          delete category._links
+          delete category.meta
+          delete category.acf
+          delete category.link
+          delete category.count
+          delete category.description
+          delete category.taxonomy
+          return category
         })
-        const location = shortenObjects.filter(item => item.slug === 'location').reduce(
-          (arr, curr) => ({ ...arr, [curr.slug]: curr }),
-          {}
-        )
-        .map(
-          state => Object.assign({ children: [...(shortenObjects.filter(child => child.parent === state.id))] }, state)
-        )
-        console.log(location)
-        const types = shortenObjects.filter(item => item.slug === 'type')
-        .map(
-          parent => Object.assign({ children: [...(shortenObjects.filter(child => child.parent === parent.id))] }, parent)
-        )
-        commit(GET_CATEGORIES, location)
-        commit(GET_TYPES, types)
+        const data = shortenObjects.map((category) => {
+          category.children = shortenObjects.filter(child => child.parent === category.id)
+          return category
+        }).filter(category => category.parent === 0 && category.slug !== 'uncategorized' && category.slug !== 'featured')
+        console.log(data)
+        commit(GET_CATEGORIES, data)
       } catch (e) {
         console.log(e)
       }

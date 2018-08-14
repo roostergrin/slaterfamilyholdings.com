@@ -12,7 +12,6 @@ const store = new Vuex.Store({
     nav: {},
     blog: {},
     filter: {},
-    locations: {},
     types: {},
     body: {},
     showModal: {},

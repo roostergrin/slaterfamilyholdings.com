@@ -1,4 +1,5 @@
 .hero-home
+  position: relative
 
   &__bg
     background-repeat: no-repeat
@@ -13,6 +14,7 @@
   &__right
     position: absolute
     top: 50%
+    transform: translateY(-50%)
     z-index: 99
     background: $c1
     padding: .5rem
@@ -25,7 +27,7 @@
 
   &__left
     left: 0
-    transform: rotate(180deg)
+    transform: rotate(180deg) translateY(-50%)
 
   &__right
     right: 0
