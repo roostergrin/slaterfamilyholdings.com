@@ -44,6 +44,9 @@ export default {
     select (category) {
       if (this.shown.includes(category)) {
         this.shown = this.shown.filter(item => item !== category)
+        if (category.children > 0) {
+
+        }
       } else {
         this.shown.push(category)
       }
