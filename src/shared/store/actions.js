@@ -55,6 +55,7 @@ const actions = {
     })()
   },
   GET_CATEGORIES ({ commit }) {
+    // gets possible post categories for filters
     (async () => {
       try {
         const response = await axios.get(`${api}/wp/v2/categories?per_page=100`)
@@ -71,8 +72,7 @@ const actions = {
         const data = shortenObjects.map((category) => {
           category.children = shortenObjects.filter(child => child.parent === category.id)
           return category
-        }).filter(category => category.parent === 0 && category.slug !== 'uncategorized' && category.slug !== 'featured')
-        console.log(data)
+        }).filter(category => category.parent === 0)
         commit(GET_CATEGORIES, data)
       } catch (e) {
         console.log(e)

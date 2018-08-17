@@ -2,11 +2,6 @@
 
 <script>
 export default {
-  computed: {
-    blog () {
-      var property = this.$route.params.postID
-      return this.$store.state.blog[property]
-    }
-  }
+  props: ['props']
 }
 </script>

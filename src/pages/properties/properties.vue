@@ -2,8 +2,8 @@
 
 <script>
 import Loader from 'components/loader/loader'
-import Hero from 'components/hero/hero'
-import CustomPropertiesList from 'components/custom/custom-properties-list/custom-properties-list'
+import PropertyHero from 'components/hero/hero-property/hero-property'
+import PropertiesList from 'components/custom/custom-properties-list/custom-properties-list'
 
 export default {
   name: 'properties',
@@ -20,8 +20,8 @@ export default {
   },
   components: {
     Loader,
-    Hero,
-    CustomPropertiesList
+    PropertyHero,
+    PropertiesList
   }
 }
 </script>
