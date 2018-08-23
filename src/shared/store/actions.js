@@ -47,7 +47,7 @@ const actions = {
           (allData, data) => ({ ...allData, [data.slug]: data }),
           {}
         )
-        commit(GET_FILTER, response)
+        commit(GET_FILTER, response.data)
         commit(GET_BLOG, data)
       } catch (e) {
         console.log(e)
