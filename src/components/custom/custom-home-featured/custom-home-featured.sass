@@ -5,13 +5,15 @@
     display: flex
     flex-wrap: wrap
     align-items: center
-    justify-content: space-between
     margin: auto
     width: 100%
     max-width: $max-width
 
     @media screen and (max-width: $max-width)
       padding: 0 1rem
+
+    &:first-child
+      justify-content: space-between
 
   &__title
     color: $c1
@@ -42,9 +44,11 @@
 
   &__property
     position: relative
+    margin-right: calc(5% / 2)
     margin-bottom: 2rem
+    margin-left: calc(5% / 2)
     cursor: pointer
-    width: calc(100% / 3.3)
+    width: calc(90% / 3)
     min-height: 25rem
     overflow: hidden
 
@@ -54,6 +58,13 @@
     &:hover
       .custom-home-featured__property-card
         top: 0
+
+    &:nth-child(3n)
+      margin-right: 0
+
+    &:nth-child(3n + 1)
+      margin-left: 0
+
 
 
   &__property-image

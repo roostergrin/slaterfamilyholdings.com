@@ -9,6 +9,7 @@
         .custom-home-featured__link--carot
           Icon(name='Arrow')
     hr
+  .custom-home-featured__container
     //- 31 is the Feature Property Category ID
     .custom-home-featured__property(v-for='(property, i) in blog', :key='i', v-if='property.categories.includes(31)')
       img.custom-home-featured__property-image(:src='property.acf.background_image', @click='mobileClick(i)')

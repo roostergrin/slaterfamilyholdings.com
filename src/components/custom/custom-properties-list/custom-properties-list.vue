@@ -24,17 +24,34 @@ export default {
       if (selected.length === 0) {
         return locations
       }
-      if (selected.length !== 0) {
-        let arrFilter = function (arr, searchArr) {
-          return arr.filter(item => {
-            return searchArr.some(searchTerm => {
-              return item.categories.indexOf(searchTerm.id) > -1
-            })
-          })
-        }
-        let newArr = arrFilter(locations, selected)
-        return newArr
-      }
+      // if (selected.length !== 0) {
+      //   let arrFilter = function (arr, searchArr) {
+      //     return arr.filter(item => {
+      //       return searchArr.some(searchTerm => {
+      //         return item.categories.indexOf(searchTerm.id) > -1
+      //       })
+      //     })
+      //   }
+      //   let typeFilter = []
+      //   let locationFilter = []
+      //   let finalFilter = []
+      //   let arrFilter = function (arr, searchArr) {
+      //     return arr.filter(item => {
+      //       return searchArr.some(searchTerm => {
+      //         // console.log(arr, searchArr, item, searchTerm)
+      //         if (searchTerm.parent === 16) {
+      //           item.categories.indexOf(searchTerm.id) > -1 ? typeFilter.push(item) : console.log('wrong type')
+      //         } else {
+      //           item.categories.indexOf(searchTerm.id) > -1 ? locationFilter.push(item) : console.log('wrong location')
+      //         }
+      //       })
+      //     })
+      //   }
+      //   arrFilter(locations, selected)
+      //   console.log(typeFilter)
+      //   console.log(locationFilter)
+      //   return finalFilter
+      // }
     }
   },
   components: {
@@ -44,13 +61,21 @@ export default {
     select (category) {
       if (this.shown.includes(category)) {
         this.shown = this.shown.filter(item => item !== category)
-        if (category.children > 0) {
-
+        for (var i = 0; i < this.shown.length; i++) {
+          if (this.shown[i].parent !== 16) {
+            this.shown.splice(this.shown.indexOf(this.shown[i]), i)
+          }
         }
       } else {
         this.shown.push(category)
       }
     }
+  },
+  async created () {
+    console.log(this.blog.filter(function (category) {
+      return category.categories[2] === 15
+    }))
+    console.log(this.shown)
   }
 }
 </script>

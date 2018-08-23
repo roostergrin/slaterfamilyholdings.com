@@ -12,6 +12,7 @@ const SliderPropertyDirective = Vue.directive('slider-property', {
         arrows: true,
         autoplay: true,
         speed: 1000,
+        autoplaySpeed: 3000,
         fade: true,
         dots: false,
         infinite: true,
