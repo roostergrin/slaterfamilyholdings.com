@@ -22,6 +22,9 @@ export default {
     Loader,
     PropertyHero,
     PropertiesList
+  },
+  created () {
+    console.log(this.blog)
   }
 }
 </script>

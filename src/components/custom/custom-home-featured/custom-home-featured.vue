@@ -18,6 +18,9 @@ export default {
     mobileClick (i) {
       this.showInfo = i
     }
+  },
+  created () {
+    console.log(this.blog)
   }
 }
 </script>
