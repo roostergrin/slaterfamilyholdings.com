@@ -6,7 +6,7 @@
         a.footer__column--email(v-html='props.props.acf.footer.email', :href='props.props.acf.footer.email_href')
         router-link.footer__column--link(to='/contact')
           | Contact Us
-          span.footer__column--arrow >
+          Icon.footer__column--arrow(name='Arrow')
 
       .footer__column
         a.footer__column--address(v-html='props.props.acf.footer.address', :href='props.props.acf.footer.address_href')
@@ -14,10 +14,10 @@
       .footer__column
         a.footer__column--link(:href='props.props.acf.footer.privacy_policy_link')
           | Privacy Policy
-          span.footer__column--arrow >
+          Icon.footer__column--arrow(name='Arrow')
         a.footer__column--link(:href='props.props.acf.footer.terms_of_use_link')
           | Terms of Use
-          span.footer__column--arrow >
+          Icon.footer__column--arrow(name='Arrow')
 
       .footer__column
         .footer__column--copyright
@@ -26,7 +26,7 @@
           | All Rights Reserved. 
         .footer__column--credit 
           | An 
-          span.footer__column--rg Imagebox 
+          a.footer__column--rg(href='https://imagebox.com/') Imagebox 
           | and 
           span.footer__column--rg Rooster Grin 
           | collaboration

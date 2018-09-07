@@ -12,7 +12,9 @@
 
     &--arrow
       margin-left: 8px
-      color: $c2
+      width: 1rem
+      font-size: 0
+      fill: $c2
 
     &--phone, &--email, &--link, &--address
       display: block
@@ -27,14 +29,22 @@
       margin-bottom: 1.4rem
 
     &--link
+      display: flex
+      align-items: center
       margin-bottom: 1.4rem
       text-transform: uppercase
       font-weight: 700
 
+    &--copyright
+      color: $c3
+
     &--credit
       margin-top: 1.4rem
+      color: $c3
 
     &--rg
       text-transform: capitalize
+      text-decoration: none
       letter-spacing: 0.71px
+      color: $c3
       font-weight: 700

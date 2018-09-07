@@ -3,14 +3,16 @@
     .custom-properties-list__filters
       .custom-properties-list__filter-box(v-for='(parent, i) in categories', :key='i' v-if='parent.slug !== "uncategorized" && parent.slug !== "featured"')
         .custom-properties-list__header {{ parent.slug }}
-        .custom-properties-list__filter(v-for='(child, j) in parent.children', :key='j' @click='select(child)', :class='{ active: shown.includes(child), dropdown: child.children.length > 0 }')
-          | {{ child.slug }}
-          .custom-properties-list__cities(v-show='shown.includes(child) && child.children.length > 0')
-            .custom-properties-list__city(v-for='(grand, k) in child.children', :key='k', :class='{ active: shown.includes(grand) }', @click.stop='select(grand)')
+        .custom-properties-list__filter(v-for='(child, j) in parent.children', :key='j' @click='select(child)', :class='{ active: activeCategories.includes(child.id), dropdown: child.children.length > 0 }')
+          .custom-properties-list__filter--headers
+            Icon.custom-properties-list__filter--carot(name='Carot' v-if='child.children.length > 0 && activeCategories.includes(child.id)')
+            span {{ child.slug }}
+          .custom-properties-list__cities(v-show='activeCategories.includes(child.id) && child.children.length > 0')
+            .custom-properties-list__city(v-for='(grand, k) in child.children', :key='k', :class='{ active: activeCategories.includes(grand.id) }', @click.stop='select(grand)')
               | {{ grand.slug }}
 
     .custom-properties-list__properties
-      router-link.custom-properties-list__property(v-for='(property, i) in current', :key='i', :to='property.slug')
+      router-link.custom-properties-list__property(v-for='(property, i) in locations', :key='i', :to='property.slug')
         img.custom-properties-list__property-image(:src='property.acf.background_image')
         .custom-properties-list__property-card 
           .custom-properties-list__property-title

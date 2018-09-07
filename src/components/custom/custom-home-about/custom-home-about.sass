@@ -70,11 +70,20 @@
     &:hover
       color: $c5
 
+      .custom-home-about__carot
+        fill: $c5
+
       .custom-home-about__section--alt &
         color: $c2
+
+        .custom-home-about__carot
+          fill: $c2
 
   &__carot
     display: inline-block
     margin-left: 12px
     width: 14px
-    fill: $c2
+    fill: $c1
+
+    .custom-home-about__section--alt &
+      fill: $c2
