@@ -7,7 +7,7 @@ import VeeValidate from 'vee-validate'
 import store from './shared/store'
 import VueCookies from 'vue-cookies'
 import * as customFilters from './shared/filters/filters'
-// import VueParallaxJs from 'vue-parallax-js'
+import VueParallaxJs from 'vue-parallax-js'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 // import VueScrollTo from 'vue-scrollto'
@@ -23,7 +23,7 @@ Object.keys(customFilters).forEach(key => {
 
 // Vue use
 Vue.use(VeeValidate)
-// Vue.use(VueParallaxJs, { minWidth: 1024 })
+Vue.use(VueParallaxJs, { minWidth: 1024 })
 // Vue.use(VueScrollTo, {
 //   container: 'body',
 //   duration: 1500,

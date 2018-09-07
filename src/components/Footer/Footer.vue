@@ -1,6 +1,7 @@
 <template lang="pug" src="./footer.pug"></template>
 
 <script>
+import Icon from 'components/icon/icon'
 
 export default {
   computed: {
@@ -12,6 +13,9 @@ export default {
     links () {
       return this.$router.options.routes
     }
+  },
+  components: {
+    Icon
   }
 }
 </script>
