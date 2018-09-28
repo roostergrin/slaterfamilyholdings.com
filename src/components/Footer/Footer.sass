@@ -7,8 +7,11 @@
   &__container
     @extend .container-fluid
 
+  &__columns
+    display: flex
+
   &__column
-    @extend .col-sm-3
+    width: 20%
 
     &--arrow
       margin-left: 8px
@@ -26,6 +29,9 @@
         color: $c2
 
     &--email
+      margin-bottom: 1.4rem
+
+    &--address
       margin-bottom: 1.4rem
 
     &--link
