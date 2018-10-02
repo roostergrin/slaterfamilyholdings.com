@@ -11,6 +11,8 @@ import Properties from '@/pages/properties/properties'
 // import AssetMoneyMaker from '@/pages/asset-money-maker/asset-money-maker'
 // import Partnerships from '@/pages/partnerships/partnerships'
 import Property from '@/pages/property/property'
+import PrivacyPolicy from '@/pages/privacy-policy/privacy-policy'
+import TermsOfUse from '@/pages/terms-of-use/terms-of-use'
 import ThankYou from '@/pages/thank-you/thank-you'
 import PageNotFound from '@/pages/404/404'
 
@@ -87,6 +89,16 @@ const router = new VueRouter({
       component: Contact,
       menu: 'bottom',
       mobile: true
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy policy',
+      component: PrivacyPolicy
+    },
+    {
+      path: '/terms-of-use',
+      name: 'terms of use',
+      component: TermsOfUse
     },
     {
       path: '/thank-you',

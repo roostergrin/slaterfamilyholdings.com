@@ -1,0 +1,5 @@
+.pages-privacy-policy
+  Loader(v-if='loading')
+  div(v-if='props && !loading')
+    Hero(:props='props')
+    CustomPrivacyPolicy(:props='props.acf.custom_privacy_policy')
