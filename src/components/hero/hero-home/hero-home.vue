@@ -7,6 +7,9 @@ export default {
     return {
       swiperOptions: {
         loop: true,
+        autoplay: {
+          delay: 3000
+        },
         navigation: {
           nextEl: '.hero-home__right',
           prevEl: '.hero-home__left'
