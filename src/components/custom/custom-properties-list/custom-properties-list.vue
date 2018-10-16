@@ -61,6 +61,9 @@ export default {
         this.locations = this.properties
       }
     }
+  },
+  mounted () {
+    console.log(this)
   }
 }
 </script>
