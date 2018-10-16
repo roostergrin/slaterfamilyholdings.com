@@ -31,7 +31,7 @@ export default {
     selectCategories (category) {
       if (!this.activeCategories.includes(category)) {
         this.activeCategories.push(category)
-        this.filterProperties(category.id)
+        this.filterProperties(category)
       } else if (this.activeCategories.includes(category)) {
         let newParentCategories = this.activeCategories.filter(filterCat => filterCat.id !== category.id)
         category.children.forEach(function (element) {
@@ -41,9 +41,18 @@ export default {
         this.activeCategories = newParentCategories
         this.removeFilterProperties()
       }
+      console.log(this.activeCategories)
+    },
+    isContained () {
+      
     },
     filterProperties (i) {
-      let newCurrent = this.locations.filter(location => location.categories.includes(i))
+      let newCurrent = []
+      if (i.parent !== 15 || i.parent === 16) {
+        newCurrent = this.locations.some(location => location.categories.includes(i.id))
+      } else {
+        newCurrent = this.locations.filter(location => location.categories.includes(i.id))
+      }
       this.locations = newCurrent
     },
     removeFilterProperties () {
