@@ -28,31 +28,39 @@ export default {
     }, 1000)
   },
   methods: {
-    select (category) {
-      if (!this.activeCategories.includes(category.id)) {
-        this.activeCategories.push(category.id)
-        this.filter(category.id)
-      } else if (this.activeCategories.includes(category.id)) {
-        let newCategories = this.activeCategories.filter(id => {
-          id !== category.id
-          category.children.forEach(child => {
-            id === child.parent
-          })
+    selectCategories (category) {
+      if (!this.activeCategories.includes(category)) {
+        this.activeCategories.push(category)
+        this.filterProperties(category)
+      } else if (this.activeCategories.includes(category)) {
+        let newParentCategories = this.activeCategories.filter(filterCat => filterCat.id !== category.id)
+        category.children.forEach(function (element) {
+          newParentCategories.indexOf(element)
+          newParentCategories.splice(1, newParentCategories.indexOf(element))
         })
-        this.activeCategories = newCategories
-        this.removeFilter()
+        this.activeCategories = newParentCategories
+        this.removeFilterProperties()
       }
+      console.log(this.activeCategories)
     },
-    filter (i) {
-      let newCurrent = this.locations.filter(location => location.categories.includes(i))
+    isContained () {
+      
+    },
+    filterProperties (i) {
+      let newCurrent = []
+      if (i.parent !== 15 || i.parent === 16) {
+        newCurrent = this.locations.some(location => location.categories.includes(i.id))
+      } else {
+        newCurrent = this.locations.filter(location => location.categories.includes(i.id))
+      }
       this.locations = newCurrent
     },
-    removeFilter () {
+    removeFilterProperties () {
       let fullArr = this.properties
       let filterArr = []
       if (this.activeCategories.length > 0) {
         this.activeCategories.forEach(function (category) {
-          let filtered = fullArr.filter(property => property.categories.includes(category))
+          let filtered = fullArr.filter(property => property.categories.includes(category.id))
           filterArr = filtered
         })
         this.locations = filterArr
