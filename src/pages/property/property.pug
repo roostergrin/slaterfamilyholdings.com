@@ -11,6 +11,7 @@
         .page-property__location--title
           | Location
         .page-property__location--address(v-html='blog.acf.location')
+        a.page-property__location--phone(v-html='blog.acf.phone_number', :href='"tel:+1" + blog.acf.phone_number')
         //- PropertyMap(name='property-map')
   .page-property__features
     .page-property__feature-container
@@ -22,11 +23,14 @@
         .page-property__details--title Property Detail
         .page-property__details--subtitle Location
         .page-property__details--address(v-html='blog.acf.location')
+        a.page-property__details--phone(v-html='blog.acf.phone_number', :href='"tel:+1" + blog.acf.phone_number')
         .page-property__details--subtitle Unit Sizes
-        .page-property__details--land-area(v-html='blog.acf.land_area')
+        .page-property__details--unit-sizes(v-html='blog.acf.unit_sizes')
         .page-property__details--subtitle Year Built
         .page-property__details--year-built(v-html='blog.acf.year_built')
         .page-property__details--subtitle Number of Floors
         .page-property__details--floors(v-html='blog.acf.number_of_floors')
         .page-property__details--subtitle Units
-        .page-property__details--units(v-html='blog.acf.units')    
+        .page-property__details--units(v-html='blog.acf.units')
+        .page-property__details--subtitle Website
+        a.page-property__details--website(v-html='blog.acf.website_link', :href='blog.acf.website_link', target='_blank')

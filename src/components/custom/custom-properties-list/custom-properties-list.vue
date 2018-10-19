@@ -44,7 +44,6 @@ export default {
       console.log(this.activeCategories)
     },
     isContained () {
-      
     },
     filterProperties (i) {
       let newCurrent = []
