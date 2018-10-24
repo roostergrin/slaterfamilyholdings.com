@@ -8,9 +8,6 @@ export default {
     props () {
       return this.$store.state.pages['thank-you']
     }
-  },
-  created () {
-    console.log('created')
   }
 }
 </script>

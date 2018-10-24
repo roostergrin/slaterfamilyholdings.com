@@ -7,6 +7,7 @@ export default {
   data () {
     return {
       activeCategories: [],
+      currentLocation: null,
       locations: []
     }
   },
@@ -22,55 +23,61 @@ export default {
   components: {
     Icon
   },
-  async created () {
-    setTimeout(() => {
-      this.locations = this.properties
-    }, 1000)
-  },
   methods: {
+    // selects the category to be filtered out or put back in
     selectCategories (category) {
       if (!this.activeCategories.includes(category)) {
         this.activeCategories.push(category)
         this.filterProperties(category)
-      } else if (this.activeCategories.includes(category)) {
+      } else {
         let newParentCategories = this.activeCategories.filter(filterCat => filterCat.id !== category.id)
-        category.children.forEach(function (element) {
-          newParentCategories.indexOf(element)
-          newParentCategories.splice(1, newParentCategories.indexOf(element))
+        category.children.forEach((element) => {
+          let removeChildCategories = newParentCategories.filter(cat => { return cat !== element })
+          newParentCategories = removeChildCategories
         })
         this.activeCategories = newParentCategories
-        this.removeFilterProperties()
+        this.filterProperties(category)
       }
-      console.log(this.activeCategories)
     },
-    isContained () {
+    someVals (currentVal, arrVal) {
+      return currentVal === arrVal
+      // this.someVals(property.categories, val)
     },
-    filterProperties (i) {
-      let newCurrent = []
-      if (i.parent !== 15 || i.parent === 16) {
-        newCurrent = this.locations.some(location => location.categories.includes(i.id))
-      } else {
-        newCurrent = this.locations.filter(location => location.categories.includes(i.id))
-      }
-      this.locations = newCurrent
-    },
-    removeFilterProperties () {
-      let fullArr = this.properties
-      let filterArr = []
+    filterProperties (cat) {
       if (this.activeCategories.length > 0) {
-        this.activeCategories.forEach(function (category) {
-          let filtered = fullArr.filter(property => property.categories.includes(category.id))
-          filterArr = filtered
-        })
-        this.locations = filterArr
+        // if selected category is a parent location, e.g. state or country, no other locations can be selected filter works here
+        if (cat.parent === 15 && this.activeCategories.includes(cat)) {
+          this.currentLocation = cat.id
+          let activeProperties = this.locations.filter(location => location.categories.includes(cat.id))
+          this.locations = activeProperties
+        } else {
+          // all other category values have overlaps and must be filtered from the parent array
+          const allFilterList = this.properties.reduce((shownProperties, property) => {
+            if (this.activeCategories.some((val) => property.categories.includes(val.id))) {
+              shownProperties.push(property)
+            }
+            if (this.activeCategories.some((val) => val.parent === 15)) {
+              let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentLocation))
+              shownProperties = filteredProperties
+            }
+            return shownProperties
+          }, [])
+          this.locations = allFilterList
+        }
       }
       if (this.activeCategories.length <= 0) {
         this.locations = this.properties
       }
     }
   },
-  mounted () {
-    console.log(this)
+  created () {
+    let fillLocations = setInterval(() => {
+      if (this.properties.length > 1) {
+        this.loading = false
+        this.locations = this.properties
+        clearInterval(fillLocations)
+      }
+    }, 100)
   }
 }
 </script>
