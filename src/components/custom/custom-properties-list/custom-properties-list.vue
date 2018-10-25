@@ -8,6 +8,8 @@ export default {
     return {
       activeCategories: [],
       currentLocation: null,
+      currentType: null,
+      currentRegion: null,
       locations: []
     }
   },
@@ -34,18 +36,29 @@ export default {
           // adds category
           this.activeCategories.push(category)
         }
+        // filters for types
         if (category.parent === 16) {
+          // sets state on current Type
+          this.currentType = category
+          // filters out previous types
           let newCategories = this.activeCategories.filter(filterCat => filterCat.parent !== 16)
           this.activeCategories = newCategories
           this.activeCategories.push(category)
         }
+        // filters for subregion
         if (this.currentLocation && category.parent === this.currentLocation.id) {
+          // sets state on current Type
+          this.currentRegion = category
+          // filters out previous subregion
           let newCategories = this.activeCategories.filter(filterCat => filterCat.parent !== this.currentLocation.id)
           this.activeCategories = newCategories
           this.activeCategories.push(category)
         }
       } else {
         // filters out parent category
+        if (this.currentLocation === category) {
+          this.currentLocation = null
+        }
         let newParentCategories = this.activeCategories.filter(filterCat => filterCat.id !== category.id)
         // filters all children categories out when parent is filtered out
         category.children.forEach((element) => {
@@ -66,30 +79,22 @@ export default {
           let activeProperties = this.locations.filter(location => location.categories.includes(cat.id))
           this.locations = activeProperties
         } else {
-          // all other category values have overlaps and must be filtered from the original array
-          const allFilterList = this.properties.reduce((shownProperties, property) => {
-            // pushes all properties that are of a type, essentially only filtering out properties that don't have anything in the filtered list
-            if (this.activeCategories.some((val) => property.categories.includes(val.id))) {
-              shownProperties.push(property)
-            }
-            // filters remaining properties for location necessary for filtering against added type filters
-            if (this.activeCategories.some((val) => val.parent === 15)) {
-              let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentLocation.id))
-              shownProperties = filteredProperties
-            }
-            // filters out types of properties
-            if (this.activeCategories.some((val) => val.parent === 16)) {
-              let filteredProperties = shownProperties.filter(location => location.categories.includes(cat.id))
-              shownProperties = filteredProperties
-            }
-            // filters out cities on states
-            if (this.currentLocation && this.activeCategories.some((val) => val.parent === this.currentLocation.id)) {
-              let filteredProperties = shownProperties.filter(location => location.categories.includes(cat.id))
-              shownProperties = filteredProperties
-            }
-            return shownProperties
-          }, [])
-          this.locations = allFilterList
+          let shownProperties = this.properties
+          if (this.activeCategories.some((val) => val.parent === 15)) {
+            let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentLocation.id))
+            shownProperties = filteredProperties
+          }
+          // filters out types of properties
+          if (this.activeCategories.some((val) => val.parent === 16)) {
+            let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentType.id))
+            shownProperties = filteredProperties
+          }
+          // filters out cities on states
+          if (this.currentLocation && this.activeCategories.some((val) => val.parent === this.currentLocation.id)) {
+            let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentRegion.id))
+            shownProperties = filteredProperties
+          }
+          this.locations = shownProperties
         }
       }
       if (this.activeCategories.length <= 0) {
