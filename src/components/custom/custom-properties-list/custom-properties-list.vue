@@ -31,11 +31,19 @@ export default {
         if (category.parent === 15) {
           // sets state on current location for access to children after function runs
           this.currentLocation = category
+          // adds category
+          this.activeCategories.push(category)
         }
-        // adds category
-        this.activeCategories.push(category)
-        // calls property filter
-        this.filterProperties(category)
+        if (category.parent === 16) {
+          let newCategories = this.activeCategories.filter(filterCat => filterCat.parent !== 16)
+          this.activeCategories = newCategories
+          this.activeCategories.push(category)
+        }
+        if (this.currentLocation && category.parent === this.currentLocation.id) {
+          let newCategories = this.activeCategories.filter(filterCat => filterCat.parent !== this.currentLocation.id)
+          this.activeCategories = newCategories
+          this.activeCategories.push(category)
+        }
       } else {
         // filters out parent category
         let newParentCategories = this.activeCategories.filter(filterCat => filterCat.id !== category.id)
@@ -46,9 +54,10 @@ export default {
         })
         // assigns activeCategories from filtered lists
         this.activeCategories = newParentCategories
-        // calls property filter
-        this.filterProperties(category)
       }
+      // calls property filter
+      this.filterProperties(category)
+      console.log(this.activeCategories)
     },
     filterProperties (cat) {
       if (this.activeCategories.length > 0) {
@@ -71,15 +80,16 @@ export default {
             }
             // filters out types of properties
             if (this.activeCategories.some((val) => val.parent === 16)) {
-              // need code here  :(
+              let filteredProperties = shownProperties.filter(location => location.categories.includes(cat.id))
+              shownProperties = filteredProperties
             }
             // filters out cities on states
             if (this.activeCategories.some((val) => val.parent === this.currentLocation.id)) {
-              // need code here  :(
+              let filteredProperties = shownProperties.filter(location => location.categories.includes(cat.id))
+              shownProperties = filteredProperties
             }
             return shownProperties
           }, [])
-          console.log(allFilterList, this.activeCategories)
           this.locations = allFilterList
         }
       }
