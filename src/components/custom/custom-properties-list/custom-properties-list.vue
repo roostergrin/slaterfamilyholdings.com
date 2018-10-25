@@ -27,41 +27,59 @@ export default {
     // selects the category to be filtered out or put back in
     selectCategories (category) {
       if (!this.activeCategories.includes(category)) {
+        // 15 is the parent of all locations
+        if (category.parent === 15) {
+          // sets state on current location for access to children after function runs
+          this.currentLocation = category
+        }
+        // adds category
         this.activeCategories.push(category)
+        // calls property filter
         this.filterProperties(category)
       } else {
+        // filters out parent category
         let newParentCategories = this.activeCategories.filter(filterCat => filterCat.id !== category.id)
+        // filters all children categories out when parent is filtered out
         category.children.forEach((element) => {
           let removeChildCategories = newParentCategories.filter(cat => { return cat !== element })
           newParentCategories = removeChildCategories
         })
+        // assigns activeCategories from filtered lists
         this.activeCategories = newParentCategories
+        // calls property filter
         this.filterProperties(category)
       }
-    },
-    someVals (currentVal, arrVal) {
-      return currentVal === arrVal
-      // this.someVals(property.categories, val)
     },
     filterProperties (cat) {
       if (this.activeCategories.length > 0) {
         // if selected category is a parent location, e.g. state or country, no other locations can be selected filter works here
         if (cat.parent === 15 && this.activeCategories.includes(cat)) {
-          this.currentLocation = cat.id
+          // there can only be one parent location so this just has to filter the property list for the on location
           let activeProperties = this.locations.filter(location => location.categories.includes(cat.id))
           this.locations = activeProperties
         } else {
-          // all other category values have overlaps and must be filtered from the parent array
+          // all other category values have overlaps and must be filtered from the original array
           const allFilterList = this.properties.reduce((shownProperties, property) => {
+            // pushes all properties that are of a type, essentially only filtering out properties that don't have anything in the filtered list
             if (this.activeCategories.some((val) => property.categories.includes(val.id))) {
               shownProperties.push(property)
             }
+            // filters remaining properties for location necessary for filtering against added type filters
             if (this.activeCategories.some((val) => val.parent === 15)) {
-              let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentLocation))
+              let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentLocation.id))
               shownProperties = filteredProperties
+            }
+            // filters out types of properties
+            if (this.activeCategories.some((val) => val.parent === 16)) {
+              // need code here  :(
+            }
+            // filters out cities on states
+            if (this.activeCategories.some((val) => val.parent === this.currentLocation.id)) {
+              // need code here  :(
             }
             return shownProperties
           }, [])
+          console.log(allFilterList, this.activeCategories)
           this.locations = allFilterList
         }
       }
