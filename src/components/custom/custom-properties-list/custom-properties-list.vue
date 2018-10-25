@@ -57,7 +57,6 @@ export default {
       }
       // calls property filter
       this.filterProperties(category)
-      console.log(this.activeCategories)
     },
     filterProperties (cat) {
       if (this.activeCategories.length > 0) {
@@ -84,7 +83,7 @@ export default {
               shownProperties = filteredProperties
             }
             // filters out cities on states
-            if (this.activeCategories.some((val) => val.parent === this.currentLocation.id)) {
+            if (this.currentLocation && this.activeCategories.some((val) => val.parent === this.currentLocation.id)) {
               let filteredProperties = shownProperties.filter(location => location.categories.includes(cat.id))
               shownProperties = filteredProperties
             }
