@@ -15,7 +15,7 @@
         //- PropertyMap(name='property-map')
   .page-property__features
     .page-property__feature-container
-      .page-property__amenities
+      .page-property__amenities(v-if='!blog.categories.includes(20) && blog.id !== 377')
         .page-property__amenities--title Amenities
         ul.page-property__amenities-box
           li.page-property__amenities--amenity(v-for='(amenity, i) in blog.acf.amenities', :key='i' v-html='amenity.amenity')
@@ -24,13 +24,13 @@
         .page-property__details--subtitle Location
         .page-property__details--address(v-html='blog.acf.location')
         a.page-property__details--phone(v-html='blog.acf.phone_number', :href='"tel:+1" + blog.acf.phone_number')
-        .page-property__details--subtitle Unit Sizes
-        .page-property__details--unit-sizes(v-html='blog.acf.unit_sizes')
-        .page-property__details--subtitle Year Built
-        .page-property__details--year-built(v-html='blog.acf.year_built')
-        .page-property__details--subtitle Number of Floors
-        .page-property__details--floors(v-html='blog.acf.number_of_floors')
-        .page-property__details--subtitle Units
-        .page-property__details--units(v-html='blog.acf.units')
-        .page-property__details--subtitle Website
-        a.page-property__details--website(v-html='blog.acf.website_link', :href='blog.acf.website_link', target='_blank')
+        .page-property__details--subtitle(v-if='blog.acf.unit_sizes') Unit Sizes
+        .page-property__details--unit-sizes(v-html='blog.acf.unit_sizes', v-if='blog.acf.unit_sizes')
+        .page-property__details--subtitle(v-if='blog.acf.year_built') Year Built
+        .page-property__details--year-built(v-if='blog.acf.year_built', v-html='blog.acf.year_built')
+        .page-property__details--subtitle(v-if='blog.acf.number_of_floors') Number of Floors
+        .page-property__details--floors(v-if='blog.acf.number_of_floors', v-html='blog.acf.number_of_floors')
+        .page-property__details--subtitle(v-if='blog.acf.units') Units
+        .page-property__details--units(v-if='blog.acf.units', v-html='blog.acf.units')
+        .page-property__details--subtitle(v-if='blog.acf.website_link') Website
+        a.page-property__details--website(v-if='blog.acf.website_link', v-html='blog.acf.website_link', :href='blog.acf.website_link', target='_blank')
