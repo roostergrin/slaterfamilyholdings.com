@@ -107,6 +107,7 @@ export default {
       if (this.properties.length > 1) {
         this.loading = false
         this.locations = this.properties
+        console.log(this.properties)
         clearInterval(fillLocations)
       }
     }, 100)
