@@ -15,7 +15,7 @@
         //- PropertyMap(name='property-map')
   .page-property__features
     .page-property__feature-container
-      .page-property__amenities(v-if='!blog.categories.includes(20) && blog.id !== 377')
+      .page-property__amenities(v-if='blog.acf.amenities')
         .page-property__amenities--title Amenities
         ul.page-property__amenities-box
           li.page-property__amenities--amenity(v-for='(amenity, i) in blog.acf.amenities', :key='i' v-html='amenity.amenity')

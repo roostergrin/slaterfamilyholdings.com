@@ -10,8 +10,6 @@ export default {
   computed: {
     blog () {
       var property = this.$route.params.postID
-      console.log(property)
-      console.log(this.$store.state.blog)
       return this.$store.state.blog[property]
     }
   },
