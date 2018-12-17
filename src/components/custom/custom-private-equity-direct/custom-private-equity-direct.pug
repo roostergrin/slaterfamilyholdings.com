@@ -5,5 +5,5 @@
       .custom-private-equity-direct__title(v-html='props.title')
       .custom-private-equity-direct__row
         .custom-private-equity-direct__investor(v-for='(investor, i) in props.investors', :key='i')
-          .custom-private-equity-direct__logo(:style='"backgroundImage: url(" + investor.logo + ");"')
+          a.custom-private-equity-direct__logo(:style='"backgroundImage: url(" + investor.logo + ");"', :href='investor.link', target='_blank')
           .custom-private-equity-direct__description(v-html='investor.description')
