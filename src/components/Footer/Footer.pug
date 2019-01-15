@@ -7,10 +7,10 @@
           | Contact Us
           Icon.footer__column--arrow(name='Arrow')  
       .footer__column
-        a.footer__column--address(v-html='props.props.acf.footer.address', :href='props.props.acf.footer.address_href')
+        a.footer__column--address(v-html='props.props.acf.footer.address', :href='props.props.acf.footer.address_href', target='_blank')
         a.footer__column--phone(v-html='props.props.acf.footer.phone_number', :href='props.props.acf.footer.phone_number_href')
       .footer__column
-        a.footer__column--address(v-html='props.props.acf.footer.address_two', :href='props.props.acf.footer.address_two_href')
+        a.footer__column--address(v-html='props.props.acf.footer.address_two', :href='props.props.acf.footer.address_two_href', target='_blank')
         a.footer__column--phone(v-html='props.props.acf.footer.phone_number_two', :href='props.props.acf.footer.phone_number_two_href')
       .footer__column
         router-link.footer__column--link(to='/privacy-policy')
@@ -27,7 +27,7 @@
           | All Rights Reserved. 
         .footer__column--credit 
           | An 
-          a.footer__column--rg(href='https://imagebox.com/') Imagebox 
+          a.footer__column--rg(href='https://imagebox.com/', target='_blank') Imagebox 
           | and 
-          span.footer__column--rg Rooster Grin 
+          a.footer__column--rg(href='https://roostergrin.com/', target='_blank') Rooster Grin 
           | collaboration
