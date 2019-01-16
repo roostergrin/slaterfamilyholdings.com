@@ -32,6 +32,7 @@ export default {
           this.currentLocation = category
           // adds category
           let fullCategoryList = this.$store.state.activeCats
+          // adds category to list
           fullCategoryList.push(category)
           this.$store.dispatch('ACTIVE_CATS', fullCategoryList)
         }
@@ -41,8 +42,8 @@ export default {
           this.currentType = category
           // filters out previous types
           let catList = this.$store.state.activeCats.filter(filterCat => filterCat.parent !== 16)
+          // adds category to list
           catList.push(category)
-          console.log('type', this.categories)
           this.$store.dispatch('ACTIVE_CATS', catList)
         }
         // filters for subregion
@@ -51,7 +52,8 @@ export default {
           this.currentRegion = category
           // filters out previous subregion
           let newCategories = this.$store.state.activeCats.filter(filterCat => filterCat.parent !== this.currentLocation.id)
-          console.log('child', this.categories)
+          // adds category to list
+          newCategories.push(category)
           this.$store.dispatch('ACTIVE_CATS', newCategories)
         }
       } else {
@@ -69,7 +71,6 @@ export default {
         this.$store.dispatch('ACTIVE_CATS', newParentCategories)
       }
       // calls property filter
-      console.log(this.categories)
       this.filterProperties(category)
     },
     filterProperties (cat) {
@@ -95,12 +96,10 @@ export default {
             let filteredProperties = shownProperties.filter(location => location.categories.includes(this.currentRegion.id))
             shownProperties = filteredProperties
           }
-          console.log(shownProperties, 'something')
           this.$store.dispatch('ACTIVE_PROPS', shownProperties)
         }
       }
       if (this.$store.state.activeCats.length <= 0) {
-        console.log(this.properties, 'none')
         this.$store.dispatch('ACTIVE_PROPS', this.properties)
       }
     }

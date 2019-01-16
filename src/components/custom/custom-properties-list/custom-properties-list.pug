@@ -1,7 +1,7 @@
 .custom-properties-list(v-if='$store.state.activeProps')
   .custom-properties-list__container    
     .custom-properties-list__filters
-      .custom-properties-list__filter-box(v-for='(parent, i) in categories', :key='i' v-if='parent.slug !== "uncategorized" && parent.slug !== "featured"')
+      .custom-properties-list__filter-box(v-for='(parent, i) in categories', :key='i' v-if='parent.id === 15 || parent.id === 16')
         .custom-properties-list__header {{ parent.slug }}
         .custom-properties-list__filter(v-for='(child, j) in parent.children', :key='j' @click='selectCategories(child)', :class='{ active: $store.state.activeCats.includes(child), dropdown: child.children.length > 0 }')
           .custom-properties-list__filter--headers
