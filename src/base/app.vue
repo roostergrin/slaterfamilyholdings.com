@@ -13,6 +13,8 @@ export default {
     this.$store.dispatch('GET_CATEGORIES')
     this.$store.dispatch('VIEW_NAV', this.$router.history.current.name)
     this.$store.dispatch('VIEW_BODY', false)
+    this.$store.dispatch('ACTIVE_CATS', null)
+    this.$store.dispatch('ACTIVE_PROPS', null)
     this.$store.dispatch('VIEW_SHOWMODAL', false)
     this.$store.dispatch('VIEW_MODALCONTENT', false)
   },

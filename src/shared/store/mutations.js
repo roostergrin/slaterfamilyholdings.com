@@ -1,6 +1,8 @@
 import {
   GET_PAGES,
   GET_APP,
+  ACTIVE_CATS,
+  ACTIVE_PROPS,
   GET_CATEGORIES,
   GET_BLOG,
   GET_FILTER,
@@ -21,13 +23,19 @@ const mutations = {
     state.loading = false
   },
   [GET_CATEGORIES] (state, data) {
-    state.types = data
+    state.categories = data
   },
   [GET_FILTER] (state, data) {
     state.filter = data
   },
   [GET_APP] (state, data) {
     state.app = data
+  },
+  [ACTIVE_CATS] (state, data) {
+    state.activeCats = data
+  },
+  [ACTIVE_PROPS] (state, data) {
+    state.activeProps = data
   },
   [VIEW_NAV] (state, data) {
     state.nav = data

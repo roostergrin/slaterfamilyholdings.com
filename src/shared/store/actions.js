@@ -6,6 +6,8 @@ import {
   GET_CATEGORIES,
   GET_FILTER,
   GET_APP,
+  ACTIVE_CATS,
+  ACTIVE_PROPS,
   VIEW_NAV,
   VIEW_BODY,
   VIEW_SHOWMODAL,
@@ -78,6 +80,12 @@ const actions = {
         console.log(e)
       }
     })()
+  },
+  ACTIVE_CATS ({ commit }, data) {
+    commit(ACTIVE_CATS, data)
+  },
+  ACTIVE_PROPS ({ commit }, data) {
+    commit(ACTIVE_PROPS, data)
   },
   VIEW_NAV ({ commit }, data) {
     commit(VIEW_NAV, data)

@@ -8,11 +8,13 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     app: {},
+    activeProps: {},
+    activeCats: {},
     pages: {},
     nav: {},
     blog: {},
     filter: {},
-    types: {},
+    categories: {},
     body: {},
     showModal: {},
     modalContent: {},
