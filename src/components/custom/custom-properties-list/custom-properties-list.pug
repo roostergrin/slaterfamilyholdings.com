@@ -12,6 +12,7 @@
               | {{ grand.name }}
 
     .custom-properties-list__properties
+      .custom-properties-list__no-properties(v-if='$store.state.activeProps.length === 0') No properties available.
       router-link.custom-properties-list__property(v-for='(property, i) in $store.state.activeProps', :key='i', :to='property.slug')
         img.custom-properties-list__property-image(:src='property.acf.background_image')
         .custom-properties-list__property-card 
