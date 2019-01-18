@@ -15,7 +15,7 @@ function rg_serve_route_contact () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'info@wordpress.com';
-  $to = 'michael.cheng@roostergrin.com';
+  $to = 'contact@slaterfamilyholdings.com';
   $subject = 'Appointment Form Submission';
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<html><body>';
