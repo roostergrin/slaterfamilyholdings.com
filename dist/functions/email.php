@@ -4,7 +4,7 @@
 add_action('rest_api_init', 'rg_register_routes');
 
 function rg_register_routes () {
-  register_rest_route('rg-mail/v1', 'foo', array(
+  register_rest_route('rg-mail/v1', 'contact', array(
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'rg_serve_route'
   ));
@@ -20,6 +20,8 @@ function rg_serve_route () {
   $subject = $data['subject'];
   $message = 'Form Submission by: ' . $data['name'] . "\r\n";
   $message .= 'Email: ' . $data['email'] . "\r\n";
+  $message .= 'Phone: ' . $data['phone'] . "\r\n";
+  $message .= 'Reason: ' . $data['reason'] . "\r\n";
   $message .= 'Message: ' . $data['message'] . "\r\n";
   $headers = '';
 

@@ -20,30 +20,30 @@ export default {
   methods: {
     validate () {
       this.$validator.validateAll()
-      .then(result => {
-        if (result) {
-          this.onSubmit()
-        }
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+        .then(result => {
+          if (result) {
+            this.onSubmit()
+          }
+        })
+        .catch((e) => {
+          console.log(e)
+        })
     },
     onSubmit () {
+      this.formSubmitted = true
       axios.post(this.postUrl, {
         name: this.name,
         email: this.email,
         subject: this.subject,
+        reason: this.reason,
         message: this.message
       })
-      .then(res => {
-        this.modal = true
-        setTimeout(() => {
-          this.$el.children[0].reset()
-          this.modal = false
-        }, 1000)
-      })
-      .catch(e => { console.log(e) })
+        .then(res => {
+          setTimeout(() => {
+            this.$router.push('/thank-you')
+          }, 500)
+        })
+        .catch(e => { console.log(e) })
     }
   },
   components: {

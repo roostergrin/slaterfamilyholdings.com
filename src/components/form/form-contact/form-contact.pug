@@ -24,7 +24,7 @@
           //- span.form-contact__group--message(v-show="errors.has('reason')") *Reason Required 
         .form-contact__group
           textarea.form-contact__textarea(name='message', v-model='message', rows='4', placeholder='Message')
-        .form-contact__group.form-contact__group--submit
+        .form-contact__group.form-contact__group--submit(@click='validate')
           .form-contact__carot-submit
             Icon(name='Arrow')
           input.form-contact__submit-button(type='submit', value="Submit")
