@@ -12,8 +12,8 @@ export default {
       phone: '',
       reason: '',
       message: '',
-      modal: false,
       postUrl: api + '/rg-mail/v1/contact',
+      modal: false,
       formSubmitted: false
     }
   },
