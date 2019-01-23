@@ -35,3 +35,4 @@
         .page-property__details--units(v-if='blog.acf.units', v-html='blog.acf.units')
         .page-property__details--subtitle(v-if='blog.acf.website_link') Website
         a.page-property__details--website(v-if='blog.acf.website_link', v-html='blog.acf.website_link', :href='blog.acf.website_link', target='_blank')
+        .page-property__details--misc(v-html='blog.acf.misc')
