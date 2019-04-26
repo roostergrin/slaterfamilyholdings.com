@@ -18,6 +18,7 @@
           option(value='Properties') Properties
           option(value='Private Equity') Private Equity
           option(value='Financial Investments') Financial Investments
+          option(value='The Slater Foundation') The Slater Foundation
           option(value='Other') Other
         //- span.form-contact__group--message(v-show="errors.has('reason')") *Reason Required 
       .form-contact__group
@@ -26,4 +27,7 @@
         .form-contact__carot-submit
           Icon(name='Arrow')
         input.form-contact__submit-button(type='submit', value="Submit")
+  .form-contact__logo-container
+    a(:href='props.acf.contact.logo_link' target='blank')
+      img.form-contact__logo(:src='props.acf.contact.logo')
     

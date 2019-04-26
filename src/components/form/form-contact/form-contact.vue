@@ -5,6 +5,11 @@ import api from 'api'
 import axios from 'axios'
 import Icon from 'components/icon/icon'
 export default {
+  computed: {
+    props () {
+      return this.$store.state.pages['contact']
+    }
+  },
   data: () => {
     return {
       name: '',

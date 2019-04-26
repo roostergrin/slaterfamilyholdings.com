@@ -1,11 +1,7 @@
-const route = '//slaterfamilyholdings.com/wp-json'
+const route = 'https://slaterfamilyholdings.com/wp-json'
 
 const api = () => {
-  try {
-    return document.location.hostname === 'localhost' ? route : document.location.origin + '/wp-json'
-  } catch (e) {
-    console.log(e)
-  }
+  return route
 }
 
 export default api()
