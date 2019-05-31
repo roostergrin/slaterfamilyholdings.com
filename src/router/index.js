@@ -15,6 +15,7 @@ import PrivacyPolicy from '@/pages/privacy-policy/privacy-policy'
 import TermsOfUse from '@/pages/terms-of-use/terms-of-use'
 import ThankYou from '@/pages/thank-you/thank-you'
 import PageNotFound from '@/pages/404/404'
+import SportsEntertainment from '@/pages/sports-entertainment/sports-entertainment'
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,13 @@ const router = new VueRouter({
       name: 'financial investments',
       component: FinancialInvestments,
       menu: 'bottom',
+      mobile: true
+    },
+    {
+      path: '/sports-entertainment',
+      name: 'sports & entertainment',
+      component: SportsEntertainment,
+      // menu: 'bottom',
       mobile: true
     },
     // {
