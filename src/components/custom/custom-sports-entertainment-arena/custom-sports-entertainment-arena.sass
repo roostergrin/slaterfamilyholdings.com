@@ -1,0 +1,62 @@
+.custom-sports-entertainment-arena
+  padding: 3rem 0
+  background: $c9
+
+  &__container
+    @extend .container
+    position: relative
+
+  &__swiper-container
+    width: 100%
+    height: 200px
+
+  &__content
+    @extend .col-sm-offset-2
+    @extend .col-sm-8
+    color: $c4
+    margin-bottom: 1rem
+    line-height: 1.5
+
+  &__swiper
+    @extend .col-sm-offset-2
+    @extend .col-sm-8
+    padding: 0
+
+
+  &__next,
+  &__prev
+    position: absolute
+    top: 71%
+    transform: translateY(-50%)
+    width: 32px
+
+    &:focus
+      outline: none
+
+    @media(max-width: 768px)
+      top: 101%
+
+
+  &__prev
+    left: 4rem
+    svg
+      transform: rotate(180deg)
+
+  &__next
+    right: 4rem
+
+.swiper-slide
+  overflow: hidden
+  height: 500px
+  margin-bottom: 1.5rem
+  padding: 0 !important
+
+  &__image
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    height: 100%
+
+.swiper-pagination
+  width: 10px
+  height: 10px

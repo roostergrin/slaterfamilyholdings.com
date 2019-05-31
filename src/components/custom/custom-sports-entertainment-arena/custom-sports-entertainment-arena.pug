@@ -1,0 +1,10 @@
+.custom-sports-entertainment-arena
+  .custom-sports-entertainment-arena__container
+    .custom-sports-entertainment-arena__content(v-html='props.content')
+    swiper.custom-sports-entertainment-arena__swiper(:options="swiperOptions")
+      swiper-slide.custom-sports-entertainment-arena(v-for='slide, i in props.slides', :key='i')
+        //- img(:src='slide.url')
+        .swiper-slide__image(:style="{ backgroundImage: 'url(' + slide.url + ')'}")
+      .swiper-pagination(slot='pagination')
+    Icon.custom-sports-entertainment-arena__next(name='Arrow')
+    Icon.custom-sports-entertainment-arena__prev(name='Arrow')

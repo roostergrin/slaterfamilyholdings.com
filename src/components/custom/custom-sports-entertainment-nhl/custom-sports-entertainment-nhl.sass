@@ -1,0 +1,38 @@
+.custom-sports-entertainment-nhl
+  padding: 3rem 0
+
+  &__container
+    @extend .container
+
+  &__col
+    &--left
+      @extend .col-xs-6
+      @extend .col-xs-offset-2
+
+    &--right
+      @extend .col-xs-2
+
+    &--right
+      img
+        width: 100%
+        height: auto
+
+    @media(max-width: 768px)
+        &--right,
+        &--left
+            width: 100%
+            margin-left: 0
+        &--right
+          img
+            max-width: 200px
+            padding-top: 3rem
+          text-align: center
+
+  &__title
+    margin-bottom: 1rem
+    color: $c1
+    font-weight: 100
+
+  &__content
+    color: $c4
+    line-height: 1.5

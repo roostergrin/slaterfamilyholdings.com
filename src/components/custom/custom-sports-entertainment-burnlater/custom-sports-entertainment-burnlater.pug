@@ -1,0 +1,13 @@
+.custom-sports-entertainment-burnlater
+  .custom-sports-entertainment-burnlater__container
+    .custom-sports-entertainment-burnlater__col--left
+      h2.custom-sports-entertainment-burnlater__title(v-html='props.title')
+      .custom-sports-entertainment-burnlater__content(v-html='props.content')
+    .custom-sports-entertainment-burnlater__col--right
+      img.custom-sports-entertainment-burnlater__image(:src='props.image')
+    swiper.custom-sports-entertainment-burnlater__swiper(:options="swiperOptions")
+      swiper-slide.custom-sports-entertainment-burnlater-arena(v-for='slide, i in props.slides', :key='i')
+        img(:src='slide.url')
+      .swiper-pagination(slot='pagination')
+    Icon.custom-sports-entertainment-burnlater__next(name='Arrow')
+    Icon.custom-sports-entertainment-burnlater__prev(name='Arrow')

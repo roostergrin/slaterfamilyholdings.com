@@ -1,0 +1,7 @@
+.pages-sports-entertainment
+  Loader(v-if='loading')
+  div(v-if='props && !loading')
+    Hero(:props='props')
+    CustomSportsEntertainmentHNL(:props='props.acf.custom_sports_entertainment_nhl')
+    CustomSportsEntertainmentArena(:props='props.acf.custom_sports_entertainment_arena')
+    CustomSportsEntertainmentBurnLater(:props='props.acf.custom_sports_entertainment_burnlater')
