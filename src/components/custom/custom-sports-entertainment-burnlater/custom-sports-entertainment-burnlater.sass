@@ -22,12 +22,11 @@
         &--left
             width: 100%
             margin-left: 0
-            text-align: center
         &--right
           img
             max-width: 200px
             padding-bottom: 2rem
-            text-align: center
+            margin-left: 16%
             top: 0
 
         &__swiper-container
@@ -51,7 +50,7 @@
     @media(max-width: 768px)
       width: 100%
       float: none !important
-    
+
 
   &__swiper
     @extend .col-sm-offset-1
@@ -104,6 +103,9 @@
   &-active
     opacity: 1
     z-index: 11
+
+  @media(max-width: 768px)
+    height: 327px
 
 .swiper-pagination
   width: 10px
