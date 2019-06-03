@@ -15,7 +15,7 @@
 
       img
         position: relative
-        top: 50%
+        top: 64px
 
     @media(max-width: 768px)
         &--right,
@@ -28,6 +28,7 @@
             max-width: 200px
             padding-bottom: 2rem
             text-align: center
+            top: 0
 
         &__swiper-container
             width: 100%
@@ -49,6 +50,7 @@
   &__swiper-container
     @media(max-width: 768px)
       width: 100%
+      float: none !important
 
   &__swiper
     @extend .col-sm-offset-1
@@ -58,6 +60,7 @@
 
     @media(max-width: 768px)
       width: 65%
+      margin-left: auto
 
     img
       width: 100%
