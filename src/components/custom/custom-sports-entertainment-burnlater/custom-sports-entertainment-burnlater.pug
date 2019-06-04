@@ -4,7 +4,8 @@
       h2.custom-sports-entertainment-burnlater__title(v-html='props.title')
       .custom-sports-entertainment-burnlater__content(v-html='props.content')
     .custom-sports-entertainment-burnlater__col--right
-      img.custom-sports-entertainment-burnlater__image(:src='props.image')
+      a(href='http://burnlater.com/', target='_blank')
+        img.custom-sports-entertainment-burnlater__image(:src='props.image')
     swiper.custom-sports-entertainment-burnlater__swiper(:options="swiperOptions")
       swiper-slide.custom-sports-entertainment-burnlater-arena(v-for='slide, i in props.slides', :key='i')
         img(:src='slide.url')

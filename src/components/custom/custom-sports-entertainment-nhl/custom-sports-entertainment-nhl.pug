@@ -4,4 +4,5 @@
       h2.custom-sports-entertainment-nhl__title(v-html='props.title')
       .custom-sports-entertainment-nhl__content(v-html='props.content')
     .custom-sports-entertainment-nhl__col--right
-      img.custom-sports-entertainment-nhl__image(:src='props.image')
+      a(href='https://www.nhlseattle.com/', target='_blank')
+        img.custom-sports-entertainment-nhl__image(:src='props.image')
