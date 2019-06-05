@@ -8,7 +8,7 @@
         img.custom-sports-entertainment-burnlater__image(:src='props.image')
     swiper.custom-sports-entertainment-burnlater__swiper(:options="swiperOptions")
       swiper-slide.custom-sports-entertainment-burnlater-arena(v-for='slide, i in props.slides', :key='i')
-        a(:href="slide.link")
+        a(:href="slide.link" target="_blank")
           img(:src='slide.image')
       .swiper-pagination(slot='pagination')
     Icon.custom-sports-entertainment-burnlater__next(name='Arrow')
