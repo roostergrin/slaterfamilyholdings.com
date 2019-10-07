@@ -60,7 +60,7 @@ const router = new VueRouter({
       path: '/sports-entertainment',
       name: 'sports & entertainment',
       component: SportsEntertainment,
-      // menu: 'bottom',
+      menu: 'bottom',
       mobile: true
     },
     // {
