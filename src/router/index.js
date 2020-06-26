@@ -115,6 +115,12 @@ const router = new VueRouter({
       menu: 'hidden'
     },
     {
+      path: '/properties/:postID',
+      name: 'property',
+      component: Property,
+      menu: 'hidden'
+    },
+    {
       path: '/:postID',
       name: 'property',
       component: Property,
