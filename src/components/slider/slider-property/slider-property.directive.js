@@ -25,7 +25,8 @@ const SliderPropertyDirective = Vue.directive('slider-property', {
         <div class='slider-property__arrow slider-property__arrow--next'>
           ${Arrow}
         </div>
-        `
+        `,
+        adaptiveHeight: true
       })
     })
   }
