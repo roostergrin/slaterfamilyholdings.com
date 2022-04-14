@@ -14,6 +14,7 @@ import Property from '@/pages/property/property'
 import PrivacyPolicy from '@/pages/privacy-policy/privacy-policy'
 import TermsOfUse from '@/pages/terms-of-use/terms-of-use'
 import ThankYou from '@/pages/thank-you/thank-you'
+import Accessibility from '@/pages/accessibility/accessibility'
 import PageNotFound from '@/pages/404/404'
 import SportsEntertainment from '@/pages/sports-entertainment/sports-entertainment'
 
@@ -112,6 +113,12 @@ const router = new VueRouter({
       path: '/thank-you',
       name: 'thank-you',
       component: ThankYou,
+      menu: 'hidden'
+    },
+    {
+      path: '/accessibility',
+      name: 'Accessibility',
+      component: Accessibility,
       menu: 'hidden'
     },
     {
