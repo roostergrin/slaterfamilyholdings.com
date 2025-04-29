@@ -11,3 +11,9 @@
         .nav-desktop__links--bottom
           router-link.nav-desktop__link--bottom(v-for='(bottomlink, j) in links', :to='bottomlink.path' v-if='bottomlink.menu === "bottom"', :title='bottomlink.name', :key='j', :class="{ 'nav-desktop__link--bottom--active': bottomlink.name === $store.state.nav }")
             | {{ bottomlink.name }}
+          a.nav-desktop__link--button(
+            href="https://app.junipersquare.com/login?path=%2Fi%2Ftremontllc"
+            target="_blank"
+            rel="noopener"
+          ) Investor Portal
+
