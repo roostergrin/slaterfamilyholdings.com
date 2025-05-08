@@ -1,6 +1,11 @@
 .custom-sports-entertainment-arena
   .custom-sports-entertainment-arena__container
-    .custom-sports-entertainment-arena__content(v-html='props.content')
+    .custom-sports-entertainment-arena__media-body
+      .custom-sports-entertainment-arena__content
+        h2.custom-sports-entertainment-arena__heading(v-html='props.heading')
+        .custom-sports-entertainment-arena__content1(v-html='props.content')
+      .custom-sports-entertainment-arena__col-right
+        img.custom-sports-entertainment-arena__image(:src='props.image')
     swiper.custom-sports-entertainment-arena__swiper(:options="swiperOptions")
       swiper-slide.custom-sports-entertainment-arena(v-for='slide, i in props.slides', :key='i')
         //- img(:src='slide.url')

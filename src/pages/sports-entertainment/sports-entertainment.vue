@@ -6,6 +6,7 @@ import Hero from 'components/hero/hero'
 import CustomSportsEntertainmentHNL from 'components/custom/custom-sports-entertainment-nhl/custom-sports-entertainment-nhl'
 import CustomSportsEntertainmentArena from 'components/custom/custom-sports-entertainment-arena/custom-sports-entertainment-arena'
 import CustomSportsEntertainmentBurnLater from 'components/custom/custom-sports-entertainment-burnlater/custom-sports-entertainment-burnlater'
+import CustomSportsEntertainmentGrizzlies from 'components/custom/custom-sports-entertainment-grizzlies/custom-sports-entertainment-grizzlies'
 
 export default {
   name: 'sports-entertainment',
@@ -22,7 +23,8 @@ export default {
     Hero,
     CustomSportsEntertainmentHNL,
     CustomSportsEntertainmentArena,
-    CustomSportsEntertainmentBurnLater
+    CustomSportsEntertainmentBurnLater,
+    CustomSportsEntertainmentGrizzlies
   }
 }
 </script>
